@@ -1,0 +1,167 @@
+/*----------------------------------------*/
+/* HERO CSS START
+/*----------------------------------------*/
+.hero {
+  &__area-6 {
+    background-color: var(--green-5);
+    padding: 192px 0;
+    margin-top: -131px;
+    position: relative;
+    @media #{$md} {
+      padding: 200px 0 160px;
+    }
+    .btn-primary {
+      font-family: var(--font-platypi);
+      padding: 19px 45px 21px;
+      color: var(--white);
+      background-color: var(--red-7);
+      &:hover {
+        color: var(--green-6);
+      }
+      @media #{$md} {
+        padding: 12px 30px 15px;
+      }
+    }
+    .hero-shape-image-6-1 {
+      position: absolute;
+      left: 0;
+      bottom: 200px;
+      @media #{$xxl} {
+        max-width: 90px;
+      }
+      @media #{$lg} {
+        max-width: 70px;
+      }
+      @media #{$xs} {
+        max-width: 50px;
+      }
+    }
+    .hero-shape-image-6-2 {
+      position: absolute;
+      right: 0;
+      bottom: 350px;
+      @media #{$xxl} {
+        max-width: 90px;
+      }
+      @media #{$lg} {
+        max-width: 70px;
+      }
+      @media #{$md} {
+        bottom: 150px;
+      }
+      @media #{$xs} {
+        max-width: 50px;
+      }
+    }
+  }
+  &__title-6 {
+    color: var(--white);
+    font-size: 80px;
+    font-weight: 700;
+    line-height: 1.13;
+    font-family: var(--font-platypi);
+    margin-bottom: 10px;
+    display: inline-block;
+    text-transform: capitalize;
+    .shape-image-1 {
+      position: absolute;
+      right: -10px;
+      top: -10px;
+      @media #{$md} {
+        right: -14px;
+        top: -20px;
+      }
+      @media #{$xs} {
+        right: 27px;
+        top: -14px;
+        max-width: 30px;
+      }
+    }
+    .shape-image-2 {
+      position: absolute;
+      left: -65px;
+      top: -50px;
+    }
+    @media #{$xl} {
+      font-size: 75px;
+    }
+    @media #{$lg} {
+      font-size: 55px;
+    }
+    @media #{$md} {
+      font-size: 48px;
+      margin: 0 auto;
+    }
+    @media #{$sm} {
+      font-size: 42px;
+    }
+    @media #{$xs} {
+      font-size: 36px;
+    }
+    span {
+      color: #c0e235;
+      position: relative;
+      text-transform: none;
+      &:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        background-image: url("/assets/imgs/shape/hero-line-shape-6.webp");
+        height: 10px;
+        width: 100%;
+        background-repeat: no-repeat;
+        @media #{$xs} {
+          bottom: -3px;
+        }
+      }
+    }
+  }
+  &__content-6 {
+    color: var(--white-2);
+    font-size: 18px;
+    padding: 22px 0px 30px;
+    max-width: 500px;
+    margin: 0 auto;
+    @media #{$lg} {
+      max-width: 400px;
+    }
+    @media #{$md} {
+      padding: 18px 0px 20px;
+      margin: 0 auto;
+      font-size: 16px;
+    }
+    @media #{$sm} {
+      font-size: 15px;
+    }
+  }
+}
+
+.video__area-6 {
+  mask-repeat: no-repeat;
+  mask-size: 100%;
+  margin-top: -100px;
+  margin-left: -5px;
+  overflow: hidden;
+}
+
+.hand-shake-anim {
+  animation: hand-shake 2s infinite;
+}
+@keyframes hand-shake {
+  0% {
+    transform: rotate(-5deg);
+  }
+  25% {
+    transform: rotate(15deg);
+  }
+  50% {
+    transform: rotate(-10deg);
+  }
+  75% {
+    transform: rotate(15deg);
+  }
+  100% {
+    transform: rotate(-5deg);
+  }
+}

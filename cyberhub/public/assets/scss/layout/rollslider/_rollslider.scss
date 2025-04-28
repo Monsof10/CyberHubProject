@@ -1,0 +1,32 @@
+/*----------------------------------------*/
+/* SERVICE CSS START
+/*----------------------------------------*/
+
+.rollslider {
+  &__area {
+    background-color: #65c774;
+    mask-image: url("/assets/imgs/bg/roll-bg-shape.webp");
+    mask-repeat: no-repeat;
+    padding: 35px 0px 45px;
+    .swiper-wrapper {
+      transition-timing-function: linear;
+    }
+  }
+
+  &__slide {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  &__title {
+    color: var(--blue-6);
+    font-family: var(--font-passion);
+    font-size: 50px;
+    font-weight: 400;
+    text-transform: uppercase;
+    @media #{$md} {
+      font-size: 40px;
+    }
+  }
+}

@@ -1,0 +1,74 @@
+/*----------------------------------------*/
+/* ClIENT CSS START
+/*----------------------------------------*/
+.team {
+    &__area-5 {
+        
+    }  
+
+    &__item-5 {
+        position: relative;
+        margin-bottom: 30px;
+        margin-top: 40px;
+    }
+    &__thumb-5 {
+        position: relative;
+    }
+    &__team-main-5 {
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+        height: 110%;
+        border-radius: 0 0 130px 117px;
+    }
+
+    &__details-5 {
+        margin-top: -13px;
+    }
+    &__title-5 {
+        font-size: 30px;
+        font-family: var(--font-imbue); 
+        font-weight: 700;
+        color: var(--black-12);
+        margin-bottom: 7px;
+        @media #{$xs} {
+          font-size: 24px; 
+        }
+    }
+    &__designation-5 {
+        color: var(--gray-5);
+    }
+    
+    &__social-5 {
+        display: inline-flex;
+        gap: 5px;
+        margin-top: -15px;
+        z-index: 2;
+        position: relative;
+        margin-bottom: 15px;
+        .socail-item-5 {
+            height: 38px;
+            width: 38px;
+            background-color: var(--white);
+            display: flex;
+            list-style: none;
+            text-align: center;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            transition: 0.4s;
+            &:hover {
+                background-color: var(--red-6);
+                svg path {
+                    fill: var(--white);
+                }
+            }
+        }
+    }
+    &__shape-5-2 {
+        @media #{$sm} {
+            width: 100%;
+        }
+    }
+}

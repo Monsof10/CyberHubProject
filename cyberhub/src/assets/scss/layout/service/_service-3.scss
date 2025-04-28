@@ -1,0 +1,176 @@
+/*----------------------------------------*/
+/* SERVICE CSS START
+/*----------------------------------------*/
+.service {
+  &__area-3 {
+    background-color: var(--blue);
+    border-radius: 80px;
+    position: relative;
+    overflow: hidden;
+    @media #{$md} {
+      border-radius: 40px;
+    }
+    @media #{$xs} {
+      border-radius: 20px;
+    }
+  }
+
+  &__topWrap-3 {
+    justify-content: center;
+    padding-bottom: 95px;
+    gap: 60px;
+    align-items: flex-end;
+    @media #{$md} {
+      padding-bottom: 32px;
+      gap: 150px;
+    }
+    @media #{$xs} {
+      padding-bottom: 32px;
+      gap: 0;
+    }
+  }
+
+  &__topLeft-3 {
+    max-width: 400px;
+  }
+
+  &__wrapper-3 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0px;
+    max-width: 1378px;
+    margin: 0 auto;
+    @media #{$lg} {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+    @media #{$xs} {
+      display: block;
+    }
+  }
+
+  &__item-3 {
+    background-color: var(--white);
+    padding-bottom: 13px;
+    position: relative;
+    border-radius: 20px;
+    height: 321px;
+    width: 308px;
+    @media #{$lg} {
+      height: 458px;
+      width: 100%;
+    }
+    @media #{$md} {
+      height: 100%;
+    }
+    @media #{$xs} {
+      margin-left: 0 !important;
+      margin-bottom: 20px;
+    }
+    &::before {
+      position: absolute;
+      content: "";
+      bottom: -1px;
+      right: -1px;
+      width: 80px;
+      height: 70px;
+      background-image: url("/assets/imgs/shape/service-btn-mask.webp");
+      background-repeat: no-repeat;
+    }
+    &:nth-child(1) {
+      transform: rotate(-9.952deg);
+      margin-left: 12px;
+      @media #{$xl2} {
+        transform: rotate(6.048deg);
+      }
+      @media #{$lg} {
+        transform: rotate(0deg);
+      }
+    }
+
+    &:nth-child(2) {
+      transform: rotate(1.705deg);
+      margin-top: 80px;
+      @media #{$lg} {
+        transform: rotate(0deg);
+        margin-top: 0px;
+      }
+    }
+
+    &:nth-child(3) {
+      transform: rotate(15deg);
+      margin-left: -5px;
+      margin-top: 17px;
+      @media #{$xl2} {
+        transform: rotate(5deg);
+      }
+      @media #{$lg} {
+        transform: rotate(0deg);
+        margin-top: 0px;
+      }
+    }
+
+    &:nth-child(4) {
+      transform: rotate(-7.488deg);
+      margin: 55px 0px 0px 5px;
+      @media #{$xl2} {
+        transform: rotate(-2.488deg);
+      }
+      @media #{$lg} {
+        transform: rotate(0deg);
+        margin: 0px;
+      }
+    }
+  }
+
+  &__img-3 {
+    width: 100%;
+    border-radius: 20px;
+  }
+
+  &__title-3 {
+    color: #160b30;
+    line-height: 1.2;
+    font-size: 22px;
+    font-weight: 700;
+    max-width: 250px;
+    padding: 15px 15px 0px 20px;
+  }
+
+  &__btn-wrap-3 {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+  }
+
+  &__icon-3 {
+    width: 66px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    background-color: var(--green-4);
+    &:hover {
+      background-color: #f5c447;
+    }
+  }
+
+  &__shapeThree-1 {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    @media #{$xxl} {
+      width: 9%;
+    }
+  }
+
+  &__shapeThree-2 {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    @media #{$xxl} {
+      width: 9%;
+    }
+  }
+}

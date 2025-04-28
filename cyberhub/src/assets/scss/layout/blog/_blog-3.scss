@@ -1,0 +1,130 @@
+/*----------------------------------------*/
+/*  BLOG CSS START
+/*----------------------------------------*/
+
+.blog {
+  &__area-3 {
+    background-color: var(--blue-1);
+    padding-top: 75px;
+    overflow: hidden;
+    @media #{$md} {
+      padding-top: 70px;
+    }
+  }
+  &__item-3 {
+    text-align: center;
+    position: relative;
+    @media #{$sm} {
+      width: 100%;
+      margin: 0 auto;
+    }
+  }
+
+  &__thumb-3 {
+    mask-image: url("/assets/imgs/shape/blog-mask-3.webp");
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    @media #{$lg} {
+      width: 100%;
+    }
+  }
+
+  &__titleWrap-3 {
+    max-width: 540px;
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: 40px;
+    @media #{$md} {
+      max-width: 350px;
+    }
+    @media #{$lg} {
+      padding-bottom: 25px;
+    }
+  }
+
+  &__meta {
+    margin-top: -26px;
+    padding-left: 20px;
+    li {
+      font-size: 14px;
+      font-weight: 500;
+      a {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--gray);
+        &:hover {
+          color: var(--primary);
+        }
+      }
+      i {
+        color: var(--primary);
+        font-size: 14px;
+        padding-right: 4px;
+      }
+    }
+  }
+
+  &__meta-3 {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 136px;
+    bottom: 143px;
+    @media #{$lg} {
+      left: 96px;
+      bottom: 135px;
+    }
+    @media #{$md} {
+      left: 55px;
+      bottom: 120px;
+    }
+    @media #{$sm} {
+      left: 113px;
+      bottom: 113px;
+    }
+  }
+
+  &__metaItem-3 {
+    border-radius: 10px;
+    background-color: var(--red-3);
+    color: var(--white);
+    font-family: var(--font-passion);
+    font-size: 16px;
+    font-weight: 400;
+    padding: 5px 10px;
+    a {
+      color: var(--white);
+      padding: 5px 6px;
+    }
+    @media #{$md} {
+      font-size: 12px;
+    }
+  }
+
+  &__title-3 {
+    color: var(--black-2);
+    font-family: var(--font-passion);
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 1.1;
+    text-align: center;
+    display: inline-block;
+    padding: 34px 0px 15px;
+    a {
+      color: var(--white);
+      &:hover {
+        color: var(--red-4);
+      }
+    }
+    @media #{$lg} {
+      font-size: 32px;
+    }
+    @media #{$md} {
+      font-size: 24px;
+    }
+    @media #{$sm} {
+      font-size: 32px;
+      padding: 15px 0px 7px;
+    }
+  }
+}

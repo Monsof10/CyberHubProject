@@ -1,0 +1,161 @@
+/*----------------------------------------*/
+/* FAQ CSS START
+/*----------------------------------------*/
+.faq {
+    &__area {
+        background-color: #C8E5BA;
+        position: relative;
+        overflow: hidden;
+        .btn-faq {
+            margin-top: 30px;
+        } 
+    }
+    &__item-title { 
+        border-bottom: 1px solid #9EBD8F;
+        padding: 16px 0px;
+        .accordion-button {
+            color: var(--black-6);
+            font-size: 18px;
+            font-weight: 600; 
+        } 
+    } 
+
+    &__icon {
+        padding-right: 15px;
+    }
+  
+    &__item-content {
+        color: var(--black-6); 
+        font-size: 14px; 
+        font-weight: 400; 
+        line-height: 1.5;
+        padding: 16px 0px 12px 33px;
+    }
+
+    &__text {
+        font-size: 16px;
+        font-weight: 400;
+        padding: 20px 0px 14px;
+    }
+
+    &__img {
+        padding-left: 165px;
+        margin-top: -45px;
+        @media #{$lg} {
+            padding-left: 0;
+            width: 90%;
+            margin-top: 0px;
+        }
+        @media #{$md} {
+            width: 500px;
+            display: block;
+            margin: 0 auto;
+        }
+        @media #{$sm} {
+            padding-left: 0;
+            width: 90%;
+            padding-top: 30px;
+            margin-top: 0px;
+        }
+    }
+    
+    &__right {
+        position: relative;
+        text-align: right;
+    }
+
+    &__shape-1 {
+        position: absolute;
+        top: 0px;
+        left: 110px;
+        @media #{$md} { 
+            width: 10%;
+        }  
+        @media #{$sm} { 
+            display: none;
+        } 
+    }
+    
+    &__shape-2 {
+        position: absolute;
+        left: 0px;
+        bottom: 55px;
+        @media #{$xxl} {
+            bottom: 0;
+            width: 4%;
+        }
+        @media #{$sm} { 
+            display: none;
+        } 
+    }
+    
+    &__shape-3 {
+        position: absolute;
+        left: 49%;
+        bottom: 215px;
+        @media #{$lg} { 
+            display: none;
+        }  
+    }
+    
+    &__shape-4 {
+        position: absolute;
+        bottom: 110px;
+        right: 180px;
+        @media #{$md} { 
+            bottom: 50px;
+            right: 50px;
+        }  
+        @media #{$sm} { 
+            display: none;
+        } 
+    }
+    
+    &__shape-5 {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        @media #{$md} { 
+           width: 10%;
+        }  
+        @media #{$sm} { 
+            display: none;
+        } 
+    } 
+
+    &__edu-shape {
+        position: absolute;
+        top: 12%;
+        left: 18%;
+        @media #{$lg} {
+            top: 12%;
+            left: 1%;
+        }
+        @media #{$md} {
+            left: 10%;
+            width: 165px;
+        }
+        
+        @media #{$sm} {
+            display: none;
+        }
+    }  
+
+    &__mesg-shape {
+        position: absolute;
+        bottom: 27%;
+        right: -9px;
+        @media #{$lg} { 
+            right: 0px;
+        } 
+
+        @media #{$md} { 
+            right: 90px;
+            width: 185px;
+        }
+
+        @media #{$sm} {
+            display: none;
+        }
+    }
+}

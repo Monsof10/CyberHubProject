@@ -1,0 +1,177 @@
+/*----------------------------------------*/
+/* HERO CSS START
+/*----------------------------------------*/
+.hero { 
+    &__area-5 {
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        background-position: center center;
+        position: relative;
+        padding: 80px 0 80px;
+        @media #{$lg} {
+            padding: 60px 0 60px;
+        }
+        .btn-primary {
+            font-family: var(--font-imbue);
+            padding: 17px 45px;
+            border-radius: 15px;
+            color: var(--black-12);
+            background-color: var(--red-5);
+            &:hover {
+                background-color: var(--gray-6);
+            }
+            @media #{$md} {
+                padding: 12px 30px;
+            }
+        }
+        .btn-border {
+            font-family: var(--font-imbue);
+            padding: 19px 40px;
+            border-radius: 15px;
+            color: var(--gray-6);
+            border: 1px solid var(--gray-6);
+            &:hover {
+                background-color: var(--gray-6);
+                color: var(--black-12);
+            }
+            @media #{$md} {
+                padding: 14px 30px;
+            }
+        }
+        .hero-5-animate-img {
+            position: absolute;
+            left: 70px;
+            top: 70px;
+            @media #{$xxl} {
+                left: 40px;
+                top: 40px;
+                width: 60px;
+            }
+        }
+    }
+    &__left-5 {
+        @media #{$md} {
+            text-align: center;
+        }
+    }
+    &__subtitle-5 {
+        font-weight: 400;
+        margin-bottom: 10px;
+        img {
+            margin-top: -3px;
+            margin-right: 6px;
+        }
+    }
+    &__title-5 {
+        color: var(--white); 
+        font-size: 120px; 
+        font-weight: 700; 
+        line-height: 1;
+        max-width: 660px;
+        font-family: var(--font-imbue);
+        @media #{$xxl} {
+            font-size: 90px;
+        }
+        @media #{$xl} {
+            font-size: 70px;
+        }
+        @media #{$lg} {
+            font-size: 46px;
+            max-width: 400px;
+        }
+        @media #{$md} {
+            font-size: 52px;
+            margin: 0 auto;
+            max-width: 420px;
+        } 
+        @media #{$sm} {
+            font-size: 42px;
+        } 
+
+        span {
+            color: var(--red-5);
+        }
+    }
+    &__content-5 {
+        color: var(--white-6); 
+        font-size: 18px; 
+        padding: 22px 0px 30px;
+        @media #{$xl} {
+            max-width: 480px;
+        } 
+        @media #{$lg} {
+            max-width: 400px;
+        } 
+        @media #{$md} {
+            padding: 18px 0px 20px;
+            margin: 0 auto;
+            font-size: 16px;
+        }
+        @media #{$sm} {
+            font-size: 15px;
+        }
+    }
+
+    &__right-5 {
+        margin-right: -120px;
+        margin-left: 70px;
+        position: relative;
+        img {
+            max-width: 100%;
+        }
+        @media #{$xxl} {
+            margin-right: 0;
+            margin-left: 30px;
+        }
+        .animage-img-1 {
+            position: absolute;
+            left: -10px;
+            top: 200px;
+            @media #{$lg} {
+                top: 160px;
+                max-width: 70px;
+            }
+        }
+        .animage-img-2 {
+            position: absolute;
+            right: 90px;
+            top: 125px;
+            @media #{$lg} {
+                top: 90px;
+                max-width: 90px;
+            }
+        }
+    }
+    
+    &__circle-btn-5 {
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform: translate(-50%, 70px);
+        padding: 15px;
+        border-radius: 50%;
+        .scroll-down-bg {
+            position: absolute;
+            margin-left: -21px;
+            margin-top: -13px;
+            height: 97px;
+            width: 194px;
+            @media #{$xxl} {
+                height: 98px;
+            }
+            @media #{$lg} {
+                height: 102px;
+            }
+        }
+        .btnIcon-5 {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        @media #{$md} {
+            display: none;
+        }
+    }
+
+}

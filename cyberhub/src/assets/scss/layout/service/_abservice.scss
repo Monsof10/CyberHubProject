@@ -1,0 +1,105 @@
+/*----------------------------------------*/
+/* SERVICE CSS START
+/*----------------------------------------*/
+.abservice {
+  &__area {
+    @media #{$md} {
+      padding-top: 80px;
+    }
+    @media #{$sm} {
+      padding-bottom: 30px;
+    }
+  }
+
+  &__item {
+    text-align: center;
+    padding-bottom: 58px;
+    transition: var(--transition);
+    .abservice__icon {
+      img {
+        width: 43px;
+        transition: var(--transition);
+      }
+    }
+    &:hover {
+      .abservice__icon {
+        img {
+          transform: scale(0.9);
+        }
+      }
+    }
+    @media #{$sm} {
+      padding-bottom: 30px;
+    }
+  }
+
+  &__border {
+    &:nth-child(1) {
+      background-image: url("/assets/imgs/shape/border-green-top.webp");
+      background-repeat: no-repeat;
+      background-position-x: 100%;
+      background-position-y: 105px;
+      @media #{$sm} {
+        background-image: none;
+      }
+    }
+    &:nth-child(2) {
+      background-image: url("/assets/imgs/shape/border-green-btm.webp");
+      background-repeat: no-repeat;
+      background-position-x: 100%;
+      background-position-y: 0px;
+      @media #{$md} {
+        background-image: none;
+      }
+    }
+    &:nth-child(3) {
+      background-image: url("/assets/imgs/shape/border-green-top.webp");
+      background-repeat: no-repeat;
+      background-position-x: 100%;
+      background-position-y: 105px;
+      @media #{$sm} {
+        background-image: none;
+      }
+    }
+  }
+
+  &__title-wrap {
+    padding-bottom: 45px;
+    @media #{$sm} {
+      padding-bottom: 20px;
+    }
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 94px;
+    height: 90px;
+    border-radius: 25px;
+    background-color: var(--primary);
+    padding: 20px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    color: var(--red);
+    text-align: center;
+    font-family: var(--font-dm);
+    font-size: 25px;
+    font-weight: 400;
+    padding: 15px 0px 10px;
+    @media #{$lg} {
+      font-size: 22px;
+    }
+  }
+
+  &__text {
+    color: var(--white);
+    text-align: center;
+    font-family: var(--font-urbanist);
+    font-size: 16px;
+    font-weight: 500;
+    padding: 0px 20px;
+  }
+}

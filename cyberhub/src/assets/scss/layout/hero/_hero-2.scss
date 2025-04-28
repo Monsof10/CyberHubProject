@@ -1,0 +1,197 @@
+/*----------------------------------------*/
+/* HERO CSS START
+/*----------------------------------------*/
+.hero {
+  &__area-2 {
+    background-color: #e8bca6;
+    padding: 245px 0px 0px;
+    margin-top: -105px;
+    position: relative;
+    border-radius: 0px 0px 60px 60px;
+    overflow: hidden;
+    @media #{$lg} {
+      padding: 180px 0px 0px;
+    }
+    @media #{$md} {
+      padding: 180px 0px 0px;
+    }
+    @media #{$sm} {
+      padding: 150px 15px 60px;
+    }
+  }
+
+  &__title-2 {
+    color: var(--black-6);
+    text-align: center;
+    max-width: 870px;
+    margin: 0 auto;
+    font-size: 80px;
+    font-weight: 700;
+    line-height: 1.1;
+    @media #{$lg} {
+      font-size: 70px;
+    }
+    @media #{$md} {
+      font-size: 64px;
+    }
+    @media #{$sm} {
+      font-size: 36px;
+    }
+  }
+
+  &__content-2 {
+    max-width: 605px;
+    margin: 0 auto;
+    color: var(--gray);
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 20px 0px 38px;
+    @media #{$md} {
+      padding: 20px 0px 20px;
+    }
+  }
+
+  &__form-2 {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 50px;
+    @media #{$sm} {
+      flex-wrap: wrap;
+      padding-bottom: 0px;
+    }
+  }
+
+  &__form-inner-2 {
+    display: flex;
+    width: 525px;
+    border-radius: 20px;
+    border: 2px solid var(--black-6);
+    background: #fff2ec;
+  }
+
+  &__form-input {
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    width: 100%;
+    font-size: 16px;
+    padding: 15px 15px 15px 30px;
+    @media #{$sm} {
+      padding: 10px 15px 10px 20px;
+      font-size: 14px;
+    }
+
+    &::placeholder {
+      color: var(--black-6);
+    }
+  }
+
+  &__select-wrap-2 {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  &__select-2 {
+    background-color: transparent;
+    padding: 27px 37px 27px;
+    border: 0;
+    border-left: 2px solid var(--black-6);
+    outline: 0;
+    color: var(--black-6);
+    font-size: 16px;
+    font-weight: 400;
+    appearance: none;
+    background-color: transparent;
+    background-image: url("/assets/imgs/icon/arrow-down-black.svg");
+    background-repeat: no-repeat;
+    background-position-x: 90%;
+    background-position-y: 50%;
+    width: 186px;
+    @media #{$md} {
+      padding: 20px 37px 20px;
+    }
+    @media #{$sm} {
+      padding: 13px 36px 13px;
+      background-position-x: 92%;
+      background-position-y: 53%;
+      width: 143px;
+      font-size: 12px;
+    }
+  }
+
+  &__circelIcon-2 {
+    position: absolute;
+    left: 18px;
+    top: 25px;
+    @media #{$md} {
+      top: 18px;
+    }
+    @media #{$sm} {
+      top: 12px;
+    }
+  }
+
+  &__img-2 {
+    width: 100%;
+    @media #{$md} {
+      width: 132%;
+      margin: 0 auto;
+      display: block;
+      transform: translate(-69px, 10px);
+    }
+    @media #{$sm} {
+      display: none;
+    }
+  }
+
+  &__shapeTwo-1 {
+    position: absolute;
+    left: 217px;
+    top: 260px;
+    @media #{$xl} {
+      left: 100px;
+      top: 220px;
+    }
+    @media #{$lg} {
+      display: none;
+    }
+  }
+
+  &__shapeTwo-2 {
+    position: absolute;
+    left: 0px;
+    top: 44%;
+    @media #{$md} {
+      display: none;
+    }
+  }
+
+  &__shapeTwo-3 {
+    position: absolute;
+    right: 15%;
+    top: 47%;
+    @media #{$xl} {
+      right: 7%;
+      top: 47%;
+    }
+    @media #{$lg} {
+      display: none;
+    }
+  }
+
+  &__shapeTwo-4 {
+    position: absolute;
+    top: 185px;
+    right: 0px;
+    @media #{$lg} {
+      width: 8%;
+    }
+    @media #{$sm} {
+      display: none;
+    }
+  }
+}

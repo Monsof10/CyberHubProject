@@ -1,0 +1,120 @@
+/*----------------------------------------*/
+/* SKILL CSS START
+/*----------------------------------------*/
+.cta {
+  &__area-2 { 
+  }
+
+  &__wrapper-2 { 
+    border-radius: 300px;
+    border: 4px solid var(--black-6);
+    background-color: var(--purple-2); 
+    padding: 120px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    overflow: hidden; 
+    @media #{$lg} {
+      padding: 90px 20px;
+    }
+    @media #{$md} {
+      border-radius: 100px;
+      padding: 70px 20px;
+    }
+    @media #{$sm} {
+      padding: 60px 20px;
+      border-radius: 20px;  
+    }
+  }
+
+  &__title-2 {
+    color: var(--black-6); 
+    font-size: 70px; 
+    font-weight: 700;
+    line-height: 1.1;
+    max-width: 700px;
+    margin: 0 auto;   
+    @media #{$lg} {
+      font-size: 55px;  
+    }
+    @media #{$md} {
+      font-size: 40px;  
+    }
+    @media #{$sm} {
+      font-size: 30px;  
+    }
+  }
+
+  &__text-2 {
+    color: var(--black-6);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.5;
+    max-width: 482px;
+    padding: 20px 0px 30px;
+    margin: 0 auto;
+    @media #{$sm} {
+      font-size: 16px;  
+    }
+  }
+  
+  &__shapeTwo-1 {
+    position: absolute;
+    top: 110px;
+    left: 190px;
+    @media #{$lg} {
+      top: 30px;
+    }
+    @media #{$md} {
+      left: 150px;
+    }
+    @media #{$sm} {
+      display: none;
+    }
+  }
+
+  &__shapeTwo-2 {
+    position: absolute;
+    left: 40px;
+    @media #{$lg} {
+      display: none;
+    }
+  }
+
+  &__shapeTwo-5 {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    @media #{$md} {
+     display: none;
+    }
+  }
+
+  &__shapeTwo-4 {
+    position: absolute;
+    bottom: 150px;
+    right: 229px;
+    @media #{$lg} {
+      right: 145px;
+    }
+    @media #{$md} {
+      right: 0px;
+      bottom: 100px;
+    }
+    @media #{$sm} {
+      display: none;
+    }
+  }
+
+  &__shapeTwo-3 {
+    position: absolute;
+    left: 405px;
+    bottom: 100px;
+    @media #{$lg} {
+      display: none;
+    }
+  }
+
+
+}

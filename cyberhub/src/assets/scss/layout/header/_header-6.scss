@@ -1,0 +1,395 @@
+/*----------------------------------------*/
+/*  1. HEADER CSS START
+/*----------------------------------------*/
+
+.header {
+  &__area-6 {
+    position: relative;
+    z-index: 99;
+    .menu-item {
+      transition: var(--transition);
+      &:hover {
+        > a {
+          color: var(--primary);
+        }
+      }
+      a {
+        color: #000000;
+        font-weight: 500;
+        font-size: 16px;
+        transition: var(--transition);
+        position: relative;
+      }
+    }
+    .has-dropdown {
+      position: absolute;
+      left: 0px;
+      top: 100%;
+      padding: 0 0 0 20px;
+      width: 230px;
+      height: auto;
+      background-color: var(--white);
+      opacity: 0;
+      visibility: hidden;
+      border-radius: 0 0 12px 12px;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      transition: var(--transition);
+      transform: scaleY(0);
+      transform-origin: top center;
+      .menu-item {
+        border-top: 1px solid #1c2546;
+        &:first-child {
+          border-top: 0;
+        }
+        a {
+          padding: 16px 17px 16px 0;
+          display: block;
+          color: #000000;
+        }
+        &:hover {
+          > a {
+            color: var(--primary);
+          }
+        }
+      }
+      .has-dropdown {
+        left: 100%;
+        top: -3px;
+        width: 180px;
+        border-radius: 12px;
+        margin-left: -14px;
+      }
+    }
+
+    .has-megamenu {
+      position: inherit !important;
+      .has-dropdown {
+        left: 0;
+        right: 0;
+        width: 100%;
+        visibility: visible;
+        opacity: 1;
+        transform: scaleY(0);
+        margin: 0 auto;
+      }
+    }
+
+    .dropdown-icon {
+      position: relative;
+      > a {
+        margin-right: 12px;
+        position: relative;
+        &:after {
+          position: absolute;
+          right: -105%;
+          width: 100%;
+          height: auto;
+          content: "\e136";
+          font-family: var(--font-phosphor) !important;
+        }
+      }
+      .dropdown-icon {
+        > a {
+          &:after {
+            left: auto;
+            right: 10px;
+            width: auto;
+            content: "\e13a";
+          }
+        }
+      }
+    }
+
+    .main-menu {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .ab-wrapper {
+      background-color: #f3f3f3;
+    }
+    .btn-login {
+      font-size: 18px;
+      color: #000000;
+      font-weight: 500;
+      &:hover {
+        color: var(--primary);
+      }
+    }
+    .btn-signUp {
+      background-color: var(--red-7);
+      padding: 12px 28px 14px 28px;
+      font-weight: 500;
+      font-family: var(--font-platypi);
+      font-size: 18px;
+    }
+  }
+
+  &__wrapper-6 {
+    display: grid;
+    grid-template-columns: 330px auto 80px 235px;
+    align-items: center;
+    gap: 40px;
+    padding: 19px 0px 19px 20px;
+    margin: 0 auto;
+    position: relative;
+    padding: 8px 60px;
+
+    @media #{$xxl} {
+      max-width: 100%;
+    }
+    @media #{$xl} {
+      max-width: 100%;
+      gap: 20px;
+    }
+    @media #{$lg} {
+      max-width: 100%;
+      grid-template-columns: 1fr 1fr;
+    }
+    @media #{$md} {
+      padding: 18px 30px;
+    }
+    @media #{$xs} {
+      padding: 18px;
+    }
+  }
+  &__logo {
+    display: flex;
+    gap: 30px;
+  }
+
+  &__social {
+    display: flex;
+    gap: 20px;
+    position: relative;
+    img {
+      filter: brightness(90);
+    }
+    @media #{$lg} {
+      display: none;
+    }
+  }
+
+  &__main {
+    @media #{$lg} {
+      display: none;
+    }
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-family: var(--font-platypi);
+    @media #{$lg} {
+      display: none;
+    }
+  }
+  &__shopicon {
+    position: relative;
+  }
+
+  &__notification {
+    width: 14px;
+    height: 14px;
+    background-color: var(--red-7);
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    color: var(--white);
+    font-size: 6px;
+    justify-content: center;
+    position: absolute;
+    top: -5px;
+    right: -7px;
+  }
+}
+
+.header__area-6 .sub-menu .sub-menu {
+  left: 100%;
+  top: -2px;
+}
+.header__area-6 .main-menu > .menu-item > a {
+  line-height: 95px;
+}
+.header__area-6 .menu-item .menu-item a {
+  line-height: 1;
+}
+.header__area-6 .menu-item:hover > .has-dropdown {
+  opacity: 1;
+  top: 100%;
+  transform: scaleY(1);
+  visibility: visible;
+}
+.header__area-6 .menu-item:hover .has-dropdown .has-dropdown {
+  top: 0;
+}
+
+// has-megamenu
+.has-megamenu {
+  line-height: 1 !important;
+  .has-dropdown {
+    padding: 0;
+    border-radius: 0px 0px 30px 30px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    visibility: visible;
+    opacity: 1;
+    transform: scaleY(1);
+    margin: 0 auto;
+  }
+  .menu-left-bar-inner {
+    background-color: #f2f2f2;
+    border-radius: 0 0 0 18px;
+    overflow: hidden;
+    .nav {
+      display: block;
+      border-bottom: 0;
+      .nav-link {
+        display: flex;
+        width: 100%;
+        text-align: left;
+        border: 0;
+        padding: 18px 28px;
+        color: #777675;
+        line-height: 1;
+        font-size: 14px;
+        font-weight: 600;
+        border-radius: 0 5px 5px 0;
+        margin-bottom: 1px;
+        background-color: #fff;
+        justify-content: space-between;
+        &:first-child {
+          border-radius: 0 0 5px 0;
+        }
+        &.active {
+          color: #2b1911;
+          span {
+            color: var(--primary);
+          }
+        }
+      }
+    }
+
+    //copyright
+    .copyright {
+      padding: 30px 28px;
+      line-height: 1;
+      background-color: #fff;
+      border-radius: 0 5px 0 0;
+    }
+  }
+
+  //menu-right-side-inner
+  .menu-right-side-inner {
+    background-color: #f2f2f2;
+    border-left: 1px solid #f2f2f2;
+    border-radius: 0 0 30px 0;
+    overflow: hidden;
+    .active {
+      background-color: transparent;
+    }
+  }
+
+  .has-dropdown {
+    max-width: 1290px;
+  }
+
+  .demo-list-wrap {
+    .single-demo-list {
+      background-color: #fff;
+      padding: 15px;
+      display: inline-block;
+      float: inline-start;
+      width: 19.89%;
+      margin-right: 1px;
+      margin-bottom: 1px;
+      border-radius: 6px;
+      .thumb {
+        margin-bottom: 6px;
+        position: relative;
+        img {
+          border-radius: 12px;
+          width: 100%;
+          max-height: 158px;
+        }
+        .up-coming {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          font-size: 18px;
+          opacity: 0.5;
+          width: 100%;
+        }
+      }
+      h4 {
+        a {
+          font-size: 16px;
+          font-weight: 600;
+          color: var(--black-2);
+          &:hover {
+            color: var(--primary);
+          }
+        }
+      }
+      &:nth-child(-n + 4) {
+        border-radius: 0 0 6px 6px;
+      }
+      &:nth-child(1) {
+        border-radius: 0 0 6px 0;
+      }
+      &:nth-child(5) {
+        border-radius: 0 0 0 6px;
+      }
+      &:nth-last-child(-n + 4) {
+        border-radius: 6px 6px 0 0;
+      }
+      &:nth-child(6) {
+        border-radius: 0 6px 0 0;
+      }
+      &:last-child {
+        border-radius: 6px 0 0 0;
+      }
+    }
+  }
+}
+
+.header__area-6 {
+  .menu-item {
+    .has-dropdown {
+      background-color: #1a224a;
+    }
+  }
+  .has-megamenu .has-dropdown {
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    overflow: hidden;
+  }
+  .has-megamenu .menu-left-bar-inner {
+    background-color: #2e8d6a;
+  }
+  .has-megamenu .menu-left-bar-inner .nav .nav-link {
+    color: #fff;
+    background-color: #1b7856;
+  }
+  .has-megamenu .menu-left-bar-inner .nav .nav-link:hover {
+    color: var(--primary);
+  }
+  .has-megamenu .menu-left-bar-inner .copyright {
+    background-color: #1b7856;
+    color: #e2e2e2;
+  }
+  .has-megamenu .menu-right-side-inner {
+    background-color: #2e8d6a;
+    border-left: 1px solid #2e8d6a;
+  }
+  .has-megamenu .demo-list-wrap .single-demo-list {
+    background-color: #1b7856;
+  }
+  .has-megamenu .demo-list-wrap .single-demo-list h4 a {
+    color: #ffffff;
+  }
+}

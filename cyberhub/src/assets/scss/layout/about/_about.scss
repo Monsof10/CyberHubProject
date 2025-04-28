@@ -1,0 +1,35 @@
+.about {
+  background-color: var(--blue-dark);
+  color: var(--white);
+  
+  &__title {
+    color: var(--white);
+    
+    span {
+      color: var(--primary);
+    }
+  }
+  
+  &__description {
+    color: var(--white-2);
+  }
+
+  &__video {
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    
+    &-wrapper {
+      background-color: var(--blue-dark);
+      padding: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+    }
+  }
+
+  .features__shape2,
+  .features__shape3,
+  .features__shape4 {
+    filter: brightness(0.8); // Slightly dim the shapes to match dark theme
+  }
+}

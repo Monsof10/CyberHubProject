@@ -1,0 +1,163 @@
+/*----------------------------------------*/
+/* COURSE CSS START
+/*----------------------------------------*/
+.course {
+  &__area-2 {
+    background-color: var(--white);
+  }
+
+  &__thumb-2 {
+    border-radius: 20px;
+    overflow: hidden;
+    @media #{$lg} {
+      width: 100%;
+    }
+    img {
+      width: 100%;
+    }
+  }
+
+  &__content-wrap-2 {
+    border-left: 2px solid var(--black-6);
+    border-right: 2px solid var(--black-6);
+    margin-top: -20px;
+    border-bottom: 2px solid var(--black-6);
+    border-radius: 0px 0px 30px 30px;
+    padding: 40px 30px 30px;
+  }
+
+  &__top-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 40px;
+    max-width: 450px;
+  }
+
+  &__item-2 {
+    border-radius: 20px;
+    background-color: #fdffef;
+    position: relative;
+    @media #{$sm} {
+      width: 350px;
+      margin: 0 auto;
+    }
+  }
+
+  &__title-wrap2 {
+    max-width: 445px;
+    margin: 0 auto;
+    padding-bottom: 40px;
+    text-align: center;
+    @media #{$sm} {
+      padding-bottom: 20px;
+    }
+  }
+
+  &__title-2 {
+    color: var(--black-6);
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 1.3;
+    padding: 15px 0px 20px 0px;
+    @media #{$lg} {
+      font-size: 20px;
+    }
+  }
+
+  &__meta-2 {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+
+  &__meta-item2 {
+    border-radius: 35px;
+    border: 1px solid var(--black-6);
+    color: var(--black-6);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    @media #{$lg} {
+      font-size: 10px;
+    }
+    &:nth-child(1) {
+      background-color: #46aaca;
+    }
+    &:nth-child(2) {
+      background-color: #96d348;
+    }
+    &:nth-child(3) {
+      background-color: #fe866c;
+    }
+  }
+
+  &__instructor-wrap2 {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin: 0px 0px 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--black-6);
+  }
+
+  &__trand-wrap {
+    position: absolute;
+    top: 26px;
+    left: -1px;
+    padding: 4px 2px 6px 1px;
+    border-radius: 0px 100px 100px 0px;
+    background-color: var(--white);
+    @media #{$xl2} {
+      top: 24px;
+      left: -4px;
+    }
+    @media #{$lg} {
+      top: 15px;
+    }
+    @media #{$md} {
+      top: 19.7px;
+      left: -4px;
+      background-color: transparent;
+    }
+    @media #{$sm} {
+      top: 17.9px;
+      left: -4px;
+    }
+  }
+
+  &__trending {
+    border-radius: 35px;
+    border: 2px solid var(--black-6);
+    padding: 5px 10px 6px 11px;
+    background-color: #d781ff;
+    color: var(--black-6);
+    font-size: 12px;
+    font-weight: 600; 
+    @media #{$md} {
+      font-size: 10px;
+    }
+  }
+
+  &__instructor-left2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    img {
+      border-radius: 50%;
+    }
+  }
+  &__instructor-name2 {
+    color: var(--black-6);
+    font-size: 16px;
+    font-weight: 600;
+  }
+  &__price-2 {
+    color: var(--black-6);
+    font-size: 20px;
+    font-weight: 700;
+  }
+}

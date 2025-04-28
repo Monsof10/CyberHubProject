@@ -1,0 +1,66 @@
+.counter {
+  &__area {
+    margin-top: -110px;
+    @media #{$lg} {
+      padding: 80px 0px 0px;
+      margin-top: -180px;
+    }
+    @media #{$md} {
+      padding: 60px 0px 0px;
+    }
+    @media #{$sm} {
+      padding: 50px 0px 0px;
+    }
+  }
+
+  &__wrapper {
+    background-image: url("/assets/imgs/shape/counter-bg.webp");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: rgba($color: #e4c859, $alpha: 1.0);
+    border-radius: 30px;
+    padding: 48px 75px;
+    display: flex;
+    justify-content: space-between;
+    @media #{$md} {
+      padding: 48px 20px;
+      background-image: none;
+    }
+    @media #{$sm} {
+      flex-wrap: wrap;
+      background-image: none;
+      padding: 48px 20px;
+      gap: 10px;
+    }
+  }
+
+  &__item {
+    text-align: center;
+  }
+
+  &__title {
+    color: var(--black);
+    font-family: var(--font-dm);
+    font-size: 70px;
+    font-weight: 400;
+    padding-bottom: 0px;
+    @media #{$md} {
+      font-size: 50px;
+    }
+    @media #{$sm} {
+      font-size: 36px;
+    }
+  }
+
+  &__text {
+    color: #000000;
+    font-size: 18px;
+    font-weight: 400;
+    @media #{$md} {
+      font-size: 16px;
+    }
+    @media #{$sm} {
+      font-size: 14px;
+    }
+  }
+}

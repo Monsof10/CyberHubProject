@@ -1,0 +1,149 @@
+/*----------------------------------------*/
+/* 04. THEME CSS START
+/*----------------------------------------*/
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-urbanist);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--gray);
+  max-width: 1920px;
+  margin: 0 auto;  
+  padding-right: 0 !important;
+}
+ 
+html {
+  scroll-behavior: smooth;
+}
+p {
+  margin: 0;
+  padding: 0;
+}
+a:hover {
+  color: initial;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding: 0;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+  line-height: 1.2; 
+}
+ 
+button {
+  border: 0;
+  background-color: transparent;
+}
+
+ul,
+ol {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.pos-abs {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 3;
+}
+
+.container {
+  max-width: 1350px;
+  margin: 0 auto;
+  padding: 0px 15px;
+}
+
+.container-md {
+  max-width: 1530px;
+  margin: 0 auto;
+  padding: 0px 15px;
+}
+
+.container-lg {
+  max-width: 1630px;
+  margin: 0 auto;
+  padding: 0px 15px;
+}
+
+.show-sm {
+  display: none;
+  @media #{$sm} {
+    display: block; 
+  }
+}
+
+.show-lg {
+  @media #{$sm} {
+    display: none; 
+  }
+}
+
+// Pagination 
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.pagination-link {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  border: 1px solid #CBCBCB;
+  font-size: 16px;
+  color: var(--gray);
+  font-weight: 600;
+  font-weight: var(--font-urbanist);
+  transition: var(--transition); 
+  &:hover {
+    color: var(--white);
+    border: 1px solid var(--primary);
+    background-color: var(--primary);
+    .pagination-icon {
+      filter: brightness(0) invert(1);
+    } 
+    
+  }
+}
+
+.active {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.chef-bg {
+  background-color: #E8DDD3;
+}
+.tt-uppercase {
+  text-transform: uppercase;
+}
+.border-radius-50 {
+  border-radius: 50px;
+}

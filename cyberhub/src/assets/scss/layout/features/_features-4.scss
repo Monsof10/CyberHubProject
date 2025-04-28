@@ -1,0 +1,141 @@
+/*----------------------------------------*/
+/* FEATURES CSS START
+/*----------------------------------------*/
+.features {
+    &__item-4 {
+        padding: 36px 50px 33px;
+        margin-bottom: 30px;
+        background-color: #4A5AE2;
+        border-radius: 30px;
+        position: relative;
+        @media #{$xl} {
+            padding: 36px 25px 33px;
+        }
+        @media #{$xs} {
+            margin-bottom: 15px;
+        }
+        @media #{$xxs} {
+            padding: 30px 30px 25px;
+        }
+        .title {
+            margin: 0 auto;
+            font-family: var(--font-platypi);
+            font-size: 40px;
+            font-weight: 700;
+            @media #{$xl} {
+                font-size: 35px;
+            }
+            @media #{$md} {
+                font-size: 30px;
+            }
+            @media #{$xs} {
+                font-size: 25px;
+            }
+        }
+        .thumb {
+            margin-top: 32px;
+            margin-bottom: 33px;
+            position: relative;
+            .main-img {
+                max-width: 100%;
+            }
+            img {
+                transition: 0.4s ease;
+            }
+            @media #{$xs} {
+                margin-bottom: 17px;
+            }
+            .animate-img-1 {
+                position: absolute;
+                left: 0;
+                top: -20px;
+            }
+            .animate-img-2 {
+                position: absolute;
+                left: 60%;
+                top: -22px;
+                transform: translateX(-50%);
+            }
+            .animate-img-3 {
+                position: absolute;
+                right: -10px;
+                top: -35px;
+            }
+            .animate-img-4 {
+                position: absolute;
+                right: -10px;
+                top: 0;
+            }
+        }
+        .details {
+            .content {
+                margin-top: 22px;
+                color: var(--white-2);
+                max-width: 320px;
+                margin: 0 auto;
+                margin-bottom: 23px;
+                @media #{$xs} {
+                    margin-top: 15px;
+                }
+            }
+            .btn-primary {
+                border: 1px solid #6979FF;
+                background-color: transparent;
+                padding: 15px 26px 11px;
+                font-size: 16px;
+                font-weight: 400;
+                svg {
+                    margin-top: -3px;
+                    margin-left: 3px;
+                }
+                &:hover {
+                    color: var(--white);
+                    border-color: var(--red-7);
+                }
+            }
+            .btn-hover-effect {
+                &:before {
+                    background-color: var(--red-7);
+                }
+                &:after {
+                    background-color: var(--red-7);
+                }
+            }
+        }
+        &.bg-green {
+            background-color: #0E734E;
+            .details {
+                .btn-primary {
+                    border: 1px solid #539C81;
+                    &:hover {
+                        color: var(--white);
+                        border-color: var(--red-7);
+                    }
+                }
+            }
+        }
+        &:hover {
+            .icon {
+                img {
+                    transform: scale(0.9);
+                }
+            }
+        }
+
+        .animate-img-top-left {
+            position: absolute;
+            left: 35px;
+            top: 35px;
+        }
+        .animate-img-bottom-left {
+            position: absolute;
+            left: 0;
+            bottom: 140px;
+        }
+        .animate-img-top-right {
+            position: absolute;
+            right: 0;
+            top: 140px;
+        }
+    }
+}

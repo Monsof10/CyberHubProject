@@ -1,0 +1,263 @@
+/*----------------------------------------*/
+/*  08. ANIMATION CSS START
+/*----------------------------------------*/
+
+// CxuRipple
+.cxuRipple {
+  animation: cxuRipple 5s normal linear infinite;
+}
+@keyframes cxuRipple {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+// Scale
+.scale {
+  animation: scale 4s normal linear infinite;
+}
+@keyframes scale {
+  0% {
+    transform: scale(1); 
+  }
+
+  100% {
+    transform: scale(1.1); 
+  }
+}
+
+
+//Zoom IN OUT
+.zoom-in-out {
+  animation: zoom-in-out 4s ease-out infinite;
+}
+
+@keyframes zoom-in-out {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1, 1.1);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+// ScaleMinus
+.scaleMinus {
+  animation: scaleMinus 5s normal linear infinite;
+}
+@keyframes scaleMinus {
+  0% {
+    transform: scale(1); 
+  }
+
+  100% {
+    transform: scale(0.9); 
+  }
+}
+
+// Move Left 
+.moveLeft {
+  animation: moveLeft 5s normal linear infinite;
+}
+
+@keyframes moveLeft {
+  0% {
+    transform: translateX(-25px);
+  }
+
+  50% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-25px);
+  }
+}
+
+// Move Right
+.moveRight {
+  animation: moveRight 5s normal linear infinite;
+}
+
+@keyframes moveRight {
+  0% {
+    transform: translateX(25px);
+  }
+
+  50% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(25px);
+  }
+}
+
+// MoveBottom 
+.moveBottom {
+  animation: moveBottom 5s normal linear infinite;
+}
+.moveBottom2 {
+  animation: moveBottom2 10s normal linear infinite;
+}
+
+@keyframes moveBottom {
+  0% {
+    transform: translateY(-25px);
+    -webkit-transform: translateY(-25px);
+    -moz-transform: translateY(-25px);
+    -ms-transform: translateY(-25px);
+    -o-transform: translateY(-25px);
+  }
+
+  50% {
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-25px);
+    -webkit-transform: translateY(-25px);
+    -moz-transform: translateY(-25px);
+    -ms-transform: translateY(-25px);
+    -o-transform: translateY(-25px);
+  }
+}
+
+@keyframes moveBottom2 {
+  0% {
+    transform: translateY(-15px);
+    -webkit-transform: translateY(-15px);
+    -moz-transform: translateY(-15px);
+    -ms-transform: translateY(-15px);
+    -o-transform: translateY(-15px);
+  }
+
+  50% {
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-15px);
+    -webkit-transform: translateY(-15px);
+    -moz-transform: translateY(-15px);
+    -ms-transform: translateY(-15px);
+    -o-transform: translateY(-15px);
+  }
+}
+
+//Run
+.run  { 
+   animation: run 25s linear infinite;
+}
+
+@keyframes run {
+	from { transform: translateX(255px);}
+	to { transform: translatex(-1000px);}
+}
+
+//Rotate
+.rotate {
+  animation: rotate 16s normal linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+@keyframes Loading {
+  0% {
+    transform: scaleY(0.1);
+    background: var(--white);
+  }
+
+  50% {
+    transform: scaleY(1);
+    background: var(--primary);
+  }
+
+  100% {
+    transform: scaleY(0.1);
+    background: transparent;
+  }
+}
+
+// Fade Up
+@keyframes cxufadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cxufadeUp {
+  opacity: 0;
+  animation-name: cxufadeUp;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+.cxufadeUp2 {
+  @extend .cxufadeUp;
+  animation-delay: 0.3s;
+}
+
+.cxufadeUp3 {
+  @extend .cxufadeUp;
+  animation-delay: 0.45s;
+}
+
+.cxufadeUp4 {
+  @extend .cxufadeUp;
+  animation-delay: 0.6s;
+}
+
+
+// Spin
+@-webkit-keyframes cxuSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes cxuSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

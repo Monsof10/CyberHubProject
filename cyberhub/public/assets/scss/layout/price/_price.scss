@@ -1,0 +1,112 @@
+/*----------------------------------------*/
+/* PRICE CSS START
+/*----------------------------------------*/
+
+.price {
+  &__area {
+    padding: 80px 0px 110px;
+    @media #{$md} {
+      padding: 50px 0px;
+    }
+    @media #{$sm} {
+      padding: 50px 0px;
+    }
+  }
+
+  &__btn {
+    font-size: 14px;
+    color: var(--black);
+    border: 2px solid var(--gray-4);
+    text-transform: uppercase;
+    padding: 15px 40px;
+    width: 100%;
+    font-weight: 700;
+    text-align: center;
+    font-family: "Roboto Condensed";
+    transition: all 0.5s;
+    display: block;
+  }
+  &__list {
+    padding-top: 25px;
+    li {
+      font-size: 14px;
+      color: var(--gray);
+      border-bottom: 1px solid var(--gray-4);
+      padding: 12px 0px;
+      position: relative;
+      padding-left: 20px;
+      &::before {
+        position: absolute;
+        top: 13px;
+        left: 0;
+        content: "\f00c";
+        font-family: "Font Awesome 6 Free";
+        font-weight: 700;
+        width: 100%;
+        height: 100%;
+        color: var(--primary);
+      }
+      &:last-child {
+        border-bottom: transparent;
+      }
+    }
+  }
+  &__title {
+    padding-bottom: 65px;
+  }
+  &__item {
+    border-top: 20px solid var(--gray-3);
+    border-right: 20px solid var(--gray-3);
+    padding: 60px 40px 60px 20px;
+    margin-left: 30px;
+    transition: all 0.5s;
+    position: relative;
+    &::after {
+      position: absolute;
+      bottom: -20px;
+      right: 0;
+      content: "";
+      width: 100%;
+      height: 100%;
+      // background-image: url("/assets/imgs/bg/price-shape.webp");
+      background-position-y: 100%;
+      background-repeat: no-repeat;
+      background-size: contain;
+      z-index: -1;
+      opacity: 0;
+    }
+    &:hover {
+      border-top: 20px solid var(--primary);
+      border-right: 20px solid var(--primary);
+      &::after {
+        opacity: 1;
+      }
+      .price__btn {
+        color: var(--white);
+        background-color: var(--primary);
+        border: 2px solid transparent;
+      }
+    }
+    h3 {
+      font-size: 18px;
+      font-family: "Roboto Condensed";
+      font-weight: bold;
+      text-transform: uppercase;
+      -webkit-text-stroke: 1px var(--primary);
+      color: transparent;
+    }
+    h4 {
+      font-size: 72px;
+      color: var(--black);
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 20px 0px;
+      span {
+        font-size: 14px;
+        color: var(--gray);
+        font-weight: 400;
+        text-transform: capitalize;
+      }
+    }
+  }
+}

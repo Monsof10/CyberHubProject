@@ -1,0 +1,106 @@
+/*----------------------------------------*/
+/* FEATURES CSS START
+/*----------------------------------------*/
+.features {
+    &__area-2 { 
+      background-color: var(--white);
+      .section-title-2 {
+        @media #{$md} { 
+          max-width: 600px;
+        }
+      }
+    }
+ 
+    &__title-wrap {
+      max-width: 645px;
+      margin: 0 auto;
+    }
+  
+  &__thumb-2 { 
+    @media #{$sm} {
+      display: block;
+      margin: 35px auto 0; 
+    } 
+    @media #{$sm} {
+      width: 100%;
+    } 
+  }  
+
+    &__left-2 {
+      position: relative;
+      @media #{$lg} {
+        width: 541px;
+      } 
+      @media #{$md} {
+        width: 541px; 
+        margin: 0 auto;
+      } 
+      @media #{$sm} {
+        width: 100%;
+      } 
+    }
+    &__right-2 {
+      padding-top: 32px;
+    } 
+
+    &__text-2 {
+      color: var(--gray);  
+      font-size: 16px; 
+      font-weight: 400;
+      padding: 15px 0px 20px 0px;
+      max-width: 520px; 
+    }
+
+    &__list-2 {
+      padding-bottom: 16px;
+    }
+
+    &__list-text2 {
+      color: var(--black-6);
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1.5;
+      display: flex;
+      gap: 15px;
+      padding-bottom: 5px;
+      @media #{$sm} {
+        font-size: 15px;
+      }
+    }  
+  
+  &__shapeTwo-1 {
+    position: absolute;
+    top: 44%;
+    left: 19px; 
+    @media #{$xl2} { 
+      left: 0;
+    }
+    @media #{$lg} {
+      top: 38%;
+      left: 0;
+    }
+    @media #{$sm} {
+      display: none;
+    }
+  }
+
+  &__shapeTwo-2 {
+    position: absolute;
+    top: 41px;
+    right: 30px; 
+    @media #{$lg} {
+      top: 0;
+      right: 0;
+    }
+    
+    @media #{$lg} {
+      top: 50px; 
+    }
+
+    @media #{$sm} {
+      display: none;
+    }
+  }
+
+
+}

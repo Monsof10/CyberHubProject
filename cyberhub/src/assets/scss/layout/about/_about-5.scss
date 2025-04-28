@@ -1,0 +1,101 @@
+.about {
+    &__area-5 {
+        .section-title-5 {
+            margin-bottom: 20px;
+        }
+        .section-content {
+            margin-bottom: 30px;
+            @media #{$xs} {
+                margin-bottom: 15px;
+            }
+        }
+    }
+    &__thumb-5 {
+        position: relative;
+        margin-left: -50px;
+        margin-right: 50px;
+        @media #{$xxl} {
+            margin-left: 0;
+            margin-right: 0;
+        }
+        .animate-img-1 {
+            position: absolute;
+            left: 0;
+            top: 120px;
+        }
+        .animate-img-2 {
+            position: absolute;
+            right: 0;
+            top: 220px;
+        }
+        .animate-img-3 {
+            position: absolute;
+            right: -60px;
+            top: 310px;
+        }
+        .animate-img-4 {
+            position: absolute;
+            left: -80px;
+            bottom: 80px;
+            @media #{$xxl} {
+                left: -20px;
+                max-width: 240px;
+            }
+        }
+    }
+    &__list-5 {
+        li {
+            list-style: none;
+            font-family: var(--font-imbue);
+            font-size: 30px;
+            font-weight: 600;
+            color: var(--black-12);
+            img {
+                margin-right: 10px;
+                @media #{$xs} {
+                    width: 30px;
+                    margin-right: 5px;
+                }
+            }
+            + li {
+                margin-top: 12px;
+            }
+            @media #{$md} {
+                font-size: 22px;
+            }
+            @media #{$xs} {
+                font-size: 20px;
+            }
+            @media #{$xxs} {
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+.btn-style-5 {
+    display: inline-flex;
+    padding: 17px 45px 15px;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px; 
+    font-weight: 700; 
+    border-radius: 15px;
+    background-color: var(--red-5);
+    transition: var(--transition);
+    color: var(--black-12);
+    font-family: var(--font-imbue);
+    &:hover {
+        background-color: var(--black-12);
+        color: var(--white);
+        border-color: var(--red-5);
+    } 
+    @media #{$md} {  
+        font-size: 14px; 
+    }
+    @media #{$xs} {  
+        border-radius: 10px;
+        margin-right: 4px;
+        padding: 12px 25px 10px;
+    }
+}

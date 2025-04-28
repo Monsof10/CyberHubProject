@@ -1,0 +1,195 @@
+/*----------------------------------------*/
+/*  28. FOOTER CSS START
+/*----------------------------------------*/
+
+.footer {
+  &__area-6 {
+    background-color: #6a6633;
+    position: relative;
+    &:before {
+      content: "";
+      position: absolute;
+      left: -30%;
+      height: 100%;
+      width: 50%;
+      background-color: var(--green-5);
+      @media #{$md} {
+        display: none;
+      }
+    }
+  }
+  &__widget-6 {
+    padding: 71px 0;
+    @media #{$xs} {
+      padding: 30px 0 0 0;
+    }
+    .widget-title-6 {
+      color: var(--black);
+      font-size: 25px;
+      font-weight: 600;
+      line-height: 1.3;
+      padding-bottom: 35px;
+      max-width: 300px;
+      font-family: var(--font-platypi);
+      text-transform: capitalize;
+      &.style-2 {
+        font-size: 30px;
+        @media #{$md} {
+          max-width: 90%;
+        }
+        @media #{$xs} {
+          font-size: 24px;
+          width: 100%;
+        }
+      }
+      span {
+        color: #abe235;
+      }
+      @media #{$xs} {
+        padding-bottom: 20px;
+      }
+    }
+    .footer__form-6 {
+      .single-input-inner {
+        position: relative;
+        margin-bottom: 15px;
+        svg {
+          position: absolute;
+          left: 20px;
+          top: 50%;
+          transform: translateY(-52%);
+        }
+        .footer__input {
+          border-radius: 10px;
+          border: 1px solid #cab93a;
+          background: #23213c;
+          height: 55px;
+          width: 100%;
+          padding: 0 18px 0 40px;
+          color: #34b082;
+          outline: 0;
+          font-size: 15px;
+          &::placeholder {
+            color: #34b082;
+          }
+        }
+      }
+      .btn-style-6 {
+        padding: 15px 34px 17px;
+        font-weight: 600;
+      }
+    }
+    .footer__menu-item-6 {
+      margin-bottom: 7px;
+      @media #{$lg} {
+        font-size: 14px;
+      }
+      a {
+        color: var(--white-2);
+        &:hover {
+          color: var(--red-7);
+        }
+      }
+    }
+    .btn-appStore {
+      padding: 14px 24px 11px;
+      margin-bottom: 12px;
+      &:hover {
+        color: var(--green-6);
+        img {
+          filter: invert(19%) sepia(56%) saturate(555%) hue-rotate(107deg)
+            brightness(100%) contrast(97%);
+        }
+      }
+      img {
+        margin-top: -5px;
+      }
+    }
+    .btn-playstor {
+      padding: 14px 24px 11px;
+      margin-bottom: 12px;
+      color: var(--white-2);
+      border-color: var(--white-2);
+      img {
+        filter: invert(99%) sepia(8%) saturate(109%) hue-rotate(246deg)
+          brightness(119%) contrast(91%);
+      }
+      &:hover {
+        color: var(--green-6);
+        border-color: var(--green-6);
+        img {
+          filter: invert(19%) sepia(56%) saturate(555%) hue-rotate(107deg)
+            brightness(100%) contrast(97%);
+        }
+      }
+      img {
+        margin-top: -2px;
+      }
+    }
+  }
+  &__widget-subscribe {
+    background-color: var(--green-5);
+    padding-right: 70px;
+    border-radius: 0 0 100px 0;
+    @media #{$lg} {
+      padding-right: 25px;
+    }
+    @media #{$md} {
+      padding: 40px 50px;
+      border-radius: 0 0 30px 30px;
+    }
+    @media #{$xs} {
+      padding: 20px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+  }
+  &__copyright {
+    border-top: 1px solid #0c6947;
+    padding: 50px 0;
+    @media #{$lg} {
+      padding: 40px 0;
+    }
+    @media #{$md} {
+      padding: 20px 0;
+    }
+    @media #{$xs} {
+      margin-top: 40px;
+    }
+    p {
+      color: var(--gray-6);
+      font-size: 14px;
+    }
+  }
+  &__socail-6 {
+    .social-item {
+      display: inline-block;
+      + .social-item {
+        margin-left: 5px;
+      }
+      .social-link {
+        color: var(--gray-6);
+        border: 1px solid var(--white-2);
+        height: 46px;
+        width: 46px;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        img {
+          filter: brightness(1.5);
+        }
+        &:hover {
+          background-color: var(--red-7);
+          border-color: var(--red-7);
+        }
+      }
+    }
+  }
+  &__right-area {
+    padding-left: 65px;
+    @media #{$lg} {
+      padding-left: 15px;
+    }
+  }
+}

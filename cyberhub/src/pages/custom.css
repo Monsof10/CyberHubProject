@@ -1,0 +1,31 @@
+img {
+  height: auto;
+}
+
+.verticle-slider {
+  width: 100%;
+  height: 700px;
+}
+
+.verticle-slider .swiper-wrapper {
+  transition-timing-function: linear;
+}
+
+.sub-menu.open {
+  display: block !important;
+}
+.menu-item .current {
+  color: var(--black-7);
+}
+
+#search_close {
+  display: block !important;
+}
+
+.header__social img {
+  filter: none !important;
+}
+
+.header__wrapper-6 .header__social img {
+  filter: brightness(90) !important;
+}

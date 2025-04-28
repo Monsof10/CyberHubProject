@@ -1,0 +1,128 @@
+/*-----------------------------------------------------------------------------------
+
+  Theme Name: Skillhub - HTML5 Template
+  Author: codexshpaer
+  Support:  
+  Description: Skillhub – is a LMS HTML5 Template that comes with high-quality 2 Pre build Home Pages and many built-in awesome inner pages  which are perfect for any creative agencies, designers, digital agencies, freelancers, developers, designers, marketing, startup, blog and portfolio.
+  Version: 1.0
+
+-----------------------------------------------------------------------------------
+
+/************ TABLE OF CONTENTS ***************
+
+  01. VARIBALES DECLARARION
+
+**********************************************/
+
+/*----------------------------------------*/
+/*  01. VARIBALES DECLARARION 
+/*----------------------------------------*/
+
+:root {
+  // Colors
+  --primary: #ff6b2c;
+  --secondary: #b2b249;
+
+  //White
+  --white: #ffffff;
+  --white-2: #f4f4f4;
+  --white-3: #f5f5f5;
+  --white-4: #fff7f3;
+  --white-5: #f0f0f0;
+  --white-6: #e1e1e1;
+
+  //Black
+  --black: #000000;
+  --black-2: #2b1911;
+  --black-3: #272727;
+  --black-4: #212121;
+  --black-5: #1f1f1f;
+  --black-6: #141414;
+  --black-7: #160b30;
+  --black-8: #0b021e;
+  --black-9: #0a2213;
+  --black-10: #150416;
+  --black-11: #3a1811;
+  --black-12: #291505;
+
+  //Gray
+  --gray: #555555;
+  --gray-2: #999999;
+  --gray-3: #bababa;
+  --gray-4: #d9d9d9;
+  --gray-5: #454545;
+  --gray-6: #e2e2e2;
+  --gray-7: #dfdfdf;
+  --gray-8: #e0e0e0;
+
+  //Yellow
+  --yellow: #ffe144;
+  --yellow-2: #eef152;
+  --yellow-3: #f5c447;
+  --green: #fff36a;
+  --green-2: #fff36a;
+  --green-3: #fff36a;
+  --green-4: #fff36a;
+  --green-5: #fff36a;
+  --green-6: #fff36a;
+  --green-7: #fff36a;
+
+  //Blue
+  --blue: #712eff;
+  --blue-2: #514ed3;
+  --blue-3: #1745e5;
+  --blue-4: #6c8dff;
+  --blue-5: #1d4df2;
+  --blue-6: #0a3bba;
+  --blue-7: #1745e5;
+  --blue-8: #194fda;
+  --blue-dark: #0a1021;
+  --blue-dark-transparent: rgba(10, 16, 33, 0.35);
+
+  //Purple
+  --purple: #cfb6f4;
+  --purple-2: #b095ff;
+  --purple-3: #b459fb;
+
+  //Red
+  --red: #e94705;
+  --red-2: #e8664b;
+  --red-3: #df563a;
+  --red-4: #df563a;
+  --red-5: #ef8a2c;
+  --red-6: #ba3e28;
+  --red-7: #ea741e;
+  --pansy: #7d0f51;
+  --linear-green: linear-gradient(180deg, #ffe144 0%, #fff36a 100%);
+  --transition: all 0.4s;
+
+  // Font Family
+  --font-urbanist: "Urbanist", sans-serif;
+  --font-dm: "DM Serif Display", serif;
+  --font-sora: "Sora", sans-serif;
+  --font-epilogue: "Epilogue", sans-serif;
+  --font-passion: "Passion One", sans-serif;
+  --font-bluu-next: "Bluu-Next";
+  --font-imbue: "Imbue", serif;
+  --font-platypi: "Platypi", serif;
+  --font-phosphor: "Phosphor";
+}
+
+@font-face {
+  font-family: Bluu-Next;
+  src: url(../fonts/BluuNext-Bold.otf);
+  font-weight: 700;
+}
+
+/*----------------------------------------*/
+/*  01. RESPONSIVE VARIABLES
+/*----------------------------------------*/
+$xxxl: "only screen and (min-width: 1920px)";
+$xxl: "only screen and (max-width: 1599px)";
+$xl: "only screen and (max-width: 1399px)";
+$xl2: "only screen and (min-width: 1200px) and (max-width: 1300px)";
+$lg: "only screen and (max-width: 1199px)";
+$md: "only screen and (max-width: 991px)";
+$sm: "only screen and (max-width: 767px)";
+$xs: "only screen and (max-width: 574px)";
+$xxs: "only screen and (max-width: 360px)";

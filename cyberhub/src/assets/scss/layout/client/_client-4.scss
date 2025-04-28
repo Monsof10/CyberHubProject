@@ -1,0 +1,41 @@
+/*----------------------------------------*/
+/* ClIENT CSS START
+/*----------------------------------------*/
+.partner__area-6 {
+    .title {
+        color: var(--black-5);
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 1.6;
+        @media #{$md} {
+            font-size: 18px;
+        }
+    }
+    .client__slide {
+        display: flex;
+        align-self: center;
+        justify-content: center;
+        text-align: center;
+        img {
+            @media #{$md} {
+                max-width: 100px;
+            }
+            @media #{$sm} {
+                max-width: 80px;
+            }
+        }
+    }
+    .swiper-wrapper {
+        transition-timing-function: linear;
+    }
+}
+@media all and (max-width: 767px) {
+    .partner__area-6 .section-title-5 br {
+        display: none;
+    }
+}
+@media all and (max-width: 575px) {
+    .partner__area-6 .swiper-slide img  {
+        max-width: 70px;
+    }
+}

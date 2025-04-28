@@ -1,0 +1,29 @@
+//Utils
+@import "utils/variables";
+@import "utils/typography";
+@import "utils/theme";
+
+//Components
+@import "components/space";
+@import "components/button";
+@import "components/title";
+@import "components/widget";
+@import "components/animation";
+@import "components/loading";
+@import "components/form";
+@import "components/menu";
+@import "components/offcanvas";
+
+//Layout
+@import "layout/hero/hero-5";
+@import "layout/features/features-3";
+@import "layout/course/course-5";
+@import "layout/about/about-5";
+@import "layout/testimonial/testimonial-5";
+@import "layout/team/team-5";
+@import "layout/cta/cta-4";
+@import "layout/client/client-3";
+
+//Header & Footer
+@import "layout/header/header-5";
+@import "layout/footer/footer-5";

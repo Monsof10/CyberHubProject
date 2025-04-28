@@ -1,0 +1,118 @@
+/*----------------------------------------*/
+/* ClIENT CSS START
+/*----------------------------------------*/
+.achieve {
+    &__area-6 {
+         
+    }  
+    &__item-wrap-6 {
+        display: flex;
+        justify-content: space-between;
+        @media #{$sm}{
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
+    &__item-6 {
+        padding: 0 40px;
+        border-right: 1px solid #E5E1FF;
+        @media #{$lg} {
+            padding: 0 30px;
+        }
+        @media #{$md} {
+            border: 0;
+            padding: 0 15px;
+        }
+        @media #{$sm}{
+            margin-bottom: 35px;
+            width: 48%;
+        }
+        @media #{$xs}{
+            width: 100%;
+        }
+        &:last-child {
+            border: 0;
+            @media #{$sm}{
+                margin-bottom: 0;
+            }
+        }
+        .icon {
+            height: 150px;
+            width: 150px;
+            line-height: 150px;
+            border-radius: 50%;
+            background: var(--green-5);
+            display: inline-block;
+            margin-bottom: 25px;
+            position: relative;
+            @media #{$lg} {
+                height: 110px;
+                width: 110px;
+                line-height: 110px;
+                margin-bottom: 15px;
+            }
+            @media #{$md} {
+                height: 90px;
+                width: 90px;
+                line-height: 90px;
+            }
+            @media #{$xs}{
+                margin-bottom: 10px;
+            }
+            &:after {
+                content: '';
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                height: 30%;
+                width: 30%;
+                border-radius: 50%;
+                background-color: var(--green-6);
+                transform: translate(-50%, -50%);
+                visibility: hidden;
+                opacity: 0;
+                transition: 0.4s ease;
+            }
+            img {
+                position: relative;
+                z-index: 2;
+                @media #{$lg} {
+                    width: 50px;
+                }
+            }
+        }
+        .title {
+            color: var(--green-6);
+            font-size: 40px;
+            font-weight: 400;
+            font-family: var(--font-platypi);
+            margin-bottom: 22px;
+            @media #{$lg} {
+                font-size: 35px;
+            }
+            @media #{$md} {
+                font-size: 28px;
+            }
+            @media #{$xs}{
+                margin-bottom: 12px;
+            }
+        }
+        .content {
+            margin-bottom: 0;
+            color: var(--green-7);
+            @media #{$md} {
+                font-size: 14px;
+            }
+        }
+        &:hover {
+            .icon {
+                &:after {
+                    height: 100%;
+                    width: 100%;
+                    visibility: visible;
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}

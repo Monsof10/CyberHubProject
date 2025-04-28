@@ -1,0 +1,47 @@
+//Utils
+@import "utils/variables";
+@import "utils/typography";
+@import "utils/theme";
+
+//Components
+@import "components/space";
+@import "components/button";
+@import "components/title";
+@import "components/widget";
+@import "components/animation";
+@import "components/loading";
+@import "components/form";
+@import "components/menu";
+@import "components/offcanvas";
+@import "components/mobile-menu";
+
+//Layout
+@import "layout/service/service";
+@import "layout/service/abservice";
+@import "layout/banner/banner";
+@import "layout/hero/hero";
+@import "layout/hero/insthero";
+@import "layout/hero/abhero";
+@import "layout/hero/404";
+@import "layout/about/about";
+@import "layout/about/about-4";
+@import "layout/price/price";
+@import "layout/client/client";
+@import "layout/features/features";
+@import "layout/team/team";
+@import "layout/team/team-2";
+@import "layout/testimonial/testimonial";
+@import "layout/course/course";
+@import "layout/course/coursegrid";
+@import "layout/course/courseDetails";
+@import "layout/counter/counter";
+@import "layout/counter/counter-3";
+@import "layout/cta/cta";
+@import "layout/contact/contact";
+@import "layout/blog/post";
+@import "layout/blog/postDetails";
+@import "layout/blog/blog";
+
+//Header & Footer
+@import "layout/header/header";
+@import "layout/footer/footer";

@@ -1,0 +1,320 @@
+/*----------------------------------------*/
+/* COURSE CSS START
+/*----------------------------------------*/
+.course {
+  &__area {
+    background-color: var(--white);
+    overflow: hidden;
+    .active {
+      background-color: var(--primary);
+      color: var(--black)};
+    .course-title-5 {
+      color: var(--black);
+      font-family: var(--font-urbanist);
+      font-size: 40px;
+      font-weight: 700;
+      padding-bottom: 45px;
+      @media #{$sm} {
+        font-size: 32px;
+        padding-bottom: 15px;
+        text-align: center;
+      }
+    }
+
+    .section-title {
+      color: var(--purple-2); // Changed to purple
+    }
+
+    .course__sliderActive .course__item {
+      box-shadow: 0px -19px 63px 0px rgba(53, 24, 12, 0.1);
+    }
+  }
+
+  &__wrapper {
+    margin-bottom: 10px;
+  }
+
+  &__thumb-wrap {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    &::before {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 100%;
+      content: "";
+      background: linear-gradient(
+        180deg,
+        rgba(31, 31, 31, 0.8) 0%,
+        rgba(31, 31, 31, 0.8) 100%
+      );
+      mix-blend-mode: overlay;
+      z-index: 9;
+    }
+  }
+
+  &__thumb {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 20px;
+    position: relative;
+    transform: scale(1.01);
+    transition: 0.7s;
+  }
+
+  &__top-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 50px;
+    @media #{$md} {
+      padding-bottom: 30px;
+    }
+    @media #{$sm} {
+      flex-wrap: wrap;
+      gap: 23px;
+      justify-content: center;
+    }
+
+    .section-title {
+      max-width: 450px;
+      color: var(--purple-2); // Changed to purple
+      span {
+        display: block;
+      }
+      @media #{$md} {
+        font-size: 36px;
+        text-align: left;
+      }
+      @media #{$sm} {
+        font-size: 32px;
+        text-align: center;
+        span {
+          display: inline-block;
+        }
+      }
+    }
+  }
+
+  &__tab-wrap {
+    display: flex;
+    gap: 8px;
+    @media #{$sm} {
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+    }
+  }
+
+  &__icon-btm {
+    @media #{$md} {
+      right: 0px;
+      bottom: 0px;
+      width: 10%;
+    }
+  }
+
+  &__btn {
+    display: inline-flex;
+    padding: 12px 20px 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 15px;
+    background-color: var(--white-2);
+    transition: var(--transition);
+    &:hover {
+      background-color: var(--primary);
+      color: var(--white);
+    }
+    @media #{$md} {
+      font-size: 14px;
+      padding: 12px 20px 12px;
+    }
+
+    @media #{$sm} {
+      padding: 12px 10px 12px;
+    }
+  }
+
+  &__wishlist {
+    width: 34px;
+    height: 34px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: rgba(255, 255, 255, 0.2);
+    opacity: 0.9;
+    backdrop-filter: blur(2.5px);
+    z-index: 9;
+    transition: var(--transition);
+    cursor: pointer;
+    &:hover {
+      background-color: var(--primary);
+    }
+  }
+
+  &__item {
+    background-color: var(--white);
+    border-radius: 30px;
+    padding-bottom: 30px;
+    position: relative;
+    box-shadow: 0px 45px 60px 0px rgba(53, 24, 12, 0.1);
+    margin-bottom: 30px;
+    display: inline-block;
+    transition: var(--transition);
+    @media #{$sm} {
+      width: 100%;
+      margin: 0 auto 30px;
+      display: block;
+    }
+    .btn-enroll {
+      margin-left: 30px;
+      display: inline-block;
+      box-shadow: none;
+      &:hover {
+        .btn-enroll {
+          background-color: var(--primary);
+          color: var(--white);
+        }
+        .btn-enroll-icon {
+          filter: brightness(0) invert(1);
+        }
+      }
+    }
+    &:hover {
+      .course__wishlist {
+        background-color: var(--primary);
+      }
+    }
+  }
+
+  &__meta {
+    padding: 11px 0px 4px 30px;
+  }
+
+  &__meta-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--black-2);
+    font-size: 14px;
+    font-weight: 600;
+    i {
+      color: var(--primary);
+    }
+    @media #{$lg} {
+      font-size: 13px;
+    }
+  }
+
+  &__instructor {
+    border-bottom: 1px solid #efefef;
+    margin-left: 30px;
+    padding-top: 20px;
+    padding-bottom: 15px;
+    img {
+      border-radius: 50%;
+      max-width: 22px;
+    }
+  }
+
+  &__instructor-name {
+    color: var(--black-2);
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  &__price-wrap {
+    position: absolute;
+    bottom: 252px;
+    right: 41px;
+    border-radius: 100px;
+    z-index: 9;
+    @media #{$lg} {
+      bottom: 225px;
+    }
+    @media #{$md} {
+      bottom: 211px;
+    }
+    @media #{$sm} {
+      bottom: 213px;
+    }
+    &::before {
+      position: absolute;
+      right: -19px;
+      bottom: -8px;
+      background-image: url("/assets/imgs/shape/course-price-shape.webp");
+      background-repeat: no-repeat;
+      width: 84px;
+      height: 100%;
+      content: "";
+      filter: brightness(0) invert(1);
+      @media #{$xl2} {
+        bottom: -13px;
+      }
+      @media #{$md} {
+        bottom: 7px;
+      }
+    }
+  }
+
+  &__price {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary);
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 800;
+    font-family: var(--font-epilogue);
+    border-radius: 100px;
+    transform: translate(5px, 15px);
+    @media #{$xl2} {
+      transform: translate(5px, 20px);
+    }
+    @media #{$md} {
+      transform: translate(5px, 1px);
+    }
+  }
+
+  &__title {
+    color: var(--black-2);
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 1.2;
+    padding: 12px 45px 23px 30px;
+    a {
+      color: var(--black-2);
+      &:hover {
+        color: var(--primary);
+      }
+    }
+    @media #{$xl2} {
+      font-size: 23px;
+    }
+    @media #{$lg} {
+      font-size: 17px;
+    }
+  }
+
+  &__btm {
+    text-align: center;
+  }
+}
+
+.course__item:hover {
+  .course__thumb {
+    transform: scale(1.15);
+  }
+}

@@ -1,0 +1,177 @@
+// DOS/DDOS Attack Pages Styling
+
+// Common styles for attack pages
+.attack-details {
+  padding: 30px;
+  
+  h4 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #333;
+  }
+
+  h5 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #444;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #666;
+  }
+
+  ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-bottom: 15px;
+
+    li {
+      margin-bottom: 8px;
+      color: #666;
+    }
+  }
+}
+
+// Code examples and diagrams
+.code-example {
+  background: #f5f5f5;
+  border-radius: 4px;
+  padding: 15px;
+  margin: 15px 0;
+  overflow-x: auto;
+
+  pre {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: #333;
+  }
+}
+
+// Info and warning boxes
+.info-box, .warning-box {
+  padding: 15px;
+  border-radius: 4px;
+  margin: 15px 0;
+
+  h5 {
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+
+  p {
+    margin-bottom: 10px;
+  }
+
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+
+    li {
+      margin-bottom: 8px;
+      position: relative;
+      padding-left: 20px;
+
+      &:before {
+        content: "•";
+        position: absolute;
+        left: 0;
+      }
+    }
+  }
+}
+
+.info-box {
+  background: #e8f4fd;
+  border: 1px solid #b3e0ff;
+
+  h5 {
+    color: #0066cc;
+  }
+}
+
+.warning-box {
+  background: #fff3e0;
+  border: 1px solid #ffe0b2;
+
+  h5 {
+    color: #e65100;
+  }
+}
+
+// Spacing utilities
+.mt-15 {
+  margin-top: 15px;
+}
+
+.mt-30 {
+  margin-top: 30px;
+}
+
+.mt-45 {
+  margin-top: 45px;
+}
+
+.mb-15 {
+  margin-bottom: 15px;
+}
+
+.mb-30 {
+  margin-bottom: 30px;
+}
+
+// Quiz styling
+.quiz-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px;
+
+  .question-section {
+    background: #fff;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+    .answer-button {
+      width: 100%;
+      text-align: left;
+      padding: 15px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      background: #fff;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: #f5f5f5;
+        border-color: #bbb;
+      }
+    }
+  }
+
+  .score-section {
+    text-align: center;
+    padding: 30px;
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .text-success {
+      color: #28a745;
+    }
+
+    .text-warning {
+      color: #ffc107;
+    }
+
+    .text-danger {
+      color: #dc3545;
+    }
+  }
+}

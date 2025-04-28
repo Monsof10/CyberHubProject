@@ -1,0 +1,106 @@
+/*----------------------------------------*/
+/*  BANNER CSS START
+/*----------------------------------------*/
+.banner {
+    &__area {
+        background-color: var(--green);
+        border-radius: 20px; 
+        margin-left: 10px;
+        margin-right: 10px;
+        position: relative;
+        margin-top: -85px;
+        padding-top: 185px;
+        overflow: hidden;
+        @media #{$sm} {
+            padding-top: 140px;
+        }
+    }
+
+     &__shape-1 {
+        position: absolute;
+        top: 0px;
+        left: -10px;
+        width: 5.5%;
+        mix-blend-mode: soft-light;
+        @media #{$lg} {
+            display: none;
+        }
+    }
+    
+     &__shape-2 {
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        opacity: 0.4;
+        mix-blend-mode: hard-light;
+        @media #{$sm} {
+            display: none;
+        }
+    }
+    
+     &__shape-3 {
+        position: absolute;
+        top: 39%;
+        left: 19%;
+        @media #{$lg} {
+            width: 7%;
+        }
+        @media #{$sm} {
+            display: none;
+        }
+    }
+    
+     &__shape-4 {
+        position: absolute;
+        bottom: 0px;
+        left: 47%; 
+        mix-blend-mode: soft-light;
+        @media #{$md} {
+            width: 10%;
+        }
+        @media #{$sm} {
+            display: none;
+        }
+    }
+    
+     &__shape-5 {
+        position: absolute;
+        top: 0;
+        right: 21%;
+        opacity: 0.2;
+        @media #{$xl} {
+            right: 30%;
+            width: 12%;
+        }
+        @media #{$md} {
+            display: none;
+        }
+    }
+    
+     &__shape-6 {
+        position: absolute;
+        bottom: 70px;
+        right: 150px;
+        @media #{$md} {
+            display: none;
+        }
+    }
+    
+     &__shape-7 {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        mix-blend-mode: soft-light;
+        @media #{$lg} {
+            width: 18%; 
+        }
+        @media #{$md} {
+            width: 22%;
+            top: 16px;
+        }
+        @media #{$sm} {
+            display: none;
+        }
+    }
+
+}

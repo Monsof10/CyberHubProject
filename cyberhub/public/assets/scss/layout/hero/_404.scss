@@ -1,0 +1,36 @@
+/*----------------------------------------*/
+/* HERO CSS START
+/*----------------------------------------*/
+.error { 
+     &__area { 
+    } 
+
+    &__title {
+        font-size: 90px;
+        font-weight: 700;
+        color: var(--black-2);
+        line-height: 1.2;
+        padding-top: 40px;
+        @media #{$md} {
+            font-size: 60px;
+        }
+        @media #{$sm} {
+            font-size: 50px;
+            padding-top: 20px;
+        }
+    }
+    
+    &__text {
+        font-size: 18px;
+        font-weight: 500;
+        color: var(--gray);
+        padding: 0px 0px 25px; 
+    }
+
+    &__img {
+        @media #{$md} {
+            width: 100%;
+        }
+        
+    }
+}

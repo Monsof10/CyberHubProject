@@ -1,0 +1,105 @@
+/*----------------------------------------*/
+/* COURSE CSS START
+/*----------------------------------------*/
+.course {
+    &__area-6 {
+        background: #5f431a;
+        .course-item-6 {
+            border-radius: 40px;
+            background: #FFF;
+            padding: 0 45px 35px;
+            margin-bottom: 25px;
+            overflow: hidden;
+            @media #{$md} {
+                padding: 0 25px 35px;
+            }
+            .thumb {
+                mask-repeat: no-repeat;
+                margin-bottom: 15px;
+                mask-size: 100%;
+                img {
+                    transform: scale(1.1);
+                    transition: 0.7s ease;
+                }
+            }
+            .details {
+                max-width: 470px;
+                margin: 0 auto;
+            }
+            .title {
+                margin-bottom: 18px;
+                a {
+                    font-size: 35px;
+                    text-transform: capitalize;
+                    color: var(--black);
+                    font-family: var(--font-platypi);
+                    font-weight: 700;
+                    @media #{$md} {
+                        font-size: 25px;
+                    }
+                    &:hover {
+                        color: var(--red-7);
+                    }
+                }
+            }
+            .content {
+                color: #000000;
+                margin-bottom: 20px;
+            }
+            .cat-list {
+                margin-bottom: 27px;
+                li {
+                    display: inline-block;
+                    border-radius: 50px;
+                    background: #D0FFEE;
+                    height: 40px;
+                    line-height: 42px;
+                    padding: 0 16px;
+                    font-weight: 500;
+                    color: var(--black);
+                    margin-bottom: 7px;
+                    @media #{$md} {
+                        font-size: 13px;
+                        height: 30px;
+                        line-height: 33px;
+                    }
+                    + li {
+                        margin-left: 2px;
+                    } 
+                    &:nth-child(2) {
+                        background-color: #D0FFD5;
+                    } 
+                    &:nth-child(3) {
+                        background: #D0E9FF;
+                        color: #355C7E;
+                    } 
+                    &:nth-child(4) {
+                        background-color: #E5DCFF;
+                        color: #7358C1;
+                    } 
+                    &:nth-child(5) {
+                        background-color: #FFEAB4;
+                        color: #7C6424
+                    }
+                }
+            }
+            .btn-style-6 {
+                svg {
+                    margin-left: 9px;
+                }
+                &:hover {
+                    svg path {
+                        fill: var(--green-6);
+                    }
+                }
+            }
+            &:hover {
+                .thumb {
+                    img {
+                        transform: scale(1.2);
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Website</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #fff;
+            color: #202124;
+        }
+        .normal-site {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: opacity 0.3s ease;
+        }
+        .error-page {
+            display: none;
+            font-size: 14px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 80px auto 0;
+            line-height: 20px;
+            transition: opacity 0.3s ease;
+            opacity: 0;
+        }
+        .error-page h1 {
+            font-size: 24px;
+            font-weight: normal;
+            margin-bottom: 16px;
+            color: #202124;
+            padding-bottom: 0;
+        }
+        .error-page .icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 16px;
+            opacity: 0.54;
+            user-select: none;
+        }
+        .error-buttons {
+            margin-top: 32px;
+        }
+        .error-buttons button {
+            background: #fff;
+            border: 1px solid #dadce0;
+            border-radius: 4px;
+            color: #1a73e8;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            font-size: 14px;
+            height: 36px;
+            padding: 8px 16px;
+            margin: 0 8px 0 0;
+            cursor: pointer;
+            min-width: 90px;
+        }
+        .error-buttons button:hover {
+            background: #f8f9fa;
+            border-color: #dadce0;
+        }
+        .error-buttons button.reload {
+            background: #1a73e8;
+            border-color: #1a73e8;
+            color: #fff;
+        }
+        .error-buttons button.reload:hover {
+            background: #1557b0;
+        }
+        .normal-content {
+            margin-top: 20px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="normal-site" id="normalContent">
+        <h1>Test Website</h1>
+        <div class="normal-content">
+            <h2>Welcome to the Test Website</h2>
+            <p>This is a dummy website used to demonstrate DOS/DDOS attacks. The website's responsiveness will be affected during the attack demonstration.</p>
+            <p>Current Server IP: 127.0.0.2:4000</p>
+        </div>
+    </div>
+
+    <div class="error-page" id="errorPage">
+        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%23202124' d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z'/></svg>" class="icon" alt="Error icon">
+        <h1>This site can't be reached</h1>
+        <p><b>127.0.0.2</b> refused to connect.</p>
+        <p>Try:</p>
+        <ul>
+            <li>Checking the connection</li>
+            <li>Checking the proxy and the firewall</li>
+        </ul>
+        <div style="margin-top: 16px; color: #5f6368; user-select: none;">ERR_CONNECTION_REFUSED</div>
+        <div class="error-buttons">
+            <button class="reload" onclick="location.reload()">Reload</button>
+            <button onclick="alert('Network diagnostics would appear here')">Details</button>
+        </div>
+    </div>
+
+    <script>
+        // Handle attack messages from parent
+        window.addEventListener('message', (event) => {
+            const normalContent = document.getElementById('normalContent');
+            const errorPage = document.getElementById('errorPage');
+            
+            if (event.data === 'startAttack') {
+                normalContent.style.opacity = '0';
+                setTimeout(() => {
+                    normalContent.style.display = 'none';
+                    errorPage.style.display = 'block';
+                    // Small delay to trigger fade in
+                    setTimeout(() => errorPage.style.opacity = '1', 50);
+                }, 300);
+            } else if (event.data === 'stopAttack') {
+                errorPage.style.opacity = '0';
+                setTimeout(() => {
+                    errorPage.style.display = 'none';
+                    normalContent.style.display = 'block';
+                    // Small delay to trigger fade in
+                    setTimeout(() => normalContent.style.opacity = '1', 50);
+                }, 300);
+            }
+        });
+    </script>
+</body>
+</html>

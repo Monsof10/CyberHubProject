@@ -1,0 +1,99 @@
+/*----------------------------------------*/
+/* SKILL CSS START
+/*----------------------------------------*/
+.cta {
+    &__area-4 { 
+        max-width: 1700px;
+        margin: 0 auto;
+        background-color: #BA3E28;
+        border-radius: 60px;
+        padding: 130px 0;
+        position: relative;
+        overflow: hidden;
+        @media #{$md} {
+            padding: 70px 0;
+        }
+        @media #{$xs} {
+            padding: 50px 20px;
+            border-radius: 30px;
+        }
+        img {
+            @media #{$lg} {
+                max-width: 120px;
+            }
+            @media #{$xs} {
+                opacity: 0.3;
+                max-width: 60px;
+            }
+        }
+    }
+    &__wrapper-4 {
+        max-width: 820px;
+        margin: 0 auto;
+        @media #{$lg} {
+            max-width: 500px;
+        }
+    }
+    &__title-4 {
+        font-size: 100px;
+        font-family: var(--font-imbue);
+        line-height: 1.1;
+        color: var(--white);
+        margin-bottom: 16px;
+        position: relative;
+        z-index: 2;
+        @media #{$xxl} {
+            font-size: 80px;
+        }
+        @media #{$lg} {
+            font-size: 50px;
+        }
+        @media #{$xs} {
+            font-size: 35px;
+        }
+    }
+    &__content-4 {
+        color: var(--white-6);
+        font-size: 18px;
+        max-width: 530px;
+        margin: 0 auto;
+        margin-bottom: 32px;
+        position: relative;
+        z-index: 2;
+        @media #{$lg} {
+            font-size: 16px;
+        }
+        @media #{$xs} {  
+            font-size: 14px;
+            margin-bottom: 22px;
+        }
+    }
+
+    //shape style
+    &__shape-4-1 {
+        position: absolute;
+        left: 110px;
+        top: 0;
+    }
+    &__shape-4-2 {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    &__shape-4-3 {
+        position: absolute;
+        left: 210px;
+        bottom: 0;
+    }
+    &__shape-4-4 {
+        position: absolute;
+        right: 160px;
+        bottom: 0;
+    }
+    &__shape-4-5 {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+}

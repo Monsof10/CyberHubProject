@@ -1,0 +1,32 @@
+.auth-nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  .btn-primary {
+    padding: 0.5rem 1.5rem;
+    border-radius: 5px;
+    background: #007bff;
+    color: #fff;
+    text-decoration: none;
+    transition: background 0.3s;
+
+    &:hover {
+      background: #0056b3;
+    }
+  }
+
+  .btn-outline {
+    padding: 0.5rem 1.5rem;
+    border-radius: 5px;
+    border: 2px solid #007bff;
+    color: #007bff;
+    text-decoration: none;
+    transition: all 0.3s;
+
+    &:hover {
+      background: #007bff;
+      color: #fff;
+    }
+  }
+}

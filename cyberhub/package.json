@@ -1,0 +1,55 @@
+{
+  "name": "cyber-hub",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "setup-v86": "node scripts/setup-v86.js",
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@gsap/react": "^2.1.1",
+    "@phosphor-icons/react": "^2.1.5",
+    "@supabase/supabase-js": "^2.49.4",
+    "@xterm/addon-fit": "^0.10.0",
+    "@xterm/xterm": "^5.5.0",
+    "axios": "^1.9.0",
+    "bootstrap": "^5.3.3",
+    "gsap": "^3.12.5",
+    "imagesloaded": "^5.0.0",
+    "isotope-layout": "^3.0.6",
+    "openai": "^4.96.0",
+    "react": "^18.2.0",
+    "react-countup": "^6.5.3",
+    "react-dom": "^18.2.0",
+    "react-icons": "^5.5.0",
+    "react-router-dom": "^6.30.0",
+    "react-visibility-sensor": "^5.1.1",
+    "sass": "^1.76.0",
+    "sharp": "^0.33.3",
+    "swiper": "^11.1.1",
+    "vite-plugin-require": "^1.2.14",
+    "xterm": "^5.3.0",
+    "xterm-addon-fit": "^0.7.0"
+  },
+  "jslinuxConfig": {
+    "version": "latest",
+    "assets": {
+      "kernel": "/jslinux/vmlinux.bin",
+      "filesystem": "/jslinux/filesystem.json"
+    }
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.66",
+    "@types/react-dom": "^18.2.22",
+    "@vitejs/plugin-react": "^4.2.1",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react": "^7.34.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.6",
+    "vite": "^5.2.0"
+  }
+}

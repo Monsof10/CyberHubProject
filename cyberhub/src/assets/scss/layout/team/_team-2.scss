@@ -1,0 +1,161 @@
+/*----------------------------------------*/
+/* ClIENT CSS START
+/*----------------------------------------*/
+.team {
+  &__area-2 {
+    background-color: var(--white);
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    @media #{$md} {
+      border-radius: 0px;
+      margin-left: 0px;
+      margin-right: 0px;
+    }
+    @media #{$sm} {
+      border-radius: 0px;
+      margin-left: 0px;
+      margin-right: 0px;
+    }
+
+    .section-title {
+      color: var(--black-2);
+      max-width: 400px;
+      span {
+        color: var(--primary);
+      }
+    }
+  }
+
+  &__item-2 {
+    background-color: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    padding-bottom: 25px;
+    position: relative;
+    transition: all 0.8s;
+    box-shadow: 20px 20px 70px 0px rgba(42, 25, 17, 0.07);
+    @media #{$sm} {
+      width: 308px;
+      margin: 0 auto;
+    }
+    &:hover {
+      box-shadow: 20px 20px 70px 0px rgb(42 25 17 / 13%);
+    }
+  }
+  &__name-2 {
+    color: var(--black-5);
+    font-size: 20px;
+    font-weight: 700;
+    padding-bottom: 4px;
+    padding-left: 20px;
+    @media #{$md} {
+      padding-top: 15px;
+    }
+  }
+  &__designation-2 {
+    color: var(--gray-2);
+    font-size: 14px;
+    font-weight: 400;
+    padding-left: 20px;
+  }
+  &__share-icon-2 {
+    background-color: var(--white);
+    width: 35px;
+    height: 35px;
+    filter: drop-shadow(0px 5px 15px rgba(31, 31, 31, 0.07));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    position: absolute;
+    right: 40px;
+    bottom: 55px;
+    transition: all 0.8s;
+    @media #{$md} {
+      bottom: 70px;
+    }
+  }
+
+  &__social-2 {
+    position: absolute;
+    bottom: 54px;
+    right: 40px;
+    width: 40px;
+    height: 125px;
+    background-color: var(--white);
+    border-radius: 100px;
+    filter: drop-shadow(0px 5px 15px rgba(31, 31, 31, 0.07));
+    text-align: center;
+    transition: var(--transition);
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    gap: 0px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+  }
+
+  &__social-icon-2 {
+    width: 14px;
+    transition: var(--transition);
+    &:hover {
+      filter: invert(59%) sepia(37%) saturate(5607%) hue-rotate(341deg)
+        brightness(101%) contrast(102%);
+    }
+  }
+
+  &__img-2 {
+    -webkit-mask-image: url("/assets/imgs/shape/team-sahpe.webp");
+    mask-image: url("/assets/imgs/shape/team-sahpe.webp");
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    mask-size: 100%;
+    background: var(--linear-green);
+    text-align: center;
+    padding-top: 10px;
+    @media #{$lg} {
+      mask-size: auto;
+    }
+    @media #{$md} {
+      mask-image: none;
+      border-radius: 0px 0px 40px 40px;
+    }
+  }
+
+  &__btm-btn-2 {
+    display: none;
+    @media #{$sm} {
+      margin-top: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &__top-wrap-2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 50px;
+    @media #{$sm} {
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      padding-bottom: 20px;
+    }
+
+    .btn-veiwMore {
+      margin-top: 10px;
+    }
+  }
+}
+
+.team__item-2:hover .team__social-2 {
+  opacity: 1;
+  visibility: visible;
+}
