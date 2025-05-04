@@ -1,209 +1,234 @@
-import React, { useState } from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { HiOutlineMail, HiOutlineLockClosed } from 'react-icons/hi';
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
-import LoadingSpinner from '../../components/LoadingSpinner';
 
-export default function Login() {
-  const [formData, setFormData] = useState({
-    email: '',
-    password: ''
-  });
+const Login = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const location = useLocation();
-  const { login } = useAuth();
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
+  const { signIn } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       setError('');
       setLoading(true);
-      await login(formData.email, formData.password);
-      // Navigate to the page user tried to visit or home
-      const from = location.state?.from?.pathname || '/';
-      navigate(from);
-    } catch (err) {
-      setError(err.message || 'Failed to login');
+      const { error } = await signIn(email, password);
+      if (error) throw error;
+      navigate('/'); // Redirect to home page after successful login
+    } catch (error) {
+      console.error('Login error:', error);
+      setError(error.message || 'Failed to log in');
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div style={{
-      minHeight: '100vh',
-      backgroundColor: '#fcefe3',
-      display: 'flex',
-      flexDirection: 'column'
-    }}>
-      {/* Header */}
-      <header style={{
+    <div style={{ backgroundColor: '#FFF1F1', minHeight: '100vh' }}>
+      {/* Navigation Bar */}
+      <nav style={{
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        padding: '20px 40px',
-        backgroundColor: 'transparent'
+        padding: '1rem 2rem',
+        backgroundColor: '#fff',
+        boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
       }}>
-        <div style={{ fontWeight: '700', fontSize: '24px', fontFamily: 'Arial, sans-serif' }}>
-          Cyber<span style={{ fontWeight: '400' }}>Hub</span>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+          <Link to="/" style={{ fontSize: '1.5rem', fontWeight: 'bold', textDecoration: 'none', color: '#000' }}>
+            CyberHub
+          </Link>
+          <div style={{ display: 'flex', gap: '1.5rem' }}>
+            <a href="#" style={{ textDecoration: 'none', color: '#333' }}>Catalog</a>
+            <a href="#" style={{ textDecoration: 'none', color: '#333' }}>Resources</a>
+            <a href="#" style={{ textDecoration: 'none', color: '#333' }}>Community</a>
+            <a href="#" style={{ textDecoration: 'none', color: '#333' }}>Pricing</a>
+          </div>
         </div>
-        <Link to="/signup" style={{
-          backgroundColor: '#5a2dff',
-          color: '#fff',
-          padding: '10px 20px',
-          borderRadius: '5px',
-          textDecoration: 'none',
-          fontWeight: '600'
-        }}>
-          Sign Up
-        </Link>
-      </header>
+        <div>
+          <Link 
+            to="/signup"
+            style={{
+              backgroundColor: '#6B4BFF',
+              color: '#fff',
+              padding: '0.5rem 1rem',
+              borderRadius: '4px',
+              textDecoration: 'none',
+              fontWeight: '500'
+            }}
+          >
+            Sign Up
+          </Link>
+        </div>
+      </nav>
 
-      {/* Form Container */}
-      <main style={{
-        flex: 1,
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: '20px'
+      {/* Login Form */}
+      <div style={{
+        maxWidth: '400px',
+        margin: '2rem auto',
+        padding: '2rem',
+        backgroundColor: '#fff',
+        borderRadius: '8px',
+        boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
       }}>
-        <div style={{
-          backgroundColor: '#fff',
-          borderRadius: '10px',
-          boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-          width: '400px',
-          padding: '40px',
-          boxSizing: 'border-box'
+        <h1 style={{
+          fontSize: '1.5rem',
+          fontWeight: '600',
+          marginBottom: '1.5rem',
+          textAlign: 'center'
         }}>
-          <h2 style={{
-            marginBottom: '20px',
-            fontWeight: '700',
-            fontSize: '24px',
-            color: '#000',
-            fontFamily: 'Arial, sans-serif'
+          Log in to CyberHub
+        </h1>
+
+        <div style={{ marginBottom: '1rem' }}>
+          <span style={{ color: '#666' }}>* Required</span>
+        </div>
+
+        {error && (
+          <div style={{
+            padding: '0.75rem',
+            marginBottom: '1rem',
+            backgroundColor: '#FEE2E2',
+            color: '#DC2626',
+            borderRadius: '4px',
+            fontSize: '0.875rem'
           }}>
-            Log in to CyberHub
-          </h2>
-          <form onSubmit={handleSubmit}>
-            <label style={{ display: 'block', marginBottom: '8px', fontWeight: '600', color: '#000' }}>Email or username*</label>
-            <div style={{ position: 'relative', marginBottom: '20px' }}>
-              <input
-                type="email"
-                name="email"
-                placeholder="Enter your email or username"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                style={{
-                  width: '100%',
-                  padding: '10px 40px 10px 12px',
-                  borderRadius: '5px',
-                  border: '1px solid #ccc',
-                  backgroundColor: '#e6f0ff',
-                  fontSize: '14px',
-                  boxSizing: 'border-box'
-                }}
-              />
-              <HiOutlineMail style={{
-                position: 'absolute',
-                right: '12px',
-                top: '50%',
-                transform: 'translateY(-50%)',
-                color: '#888',
-                fontSize: '18px'
-              }} />
-            </div>
+            {error}
+          </div>
+        )}
 
-            <label style={{ display: 'block', marginBottom: '8px', fontWeight: '600', color: '#000' }}>Password*</label>
-            <div style={{ position: 'relative', marginBottom: '30px' }}>
-              <input
-                type="password"
-                name="password"
-                placeholder="Enter your password"
-                value={formData.password}
-                onChange={handleChange}
-                required
-                style={{
-                  width: '100%',
-                  padding: '10px 40px 10px 12px',
-                  borderRadius: '5px',
-                  border: '1px solid #ccc',
-                  backgroundColor: '#e6f0ff',
-                  fontSize: '14px',
-                  boxSizing: 'border-box'
-                }}
-              />
-              <HiOutlineLockClosed style={{
-                position: 'absolute',
-                right: '12px',
-                top: '50%',
-                transform: 'translateY(-50%)',
-                color: '#888',
-                fontSize: '18px'
-              }} />
-            </div>
-
-            <button 
-              type="submit" 
+        <form onSubmit={handleSubmit}>
+          <div style={{ marginBottom: '1.5rem' }}>
+            <label style={{ display: 'block', marginBottom: '0.5rem' }}>
+              Email or username*
+            </label>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
               disabled={loading}
               style={{
                 width: '100%',
-                backgroundColor: loading ? '#9d89ff' : '#5a2dff',
-                color: '#fff',
-                padding: '12px',
-                borderRadius: '5px',
-                border: 'none',
-                fontWeight: '700',
-                fontSize: '16px',
-                cursor: loading ? 'not-allowed' : 'pointer',
-                marginBottom: '10px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '10px'
+                padding: '0.75rem',
+                border: '1px solid #ddd',
+                borderRadius: '4px',
+                backgroundColor: loading ? '#F3F4F6' : '#fff'
+              }}
+            />
+          </div>
+
+          <div style={{ marginBottom: '1rem' }}>
+            <label style={{ display: 'block', marginBottom: '0.5rem' }}>
+              Password*
+            </label>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              disabled={loading}
+              style={{
+                width: '100%',
+                padding: '0.75rem',
+                border: '1px solid #ddd',
+                borderRadius: '4px',
+                backgroundColor: loading ? '#F3F4F6' : '#fff'
+              }}
+            />
+          </div>
+
+          <div style={{ 
+            display: 'flex', 
+            justifyContent: 'space-between', 
+            alignItems: 'center',
+            marginBottom: '1rem' 
+          }}>
+            <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <input
+                type="checkbox"
+                style={{
+                  width: '16px',
+                  height: '16px',
+                  accentColor: '#6B4BFF'
+                }}
+              />
+              <span style={{ color: '#666', fontSize: '0.875rem' }}>Remember me</span>
+            </label>
+            <Link 
+              to="/forgot-password" 
+              style={{ 
+                color: '#6B4BFF', 
+                textDecoration: 'none',
+                fontSize: '0.875rem',
+                fontWeight: '500'
               }}
             >
-              {loading ? (
-                <>
-                  <LoadingSpinner size="20px" color="#fff" />
-                  <span>Logging in...</span>
-                </>
-              ) : (
-                'Log in'
-              )}
+              Forgot password?
+            </Link>
+          </div>
+
+          <button
+            type="submit"
+            disabled={loading}
+            style={{
+              width: '100%',
+              padding: '0.75rem',
+              backgroundColor: '#6B4BFF',
+              color: '#fff',
+              border: 'none',
+              borderRadius: '4px',
+              fontSize: '1rem',
+              fontWeight: '500',
+              cursor: loading ? 'not-allowed' : 'pointer',
+              opacity: loading ? '0.7' : '1'
+            }}
+          >
+            {loading ? 'Logging in...' : 'Log in'}
+          </button>
+        </form>
+
+        <div style={{ marginTop: '2rem', textAlign: 'center' }}>
+          <p style={{ marginBottom: '1rem', color: '#666' }}>Or log in using:</p>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem' }}>
+            <button style={socialButtonStyle}>
+              <img src="https://www.google.com/favicon.ico" alt="Google" style={{ width: '20px', height: '20px' }} />
             </button>
-          </form>
-          <p style={{ textAlign: 'center', fontSize: '14px', color: '#000' }}>
+            <button style={socialButtonStyle}>
+              <img src="https://github.com/favicon.ico" alt="GitHub" style={{ width: '20px', height: '20px' }} />
+            </button>
+            <button style={socialButtonStyle}>
+              <img src="https://www.facebook.com/favicon.ico" alt="Facebook" style={{ width: '20px', height: '20px' }} />
+            </button>
+          </div>
+        </div>
+
+        <div style={{ marginTop: '2rem', textAlign: 'center' }}>
+          <p style={{ color: '#666' }}>
             Not a member yet?{' '}
-            <Link to="/signup" style={{ color: '#5a2dff', fontWeight: '600', textDecoration: 'none' }}>
+            <Link to="/signup" style={{ color: '#6B4BFF', textDecoration: 'none' }}>
               Sign up for free
             </Link>
           </p>
         </div>
-      </main>
-
-      {/* Footer */}
-      <footer style={{
-        backgroundColor: '#fcefe3',
-        padding: '20px 40px',
-        fontSize: '12px',
-        color: '#666',
-        fontFamily: 'Arial, sans-serif',
-        display: 'flex',
-        justifyContent: 'center',
-        borderTop: '1px solid #ddd'
-      }}>
-        &copy; 2025 CyberHub. All rights reserved.
-      </footer>
+      </div>
     </div>
   );
-}
+};
+
+const socialButtonStyle = {
+  width: '40px',
+  height: '40px',
+  border: '1px solid #ddd',
+  borderRadius: '50%',
+  backgroundColor: '#fff',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  cursor: 'pointer'
+};
+
+export default Login;

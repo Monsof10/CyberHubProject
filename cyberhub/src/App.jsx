@@ -6,6 +6,9 @@ import ProtectedRoute from "./components/ProtectedRoute";
 
 const Login = lazy(() => import("./pages/Auth/Login"));
 const Signup = lazy(() => import("./pages/Auth/Signup"));
+const EmailConfirmation = lazy(() => import("./pages/Auth/EmailConfirmation"));
+const ForgotPassword = lazy(() => import("./pages/Auth/ForgotPassword"));
+const ResetPassword = lazy(() => import("./pages/Auth/ResetPassword"));
 const Profile = lazy(() => import("./pages/Auth/Profile"));
 const DosAndDdosHome = lazy(() => import("./pages/DosAndDdos/HomePage"));
 const DosArticle = lazy(() => import("./pages/DosAndDdos/Article"));
@@ -77,6 +80,30 @@ function App() {
         element={
           <Suspense fallback={<Loading />}>
             <Signup />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/Auth/EmailConfirmation"
+        element={
+          <Suspense fallback={<Loading />}>
+            <EmailConfirmation />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/forgot-password"
+        element={
+          <Suspense fallback={<Loading />}>
+            <ForgotPassword />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/reset-password"
+        element={
+          <Suspense fallback={<Loading />}>
+            <ResetPassword />
           </Suspense>
         }
       />

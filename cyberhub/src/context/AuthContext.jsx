@@ -1,72 +1,84 @@
-import React, { createContext, useState, useContext, useEffect } from 'react';
-import { authService } from '../services/auth';
+import { createContext, useState, useEffect, useContext } from 'react'
+import { supabase } from '../supabase/config'
 
-const AuthContext = createContext(null);
+export const AuthContext = createContext({})
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [user, setUser] = useState(null)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    // Check if user is logged in on mount
-    const currentUser = authService.getCurrentUser();
-    if (currentUser) {
-      setUser(currentUser);
-    }
-    setLoading(false);
-  }, []);
+    // Check active sessions and sets the user
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setUser(session?.user ?? null)
+      setLoading(false)
+    })
 
-  const login = async (identifier, password) => {
+    // Listen for changes on auth state
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null)
+    })
+
+    return () => subscription.unsubscribe()
+  }, [])
+
+  // Sign up with email and password
+  const signUp = async (email, password) => {
     try {
-      setError(null);
-      const response = await authService.login(identifier, password);
-      setUser(response.user);
-      return response;
-    } catch (err) {
-      setError(err.message);
-      throw err;
+      const { data, error } = await supabase.auth.signUp({
+        email,
+        password,
+      })
+      if (error) throw error
+      return { data, error: null }
+    } catch (error) {
+      return { data: null, error }
     }
-  };
+  }
 
-  const register = async (username, email, password) => {
+  // Sign in with email and password
+  const signIn = async (email, password) => {
     try {
-      setError(null);
-      const response = await authService.register(username, email, password);
-      setUser(response.user);
-      return response;
-    } catch (err) {
-      setError(err.message);
-      throw err;
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      })
+      if (error) throw error
+      return { data, error: null }
+    } catch (error) {
+      return { data: null, error }
     }
-  };
+  }
 
-  const logout = () => {
-    authService.logout();
-    setUser(null);
-  };
-
-  const value = {
-    user,
-    loading,
-    error,
-    login,
-    register,
-    logout,
-    isAuthenticated: authService.isAuthenticated
-  };
+  // Sign out
+  const signOut = async () => {
+    try {
+      const { error } = await supabase.auth.signOut()
+      if (error) throw error
+      return { error: null }
+    } catch (error) {
+      return { error }
+    }
+  }
 
   return (
-    <AuthContext.Provider value={value}>
-      {!loading && children}
+    <AuthContext.Provider value={{
+      user,
+      signUp,
+      signIn,
+      signOut,
+      loading
+    }}>
+      {children}
     </AuthContext.Provider>
-  );
-};
+  )
+}
 
+// Custom hook to use auth context
 export const useAuth = () => {
-  const context = useContext(AuthContext);
-  if (!context) {
-    throw new Error('useAuth must be used within an AuthProvider');
+  const context = useContext(AuthContext)
+  if (context === undefined) {
+    throw new Error('useAuth must be used within an AuthProvider')
   }
-  return context;
-};
+  return context
+}

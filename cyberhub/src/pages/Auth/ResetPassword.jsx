@@ -1,35 +1,48 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from '../../context/AuthContext';
+import { supabase } from '../../supabase/config';
 
-const Signup = () => {
-  const [email, setEmail] = useState('');
+const ResetPassword = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState({ type: '', text: '' });
   const navigate = useNavigate();
-  const { signUp } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (password !== confirmPassword) {
-      setError("Passwords don't match");
+      setMessage({ type: 'error', text: "Passwords don't match" });
       return;
     }
 
     try {
-      setError('');
       setLoading(true);
-      const { error } = await signUp(email, password);
+      setMessage({ type: '', text: '' });
+
+      const { error } = await supabase.auth.updateUser({
+        password: password
+      });
+
       if (error) throw error;
-      // Show success message and redirect to login
-      alert('Please check your email for verification link');
-      navigate('/login');
+
+      setMessage({
+        type: 'success',
+        text: 'Password has been reset successfully'
+      });
+
+      // Redirect to login after 2 seconds
+      setTimeout(() => {
+        navigate('/login');
+      }, 2000);
+
     } catch (error) {
-      console.error('Signup error:', error);
-      setError(error.message || 'Failed to create account');
+      console.error('Reset password error:', error);
+      setMessage({
+        type: 'error',
+        text: error.message || 'Failed to reset password'
+      });
     } finally {
       setLoading(false);
     }
@@ -50,28 +63,10 @@ const Signup = () => {
           <Link to="/" style={{ fontSize: '1.5rem', fontWeight: 'bold', textDecoration: 'none', color: '#000' }}>
             CyberHub
           </Link>
-          <div style={{ display: 'flex', gap: '1.5rem' }}>
-            <a href="#" style={{ textDecoration: 'none', color: '#333' }}>Catalog</a>
-            <a href="#" style={{ textDecoration: 'none', color: '#333' }}>Resources</a>
-            <a href="#" style={{ textDecoration: 'none', color: '#333' }}>Community</a>
-            <a href="#" style={{ textDecoration: 'none', color: '#333' }}>Pricing</a>
-          </div>
-        </div>
-        <div>
-          <Link 
-            to="/login"
-            style={{
-              color: '#6B4BFF',
-              textDecoration: 'none',
-              fontWeight: '500'
-            }}
-          >
-            Log in
-          </Link>
         </div>
       </nav>
 
-      {/* Signup Form */}
+      {/* Reset Password Form */}
       <div style={{
         maxWidth: '400px',
         margin: '2rem auto',
@@ -86,50 +81,26 @@ const Signup = () => {
           marginBottom: '1.5rem',
           textAlign: 'center'
         }}>
-          Sign up for CyberHub
+          Set New Password
         </h1>
 
-        <div style={{ marginBottom: '1rem' }}>
-          <span style={{ color: '#666' }}>* Required</span>
-        </div>
-
-        {error && (
+        {message.text && (
           <div style={{
             padding: '0.75rem',
             marginBottom: '1rem',
-            backgroundColor: '#FEE2E2',
-            color: '#DC2626',
+            backgroundColor: message.type === 'success' ? '#DEF7EC' : '#FEE2E2',
+            color: message.type === 'success' ? '#03543F' : '#DC2626',
             borderRadius: '4px',
             fontSize: '0.875rem'
           }}>
-            {error}
+            {message.text}
           </div>
         )}
 
         <form onSubmit={handleSubmit}>
           <div style={{ marginBottom: '1.5rem' }}>
             <label style={{ display: 'block', marginBottom: '0.5rem' }}>
-              Email*
-            </label>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              disabled={loading}
-              style={{
-                width: '100%',
-                padding: '0.75rem',
-                border: '1px solid #ddd',
-                borderRadius: '4px',
-                backgroundColor: loading ? '#F3F4F6' : '#fff'
-              }}
-            />
-          </div>
-
-          <div style={{ marginBottom: '1.5rem' }}>
-            <label style={{ display: 'block', marginBottom: '0.5rem' }}>
-              Password*
+              New Password
             </label>
             <input
               type="password"
@@ -144,12 +115,13 @@ const Signup = () => {
                 borderRadius: '4px',
                 backgroundColor: loading ? '#F3F4F6' : '#fff'
               }}
+              placeholder="Enter new password"
             />
           </div>
 
           <div style={{ marginBottom: '1.5rem' }}>
             <label style={{ display: 'block', marginBottom: '0.5rem' }}>
-              Confirm Password*
+              Confirm New Password
             </label>
             <input
               type="password"
@@ -164,6 +136,7 @@ const Signup = () => {
                 borderRadius: '4px',
                 backgroundColor: loading ? '#F3F4F6' : '#fff'
               }}
+              placeholder="Confirm new password"
             />
           </div>
 
@@ -183,28 +156,13 @@ const Signup = () => {
               opacity: loading ? '0.7' : '1'
             }}
           >
-            {loading ? 'Creating account...' : 'Sign up'}
+            {loading ? 'Resetting...' : 'Reset Password'}
           </button>
         </form>
 
         <div style={{ marginTop: '2rem', textAlign: 'center' }}>
-          <p style={{ marginBottom: '1rem', color: '#666' }}>Or sign up using:</p>
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem' }}>
-            <button style={socialButtonStyle}>
-              <img src="https://www.google.com/favicon.ico" alt="Google" style={{ width: '20px', height: '20px' }} />
-            </button>
-            <button style={socialButtonStyle}>
-              <img src="https://github.com/favicon.ico" alt="GitHub" style={{ width: '20px', height: '20px' }} />
-            </button>
-            <button style={socialButtonStyle}>
-              <img src="https://www.facebook.com/favicon.ico" alt="Facebook" style={{ width: '20px', height: '20px' }} />
-            </button>
-          </div>
-        </div>
-
-        <div style={{ marginTop: '2rem', textAlign: 'center' }}>
           <p style={{ color: '#666' }}>
-            Already have an account?{' '}
+            Remember your password?{' '}
             <Link to="/login" style={{ color: '#6B4BFF', textDecoration: 'none' }}>
               Log in
             </Link>
@@ -215,16 +173,4 @@ const Signup = () => {
   );
 };
 
-const socialButtonStyle = {
-  width: '40px',
-  height: '40px',
-  border: '1px solid #ddd',
-  borderRadius: '50%',
-  backgroundColor: '#fff',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  cursor: 'pointer'
-};
-
-export default Signup;
+export default ResetPassword;
