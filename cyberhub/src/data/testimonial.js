@@ -99,9 +99,7 @@ const testimonialTwo = [
   },
 ];
 
-import TestimonialThreeImageOne from "/assets/imgs/thumb/testimonial-6-1.webp";
-import TestimonialThreeImageTow from "/assets/imgs/thumb/blog-6-1.webp";
-import TestimonialThreeImageThree from "/assets/imgs/thumb/testimonial-6-1.webp";
+
 
 import TestimonialThreeShapeOne from "/assets/imgs/shape/testi-6-1.webp";
 import TestimonialThreeShapeTwo from "/assets/imgs/shape/testi-6-2.webp";
@@ -112,21 +110,21 @@ const testimonialThree = {
   title: "What people say about us",
   testimonials: [
     {
-      image: TestimonialThreeImageOne,
+      
       title:
         "Initially skeptical, but the strategies from my Cyberhub cybersecurity course really work—I feel more secure than ever against DDoS attacks",
       name: "David Bergstrom",
       designation: "— Cyberhub Member, Austin",
     },
     {
-      image: TestimonialThreeImageTow,
+      
       title:
         "At first, I doubted it, but the mitigation techniques from my Cyberhub cybersecurity course truly work—I can now defend against DDoS attacks with confidence.",
       name: "Robartho Filson",
       designation: " — Cyberhub Member, Austin",
     },
     {
-      image: TestimonialThreeImageThree,
+      
       title:
         "I was skeptical at first, but the DDoS protection strategies from my Cyberhub course are incredibly effective—now I feel fully prepared to handle attacks.",
       name: "Lisandro Casiano",

@@ -20,11 +20,11 @@ const blogOne = {
       image: BlogImageOne,
       artRedIcon: ArtRedIcon,
       timeSquareIcon: TimeSquareIcon,
-      title: "Comprehensive guide to Cyber Security in 2023",
-      link: "blog-detail",
+      title: "Zero Trust Security: A Complete Guide for 2024",
+      link: "https://www.paloaltonetworks.com/cyberpedia/what-is-a-zero-trust-architecture",
       category: {
-        name: "Information Tec & Data",
-        link: "category",
+        name: "Network Security",
+        link: "https://www.cisco.com/c/en/us/products/security/what-is-network-security.html",
       },
       time: "05 Jan 2024",
       moreBtn: {
@@ -40,11 +40,11 @@ const blogOne = {
       image: BlogImageTwo,
       artRedIcon: ArtRedIcon,
       timeSquareIcon: TimeSquareIcon,
-      title: "Innovations and insights for Tomorrow's learners",
-      link: "blog-detail",
+      title: "AI in Cybersecurity: Emerging Trends and Tools",
+      link: "https://www.ibm.com/security/artificial-intelligence",
       category: {
-        name: "Information Tec & Data",
-        link: "category",
+        name: "Security Innovation",
+        link: "https://www.darkreading.com/security-technology",
       },
       time: "05 Jan 2024",
       moreBtn: {
@@ -60,11 +60,11 @@ const blogOne = {
       image: BlogImageThree,
       artRedIcon: ArtRedIcon,
       timeSquareIcon: TimeSquareIcon,
-      title: "Bridging gaps and creating Opportunities",
-      link: "blog-detail",
+      title: "Blockchain Security: Protecting Digital Assets",
+      link: "https://www.coindesk.com/learn/blockchain-security/",
       category: {
-        name: "Information Tec & Data",
-        link: "category",
+        name: "Emerging Technologies",
+        link: "https://www.technologyreview.com/topic/security/",
       },
       time: "05 Jan 2024",
       moreBtn: {
@@ -84,11 +84,11 @@ const blogContentOne = [
     image: BlogDetailImageOne,
     artRedIcon: ArtRedIcon,
     timeSquareIcon: TimeSquareIcon,
-    title: "Comprehensive guide to web Development in 2023",
-    link: "blog-detail",
+    title: "Quantum Computing and Cybersecurity: Future Threats",
+    link: "https://www.ibm.com/quantum/quantum-computing-and-cybersecurity",
     category: {
-      name: "Art & Design",
-      link: "category",
+      name: "Emerging Threats",
+      link: "https://www.darkreading.com/emerging-threats",
     },
     time: "05 Jan 2024",
     moreBtn: {
@@ -104,11 +104,11 @@ const blogContentOne = [
     image: BlogDetailImageTwo,
     artRedIcon: ArtRedIcon,
     timeSquareIcon: TimeSquareIcon,
-    title: "Innovations and insights for Tomorrow's learners",
-    link: "blog-detail",
+    title: "Cloud Security Best Practices for 2024",
+    link: "https://aws.amazon.com/architecture/security-identity-compliance",
     category: {
-      name: "Art & Design",
-      link: "category",
+      name: "Cloud Security",
+      link: "https://cloud.google.com/security",
     },
     time: "05 Jan 2024",
     moreBtn: {
@@ -124,11 +124,11 @@ const blogContentOne = [
     image: BlogDetailImageThree,
     artRedIcon: ArtRedIcon,
     timeSquareIcon: TimeSquareIcon,
-    title: "Bridging gaps and creating Opportunities",
-    link: "blog-detail",
+    title: "Supply Chain Security: Protecting Your Digital Assets",
+    link: "https://www.microsoft.com/en-us/security/business/security-101/what-is-supply-chain-security",
     category: {
-      name: "Art & Design",
-      link: "category",
+      name: "Enterprise Security",
+      link: "https://www.gartner.com/reviews/market/enterprise-security",
     },
     time: "05 Jan 2024",
     moreBtn: {
@@ -144,11 +144,11 @@ const blogContentOne = [
     image: BlogDetailImageFour,
     artRedIcon: ArtRedIcon,
     timeSquareIcon: TimeSquareIcon,
-    title: "Comprehensive guide to web Development in 2023",
-    link: "blog-detail",
+    title: "Zero-Day Vulnerabilities: Detection and Response",
+    link: "https://www.crowdstrike.com/cybersecurity-101/zero-day-exploit/",
     category: {
-      name: "Art & Design",
-      link: "category",
+      name: "Threat Detection",
+      link: "https://www.trellix.com/en-us/security-awareness/operations/what-is-threat-detection-and-response.html",
     },
     time: "05 Jan 2024",
     moreBtn: {
@@ -164,11 +164,11 @@ const blogContentOne = [
     image: BlogDetailImageOne,
     artRedIcon: ArtRedIcon,
     timeSquareIcon: TimeSquareIcon,
-    title: "Comprehensive guide to Cyber Security in 2023",
-    link: "blog-detail",
+    title: "Ransomware Defense Strategies for 2024",
+    link: "https://www.trellix.com/en-us/security-awareness/ransomware/what-is-ransomware.html",
     category: {
-      name: "Art & Design",
-      link: "category",
+      name: "Threat Prevention",
+      link: "https://www.checkpoint.com/cyber-hub/threat-prevention/",
     },
     time: "05 Jan 2024",
     moreBtn: {
@@ -184,11 +184,11 @@ const blogContentOne = [
     image: BlogDetailImageTwo,
     artRedIcon: ArtRedIcon,
     timeSquareIcon: TimeSquareIcon,
-    title: "Innovations and insights for Tomorrow's learners",
-    link: "blog-detail",
+    title: "IoT Security: Protecting Smart Devices",
+    link: "https://www.kaspersky.com/resource-center/iot",
     category: {
-      name: "Art & Design",
-      link: "category",
+      name: "Device Security",
+      link: "https://www.fortinet.com/resources/iot-security",
     },
     time: "05 Jan 2024",
     moreBtn: {
@@ -204,11 +204,11 @@ const blogContentOne = [
     image: BlogDetailImageThree,
     artRedIcon: ArtRedIcon,
     timeSquareIcon: TimeSquareIcon,
-    title: "Bridging gaps and creating Opportunities",
-    link: "blog-detail",
+    title: "Mobile Security Best Practices",
+    link: "https://www.securemobiledevices.com/best-practices",
     category: {
-      name: "Art & Design",
-      link: "category",
+      name: "Mobile Security",
+      link: "https://www.android.com/safety/",
     },
     time: "05 Jan 2024",
     moreBtn: {
@@ -224,11 +224,11 @@ const blogContentOne = [
     image: BlogDetailImageFour,
     artRedIcon: ArtRedIcon,
     timeSquareIcon: TimeSquareIcon,
-    title: "Comprehensive guide to Cyber Security in 2023",
-    link: "blog-detail",
+    title: "Social Engineering: Understanding Human Vulnerabilities",
+    link: "https://www.social-engineer.org/framework/general-discussion/",
     category: {
-      name: "Tech & It",
-      link: "category",
+      name: "Human Security",
+      link: "https://www.knowbe4.com/social-engineering",
     },
     time: "05 Jan 2024",
     moreBtn: {
@@ -331,12 +331,11 @@ import BlogThreeImageThree from "/assets/imgs/thumb/blog-6-3.webp";
 
 const blogThree = [
   {
-    image: BlogThreeImageOne,
+    
     category: "RoadMap",
     date: "01 Jan 2025",
-    title:
-      "Strengthen your cybersecurity defenses: insights from a certified DDoS protection expert.",
-    link: "blog-detail",
+    title: "Advanced Persistent Threats (APTs): Detection and Mitigation",
+    link: "https://www.fireeye.com/current-threats/apt-groups.html",
     duration: "8 Min read",
     btn: {
       text: "Read More",
@@ -344,12 +343,11 @@ const blogThree = [
     },
   },
   {
-    image: BlogThreeImageTwo,
+    
     category: "RoadMap",
     date: "01 Jan 2025",
-    title:
-      "Master DDoS defense: expert strategies from top cybersecurity professionals.",
-    link: "blog-detail",
+    title: "Container Security: Protecting Kubernetes Environments",
+    link: "https://kubernetes.io/docs/concepts/security/",
     duration: "12 Min read",
     btn: {
       text: "RoadMap",
@@ -357,12 +355,11 @@ const blogThree = [
     },
   },
   {
-    image: BlogThreeImageThree,
+    
     category: "RoadMap",
     date: "01 Jan 2025",
-    title:
-      "Elevate your cyber resilience: insights from a DDoS mitigation expert.",
-    link: "blog-detail",
+    title: "DevSecOps: Integrating Security into CI/CD Pipelines",
+    link: "https://www.redhat.com/en/topics/devops/what-is-devsecops",
     duration: "7 Min read",
     btn: {
       text: "Read More",
@@ -373,9 +370,8 @@ const blogThree = [
     image: BlogThreeImageOne,
     category: "RoadMap",
     date: "01 Jan 2025",
-    title:
-      " Fortify your network: expert insights on DDoS attack prevention.",
-    link: "blog-detail",
+    title: "Cloud-Native Security: Best Practices and Tools",
+    link: "https://www.aquasec.com/cloud-native-security/",
     duration: "5 Min read",
     btn: {
       text: "Read More",
@@ -386,9 +382,8 @@ const blogThree = [
     image: BlogThreeImageThree,
     category: "RoadMap",
     date: "01 Jan 2025",
-    title:
-      "Defend against DDoS attacks: proven strategies from cybersecurity experts.",
-    link: "blog-detail",
+    title: "API Security: Protecting Modern Applications",
+    link: "https://owasp.org/www-project-api-security/",
     duration: "10 Min read",
     btn: {
       text: "Read More",
@@ -414,22 +409,22 @@ const blogSidebarOne = {
     title: "Latest",
     items: [
       {
-        title: "Innovations and insights for Tomorrow's learners",
-        link: "blog-detail",
+        title: "Advanced Cybersecurity Techniques for 2024",
+        link: "https://www.nist.gov/cybersecurity",
         image: SidebarOnePostOne,
         icon: SidebarOneDateIcon,
         date: "05 Jan 2024",
       },
       {
-        title: "Design and insights for Tomorrow's learners",
-        link: "blog-detail",
+        title: "Understanding DDoS Attack Prevention",
+        link: "https://www.cloudflare.com/learning/ddos/what-is-a-ddos-attack/",
         image: SidebarOnePostTwo,
         icon: SidebarOneDateIcon,
         date: "05 Jan 2023",
       },
       {
-        title: "UX and insights for Tomorrow's learners",
-        link: "blog-detail",
+        title: "Essential Network Security Protocols",
+        link: "https://www.cisco.com/c/en/us/products/security/what-is-network-security.html",
         image: SidebarOnePostThree,
         icon: SidebarOneDateIcon,
         date: "05 Jan 2022",
@@ -440,33 +435,33 @@ const blogSidebarOne = {
     title: "Categories",
     items: [
       {
-        name: "Art & Design",
-        link: "#",
+        name: "Network Security",
+        link: "https://www.cisco.com/c/en/us/products/security/what-is-network-security.html",
         count: "09",
       },
       {
-        name: "Business",
-        link: "#",
+        name: "Cyber Defense",
+        link: "https://www.sans.org/cyber-security/",
         count: "07",
       },
       {
-        name: "Date Science",
-        link: "#",
+        name: "Ethical Hacking",
+        link: "https://www.offensive-security.com/blog/",
         count: "05",
       },
       {
-        name: "Development",
-        link: "#",
-        count: "02",
+        name: "Cloud Security",
+        link: "https://aws.amazon.com/security/",
+        count: "04",
       },
       {
-        name: "Finance",
-        link: "#",
+        name: "Malware Analysis",
+        link: "https://www.virustotal.com/gui/home/upload",
         count: "05",
       },
       {
-        name: "Health & Fitness",
-        link: "#",
+        name: "Incident Response",
+        link: "https://www.incidentresponse.com/",
         count: "06",
       },
     ],
@@ -475,28 +470,28 @@ const blogSidebarOne = {
     title: "Tags",
     items: [
       {
-        name: "Education",
-        link: "#",
+        name: "Cybersecurity",
+        link: "https://www.cisa.gov/topics/cybersecurity-best-practices",
       },
       {
-        name: "Web Development",
-        link: "#",
+        name: "Network Defense",
+        link: "https://www.paloaltonetworks.com/cyberpedia/what-is-network-security",
       },
       {
-        name: "Design",
-        link: "#",
+        name: "Penetration Testing",
+        link: "https://owasp.org/www-project-web-security-testing-guide/",
       },
       {
-        name: "eLearning",
-        link: "#",
+        name: "Security Tools",
+        link: "https://www.kali.org/tools/",
       },
       {
-        name: "Online Courses",
-        link: "#",
+        name: "Threat Analysis",
+        link: "https://www.mitre.org/attack",
       },
       {
-        name: "Course",
-        link: "#",
+        name: "Digital Forensics",
+        link: "https://www.sans.org/digital-forensics/",
       },
     ],
   },

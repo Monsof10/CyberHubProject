@@ -1,6 +1,5 @@
 import HeroOne from "@/components/Hero/HeroOne";
 import PartnerOne from "@/components/Partner/PartnerOne";
-import CourseOne from "@/components/Course/CourseOne";
 import TestimonialOne from "@/components/Testimonial/TestimonialOne";
 import ServiceOne from "@/components/Service/ServiceOne";
 import InstructorOne from "@/components/Instructor/InstructorOne";
@@ -17,7 +16,7 @@ export default function HomePage() {
         <HeroOne />
         <PartnerOne />
         <AboutOne />
-        <CourseOne />
+        
         <TestimonialOne />
         <ServiceOne />
         <InstructorOne />

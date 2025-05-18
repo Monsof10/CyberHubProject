@@ -1,12 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthContext';
+import { getUserProgress, updateUserProgress, createUserProgress } from '../../supabase/progress';
+import AttackPagesHeader from '../../components/AttackPagesHeader/AttackPagesHeader';
 
 const FinalQuiz = () => {
+  const { user } = useContext(AuthContext);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [isCorrect, setIsCorrect] = useState(null);
+  const [isSaving, setIsSaving] = useState(false);
 
   const questions = [
     {
@@ -116,7 +121,35 @@ const FinalQuiz = () => {
         { text: "Sharing passwords", isCorrect: false },
         { text: "Using public networks", isCorrect: false },
       ],
-    }
+    },
+    // Practical command questions added
+    {
+      questionText: "Which command is used to spoof an IP address ?",
+      answerOptions: [
+        { text: "hping3 -a 192.168.1.100 -S 192.168.1.1 -p 80", isCorrect: true },
+        { text: "ping 192.168.1.1", isCorrect: false },
+        { text: "nmap -sS 192.168.1.1", isCorrect: false },
+        { text: "curl http://example.com", isCorrect: false },
+      ],
+    },
+    {
+      questionText: "What tool is commonly used for ARP spoofing attacks?",
+      answerOptions: [
+        { text: "arpspoof", isCorrect: true },
+        { text: "tcpdump", isCorrect: false },
+        { text: "wireshark", isCorrect: false },
+        { text: "nmap", isCorrect: false },
+      ],
+    },
+    {
+      questionText: "Which command can be used to detect MAC address spoofing?",
+      answerOptions: [
+        { text: "arp -a", isCorrect: true },
+        { text: "ifconfig", isCorrect: false },
+        { text: "netstat", isCorrect: false },
+        { text: "ping", isCorrect: false },
+      ],
+    },
   ];
 
   const handleAnswerClick = (isCorrect, index) => {
@@ -142,6 +175,39 @@ const FinalQuiz = () => {
     return Math.round((score / questions.length) * 100);
   };
 
+  const saveProgress = async () => {
+    if (!user) return;
+
+    setIsSaving(true);
+    try {
+      const existingProgress = await getUserProgress(user.id);
+
+      const newProgress = {
+        ...existingProgress?.progress,
+        spoofing: {
+          ...existingProgress?.progress?.spoofing,
+          finalQuiz: {
+            completed: true,
+            score: score,
+            totalQuestions: questions.length,
+            percentage: calculatePercentage(),
+            completedAt: new Date().toISOString()
+          }
+        }
+      };
+
+      if (existingProgress) {
+        await updateUserProgress(user.id, newProgress);
+      } else {
+        await createUserProgress(user.id, newProgress);
+      }
+    } catch (error) {
+      console.error('Error saving progress:', error);
+    } finally {
+      setIsSaving(false);
+    }
+  };
+
   const getScoreMessage = () => {
     const percentage = calculatePercentage();
     if (percentage >= 80) {
@@ -157,18 +223,24 @@ const FinalQuiz = () => {
     <div style={{
       backgroundColor: '#151B3B',
       minHeight: '100vh',
-      color: '#fff',
-      padding: '40px',
-      fontFamily: 'Georgia, serif'
+      display: 'flex',
+      flexDirection: 'column'
     }}>
+      <AttackPagesHeader pageType="spoofing" />
       <div style={{
-        maxWidth: '800px',
-        margin: '0 auto',
-        backgroundColor: '#1a2147',
-        padding: '30px',
-        borderRadius: '10px',
-        boxShadow: '0 0 20px rgba(0,0,0,0.3)'
+        flex: 1,
+        color: '#fff',
+        padding: '40px',
+        fontFamily: 'Georgia, serif'
       }}>
+        <div style={{
+          maxWidth: '800px',
+          margin: '0 auto',
+          backgroundColor: '#1a2147',
+          padding: '30px',
+          borderRadius: '10px',
+          boxShadow: '0 0 20px rgba(0,0,0,0.3)'
+        }}>
         {showScore ? (
           <div style={{ textAlign: 'center' }}>
             <h2 style={{ color: '#5DADE2', marginBottom: '20px' }}>Final Quiz Complete!</h2>
@@ -220,6 +292,7 @@ const FinalQuiz = () => {
                     borderRadius: '5px',
                     textDecoration: 'none'
                   }}
+                  onClick={saveProgress}
                 >
                   Next Module: Sql-Injection 
                 </Link>
@@ -328,47 +401,48 @@ const FinalQuiz = () => {
             </div>
           </>
         )}
-      </div>
-      {/* Bottom navigation */}
-      <div style={{
-        maxWidth: '800px',
-        margin: '20px auto 0',
-        display: 'flex',
-        justifyContent: 'space-between'
-      }}>
-        <div style={{ display: 'flex', gap: '10px' }}>
-          <Link
-            to="/"
-            style={{
-              backgroundColor: '#5DADE2',
-              color: '#fff',
-              padding: '10px 20px',
-              borderRadius: '5px',
-              textDecoration: 'none',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '10px'
-            }}
-          >
-            <span style={{ fontSize: '20px' }}>🏠</span>
-            Home
-          </Link>
-          <Link
-            to="/Spoofing/AttackPages/IpSpoofing"
-            style={{
-              backgroundColor: '#34495E',
-              color: '#fff',
-              padding: '10px 20px',
-              borderRadius: '5px',
-              textDecoration: 'none',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '10px'
-            }}
-          >
-            <span style={{ fontSize: '20px' }}>←</span>
-            Return to IP Spoofing
-          </Link>
+        </div>
+        {/* Bottom navigation */}
+        <div style={{
+          maxWidth: '800px',
+          margin: '20px auto 0',
+          display: 'flex',
+          justifyContent: 'space-between'
+        }}>
+          <div style={{ display: 'flex', gap: '10px' }}>
+            <Link
+              to="/"
+              style={{
+                backgroundColor: '#5DADE2',
+                color: '#fff',
+                padding: '10px 20px',
+                borderRadius: '5px',
+                textDecoration: 'none',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '10px'
+              }}
+            >
+              <span style={{ fontSize: '20px' }}>🏠</span>
+              Home
+            </Link>
+            <Link
+              to="/Spoofing/AttackPages/IpSpoofing"
+              style={{
+                backgroundColor: '#34495E',
+                color: '#fff',
+                padding: '10px 20px',
+                borderRadius: '5px',
+                textDecoration: 'none',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '10px'
+              }}
+            >
+              <span style={{ fontSize: '20px' }}>←</span>
+              Return to IP Spoofing
+            </Link>
+          </div>
         </div>
       </div>
     </div>

@@ -17,35 +17,31 @@ const HeaderOne = {
   cartIcon: CartIcon,
   categories: [
     {
-      name: "Web Exploitation",
-      link: "courses",
+      name: "Penetration Testing",
+      link: "/SkillPaths/PenetrationTesting",
       icon: CategoryMenuOneIconOne,
     },
     {
-      name: "Cryptography",
-      link: "courses",
+      name: "Program Security",
+      link: "/skill-paths/program-security",
       icon: CategoryMenuOneIconTwo,
     },
     {
-      name: "Reverse Engineering",
-      link: "courses",
+      name: "System Security",
+      link: "/skill-paths/system-security",
       icon: CategoryMenuOneIconThree,
     },
     {
-      name: "Forensics",
-      link: "courses",
+      name: "Software Exploitation",
+      link: "/skill-paths/software-exploitation",
       icon: CategoryMenuOneIconFour,
     },
     {
-      name: "General Skills",
-      link: "courses",
+      name: "Blue/Red team",
+      link: "/skill-paths/blue-red-team",
       icon: CategoryMenuOneIconFive,
     },
-    {
-      name: "Binary Exploitation",
-      link: "courses",
-      icon: CategoryMenuOneIconSix,
-    },
+    
   ],
 };
 

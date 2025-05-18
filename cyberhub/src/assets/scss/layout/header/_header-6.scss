@@ -131,10 +131,9 @@
     grid-template-columns: 330px auto 80px 235px;
     align-items: center;
     gap: 40px;
-    padding: 19px 0px 19px 20px;
     margin: 0 auto;
     position: relative;
-    padding: 8px 60px;
+    padding: 0 20px 0 20px;
 
     @media #{$xxl} {
       max-width: 100%;

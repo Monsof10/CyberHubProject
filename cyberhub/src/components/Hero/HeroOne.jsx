@@ -12,11 +12,12 @@ export default function HeroOne() {
     direction: "vertical",
     effect: "slide",
     slidesPerView: "auto",
-    speed: 10000,
-    loop: true,
+    speed: 0,
+    loop: false,
     autoHeight: true,
-    autoplay: true,
-    modules: [Autoplay, FreeMode],
+    autoplay: false,
+    allowTouchMove: false,
+    modules: [FreeMode],
   };
   return (
     <section className="hero__area">

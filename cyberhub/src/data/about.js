@@ -10,7 +10,7 @@ const aboutOne = {
     sliceFour: "Career",
   },
   description:
-    "In recent years, the awareness of SQL Injection attacks has surged, highlighting the importance of securing web applications and databases to prevent malicious exploits.",
+    "Master the latest AI-driven threats and exploit real vulnerable systems to see how machine-speed attacks unfold in real time.",
   video: {
     src: "assets/media/videos/features-video.mp4",
   },
@@ -98,7 +98,7 @@ const aboutTwo = {
   shapeEight: ShapeFourEight,
 };
 
-import AboutThreeImageOne from "/assets/imgs/thumb/about-6-1.webp";
+import AboutThreeImageOne from "/assets/imgs/thumb/about-6-1.png";
 import AboutThreeShapeOne from "/assets/imgs/shape/about-6-1.webp";
 import AboutThreeShapeTwo from "/assets/imgs/shape/about-6-2.webp";
 import AboutThreeShapeThree from "/assets/imgs/shape/about-6-3.webp";
@@ -118,9 +118,9 @@ title: "Build a fortress of knowledge, resilience, and mastery in DDoS defense",
   link: "about",
   image: AboutThreeImageOne,
   shapeOne: AboutThreeShapeOne,
-  shapeTwo: AboutThreeShapeTwo,
-  shapeThree: AboutThreeShapeThree,
-  shapeFour: AboutThreeShapeFour,
+  
+  
+  
   shapeFive: AboutThreeShapeFive,
 };
 
@@ -134,11 +134,11 @@ const aboutFour = {
   shapeOne: AboutShapeFourOne,
   shapeTwo: ReviewShape,
   title: {
-    sliceOne: "We Offering top-quality online",
-    sliceTwo: "Courses",
+    sliceOne: "We offer top-tier online courses designed to elevate your cybersecurity skills with .",
+    sliceTwo: "the power of AI",
   },
   description:
-    "Ariel Renous and Roy Wellner, two lifelong friends with a passion for business, started their educational journey in a renowned European business school. They quickly realized there was a disconnect: many of their instructors were academics that lacked real-world experience",
+    "We saw a gap in traditional cybersecurity education — too much theory, not enough real-world impact. That’s why we built a platform combining hands-on training with AI-powered tools, giving you the skills to face real threats in real time. Our courses are designed to prepare you not just to learn, but to lead in the world of cybersecurity.",
   btn: {
     text: "Browse More",
     link: "courses",

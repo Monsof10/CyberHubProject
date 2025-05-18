@@ -1,13 +1,15 @@
-import { headerTwo as header } from "@/data/header";
-import MenuOne from "@/components/Menu/MenuOne";
-
-import menus from "@/data/menu";
-import { useThemeContext } from "@/context/ThemeContext";
-import SearchOne from "@/components/Search/SearchOne";
+import { headerTwo as header } from "../../data/header";
+import MenuOne from "../Menu/MenuOne";
+import menus from "../../data/menu";
+import { useThemeContext } from "../../context/ThemeContext";
+import { useAuth } from "../../context/AuthContext";
+import SearchOne from "../Search/SearchOne";
 import { Link } from "react-router-dom";
 
 export default function HeaderTwo() {
   const { toggleMobileMenu } = useThemeContext();
+  const { user } = useAuth();
+  
   const data = {
     classNames: {
       header: "header__main-4",
@@ -16,9 +18,9 @@ export default function HeaderTwo() {
     },
     menus: menus,
   };
+  
   return (
     <header className="cyberhub-header header__area-4">
-
       <div className="container">
         <div className="header__wrapper-4">
           {/* <!-- Logo  --> */}
@@ -30,7 +32,6 @@ export default function HeaderTwo() {
             </div>
           )}
           {/* <!-- Menu  --> */}
-
           <MenuOne data={data} />
           {/* <!-- Menu --> */}
           <div className="header__right-4 d-flex align-items-center gap-4">
@@ -49,19 +50,51 @@ export default function HeaderTwo() {
             </div>
             {/* <!-- Offcanvas icon  --> */}
             <div className="header__btn-4 d-flex align-items-center gap-3">
-              <Link className="btn-login" to="/Login">
-                Login
-              </Link>
-              <Link
-                className="btn-signUp-4 btn-hover-secondary btn-hover-bubble"
-                to="/Signup"
-              >
-                Sign up free
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-              </Link>
+              {user ? (
+                <Link 
+                  className="btn-signUp-4 btn-hover-secondary btn-hover-bubble"
+                  to="/Profile"
+                  style={{
+                    fontSize: '14px',
+                    padding: '8px 16px',
+                    backgroundColor: '#F1C40F',
+                    color: '#000'
+                  }}
+                >
+                  Profile
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </Link>
+              ) : (
+                <>
+                  <Link 
+                    className="btn-login" 
+                    to="/Login"
+                    style={{
+                      fontSize: '14px',
+                      padding: '8px 16px'
+                    }}
+                  >
+                    Login
+                  </Link>
+                  <Link
+                    className="btn-signUp-4 btn-hover-secondary btn-hover-bubble"
+                    to="/Signup"
+                    style={{
+                      fontSize: '14px',
+                      padding: '8px 16px'
+                    }}
+                  >
+                    Sign up free
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </Link>
+                </>
+              )}
             </div>
           </div>
         </div>

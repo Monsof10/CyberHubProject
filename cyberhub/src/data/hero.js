@@ -2,11 +2,11 @@ import ArrowRightWhiteIcon from "/assets/imgs/icon/arrow-right-white.svg";
 import ReviewIcon from "/assets/imgs/icon/review.webp";
 import FeedbackIcon from "/assets/imgs/icon/feedback.webp";
 
-import SlideOneItemOne from "/assets/imgs/hero/hero-1.webp";
-import SlideOneItemTwo from "/assets/imgs/hero/hero-2.webp";
+import SlideOneItemOne from "/assets/imgs/gallery/course-img-2.webp";
+import SlideOneItemTwo from "/assets/imgs/hero/hero-2.jpg";
 import SlideOneItemThree from "/assets/imgs/hero/hero-3.webp";
-import SlideOneItemFour from "/assets/imgs/hero/hero-4.webp";
-import SlideOneItemFive from "/assets/imgs/hero/hero-5.webp";
+import SlideOneItemFour from "/assets/imgs/gallery/course-img-2.webp";
+import SlideOneItemFive from "/assets/imgs/gallery/course-img-6.webp";
 
 import SlideOneWidgetOne from "/assets/imgs/shape/hero-shape-1.webp";
 import SlideOneWidgetTwo from "/assets/imgs/shape/hero-shape-2.webp";
@@ -14,13 +14,13 @@ import SlideOneWidgetThree from "/assets/imgs/shape/hero-shape-3.webp";
 
 const heroOne = {
   title: {
-    sliceOne: "Explore tailored",
-    sliceTwo: "Courses",
-    sliceThree: "to enhance your cybersecurity",
-    sliceFour: "expertise",
+    sliceOne: "Defend smarter,",
+    sliceTwo: "not harder",
+    sliceThree: "unleash AI-powered security like a",
+    sliceFour: "boss!",
   },
   description:
-    "Learn about all the major vulnerabilities that threaten your stack and hack real vulnerable applications to see how the attacks work.",
+    "Get inside the hacker’s mind — use AI to uncover, exploit, and outsmart real-world vulnerabilities.",
   btn: {
     title: "Explore our courses",
     link: "course",
@@ -171,12 +171,35 @@ const heroThree = {
 
 const heroFour = {
   title: {
-    sliceOne: "Global leader in learning and instruction",
-    sliceTwo: "Marketplace",
+    sliceOne: "The global frontier for AI-powered cybersecurity training and real-world",
+    sliceTwo: "attack simulations.",
   },
   descriptionOne:
-    "Inspiring courses for the life you want to lead. Discover our fresh approach to a life-changing educational adventure.",
+    "Empowering you with cutting-edge AI security skills. Dive into a smarter, hands-on journey to a future-proof cyber career.",
   descriptionTwo:
-    "We believe in putting our clients at the heart of everything we do. Your success is our success, and we are committed to delivering exceptional service tailored to your unique.",
+    "We put you at the center of every line of code and every defense. Your security journey is our mission — with AI-driven solutions tailored to your unique path.",
 };
-export { heroOne, innerHeroOne, heroTwo, heroThree, heroFour };
+import HeroSqlShapeOne from "/assets/imgs/shape/banner-6-1.webp";
+import HeroSqlShapeTwo from "/assets/imgs/shape/banner-6-2.webp";
+import HeroSqlShapeThree from "/assets/imgs/shape/banner-6-3.webp";
+import HeroSqlShapeFour from "/assets/imgs/shape/banner-6-4.webp";
+
+const heroSql = {
+  title: {
+    sliceOne: "Master the art of",
+    sliceTwo: "SQL Injection",
+    sliceThree: "and secure your databases"
+  },
+  description:
+    "Learn how attackers exploit database vulnerabilities and build robust defenses against SQL injection attacks",
+  btn: {
+    link: "/Sql-Injection/HomePage",
+    text: "Start Learning",
+  },
+  shapeOne: HeroSqlShapeOne,
+  shapeTwo: HeroSqlShapeTwo,
+  shapeThree: HeroSqlShapeThree,
+  shapeFour: HeroSqlShapeFour,
+};
+
+export { heroOne, innerHeroOne, heroTwo, heroThree, heroFour, heroSql };

@@ -182,7 +182,7 @@ export default function CourseFilterOne() {
                     defaultValue="course"
                   />
                   <label className="filter-label" htmlFor="Software">
-                    Web Exploitation
+                    Penetration Testing 
                   </label>
                 </li>
                 <li className="filter-list-item">
@@ -193,7 +193,7 @@ export default function CourseFilterOne() {
                     defaultValue="course"
                   />
                   <label className="filter-label" htmlFor="Professional">
-                    Binary Exploitation
+                    Program Security
                   </label>
                 </li>
                 <li className="filter-list-item">

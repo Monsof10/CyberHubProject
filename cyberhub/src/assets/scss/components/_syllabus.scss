@@ -1,0 +1,83 @@
+.syllabus {
+  &-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  &-content {
+    .unit {
+      background-color: #ffffff;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      cursor: pointer;
+      border: 1px solid #e9ecef;
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      h5 {
+        color: #000000;
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+
+        .unit-number {
+          background-color: #1a1f36;
+          color: #ffffff;
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-right: 1rem;
+        }
+      }
+
+      p {
+        color: #000000;
+        margin-bottom: 0;
+      }
+
+      .unit-details {
+        display: none;
+        margin-top: 1.5rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid #e9ecef;
+
+        &.active {
+          display: block;
+        }
+
+        h6 {
+          color: #000000;
+          margin-bottom: 1rem;
+          font-weight: 600;
+        }
+
+        .units-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1rem;
+        }
+
+        .unit-item {
+          color: #000000;
+          padding: 0.5rem 0;
+          display: flex;
+          align-items: center;
+
+          &:before {
+            content: "•";
+            color: #ffd700;
+            margin-right: 0.75rem;
+          }
+        }
+      }
+    }
+  }
+}

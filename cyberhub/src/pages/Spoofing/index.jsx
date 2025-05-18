@@ -18,10 +18,10 @@ export default function ChildrenEducationPage() {
         <ServiceTwo />
         <AboutTwo />
         <CourseTwo />
-        <TestimonialTwo />
-        <FaqOne />
         <CtaTwo />
-        <BlogTwo />
+        <FaqOne />
+        
+        
       </main>
     </LayoutTwo>
   );

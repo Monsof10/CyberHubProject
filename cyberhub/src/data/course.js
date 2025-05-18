@@ -83,9 +83,9 @@ const courseOne = {
         name: "Jackie Rippin",
       },
       wishlistIcon: WishListIcon,
-      title: "Email Spoofing for Beginners: A way to Your Credentials",
+      title: "Spoofing for Beginners: A way to Your Credentials",
       price: "$9.00",
-      link: "/Spoofing/Article",
+      link: "/Spoofing/HomePage",
       filterClass: "trending",
       categories: [
         {
@@ -254,9 +254,9 @@ const courseOne = {
   },
 };
 
-import CourseTwoImageOne from "/assets/imgs/thumb/course-four-1.webp";
-import CourseTwoImageTwo from "/assets/imgs/thumb/course-four-2.webp";
-import CourseTwoImageThree from "/assets/imgs/thumb/course-four-3.webp";
+import CourseTwoImageOne from "/assets/imgs/thumb/course41.png";
+import CourseTwoImageTwo from "/assets/imgs/thumb/course43.png";
+import CourseTwoImageThree from "/assets/imgs/thumb/course42.png";
 
 const courseTwo = {
   title: "Explore Our Course",
@@ -319,10 +319,10 @@ const courseTwo = {
   ],
 };
 
-import CourseThreeImageOne from "/assets/imgs/thumb/course-6-1.webp";
-import CourseThreeImageTwo from "/assets/imgs/thumb/course-6-2.webp";
-import CourseThreeImageThree from "/assets/imgs/thumb/course-6-3.webp";
-import CourseThreeImageFour from "/assets/imgs/thumb/course-6-4.webp";
+import CourseThreeImageOne from "/assets/imgs/thumb/course61.jpg";
+import CourseThreeImageTwo from "/assets/imgs/thumb/course62.jpg";
+import CourseThreeImageThree from "/assets/imgs/thumb/course63.jpg";
+import CourseThreeImageFour from "/assets/imgs/thumb/course64.jpg";
 
 const courseThree = {
   title: "Our Course Leaves",
@@ -395,10 +395,10 @@ const courseThree = {
     },
     {
       image: CourseThreeImageFour,
-      title: "Cyber Resilience & DDoS Defense Coaching",
+      title: "Network Hardening & DDoS Mitigation Training",
       link: "course-detail",
       description:
-      "Coaching focused on building overall cyber resilience, with an emphasis on defending against DDoS attacks through proactive measures and recovery plans",
+      "Focused training on fortifying networks and mitigating DDoS attacks through proactive defense and recovery strategies.",
       categories: [
         "Cyber Resilience",
         "Risk Management",
@@ -418,4 +418,103 @@ const courseThree = {
   ],
 };
 
-export { courseOne, courseTwo, courseThree };
+import CourseSqlImageOne from "/assets/imgs/thumb/course-6-1.webp";
+import CourseSqlImageTwo from "/assets/imgs/thumb/course-6-2.webp";
+import CourseSqlImageThree from "/assets/imgs/thumb/course-6-3.webp";
+import CourseSqlImageFour from "/assets/imgs/thumb/course-6-4.webp";
+
+const courseSql = {
+  title: "Master SQL Injection Defense",
+  courses: [
+    {
+      image: CourseSqlImageOne,
+      title: "Understanding SQL Injection Fundamentals",
+      link: "/Sql-Injection/HomePage",
+      description:
+        "Learn the core concepts of SQL injection attacks, including different types and their impact on database security",
+      categories: [
+        "SQL Basics",
+        "Attack Types",
+        "Database Security",
+        "Input Validation",
+        "Query Analysis"
+      ],
+      animation: {
+        name: "fade-slide bottom",
+        delay: "0.6"
+      },
+      btn: {
+        text: "Start Learning",
+        link: "/Sql-Injection/HomePage"
+      }
+    },
+    {
+      image: CourseSqlImageTwo,
+      title: "Advanced SQL Injection Prevention",
+      link: "/Sql-Injection/Article",
+      description:
+        "Deep dive into advanced prevention techniques, including prepared statements, stored procedures, and input sanitization",
+      categories: [
+        "Prepared Statements",
+        "Input Sanitization",
+        "WAF Configuration",
+        "Security Testing",
+        "Best Practices"
+      ],
+      animation: {
+        name: "fade-slide bottom",
+        delay: "0.6"
+      },
+      btn: {
+        text: "Learn More",
+        link: "/Sql-Injection/Article"
+      }
+    },
+    {
+      image: CourseSqlImageThree,
+      title: "Real-world SQL Injection Scenarios",
+      link: "/Sql-Injection/AttackPages/ClassicSqlInjection",
+      description:
+        "Explore real-world case studies and hands-on exercises to understand how attackers exploit SQL vulnerabilities",
+      categories: [
+        "Case Studies",
+        "Attack Simulation",
+        "Defense Strategies",
+        "Vulnerability Assessment",
+        "Incident Response"
+      ],
+      animation: {
+        name: "fade-slide bottom",
+        delay: "0.8"
+      },
+      btn: {
+        text: "Start Practice",
+        link: "/Sql-Injection/AttackPages/ClassicSqlInjection"
+      }
+    },
+    {
+      image: CourseSqlImageFour,
+      title: "Database Security Architecture",
+      link: "/Sql-Injection/AttackPages/UnionBasedInjection",
+      description:
+        "Learn to build secure database architectures that are resilient against SQL injection and other database attacks",
+      categories: [
+        "Architecture Design",
+        "Security Layers",
+        "Access Control",
+        "Monitoring",
+        "Audit Trails"
+      ],
+      animation: {
+        name: "fade-slide bottom",
+        delay: "0.8"
+      },
+      btn: {
+        text: "Explore More",
+        link: "/Sql-Injection/AttackPages/UnionBasedInjection"
+      }
+    }
+  ]
+};
+
+export { courseOne, courseTwo, courseThree, courseSql };

@@ -1,78 +1,187 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import XtermTerminal from '../../../components/XtermTerminal';
+import AttackPagesHeader from '../../../components/AttackPagesHeader/AttackPagesHeader';
 
 const IpSpoofing = () => {
   const [labStarted, setLabStarted] = useState(false);
+  const [showNetworkArch, setShowNetworkArch] = useState(false);
 
   const startLab = () => {
+    setShowNetworkArch(true);
+  };
+
+  const proceedToLab = () => {
+    setShowNetworkArch(false);
     setLabStarted(true);
   };
 
-  if (!labStarted) {
+  if (!labStarted && !showNetworkArch) {
     return (
       <div style={{ 
         backgroundColor: '#151B3B',
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column'
+      }}>
+        <AttackPagesHeader pageType="spoofing" />
+        <div style={{
+          flex: 1,
+          color: '#fff',
+          padding: '40px',
+          fontFamily: 'Georgia, serif'
+        }}>
+          <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
+            <h1 style={{ 
+              color: '#5DADE2', 
+              fontSize: '36px',
+              marginBottom: '30px'
+            }}>IP Spoofing Attack Lab</h1>
+            
+            <div style={{
+              backgroundColor: '#1a2147',
+              padding: '30px',
+              borderRadius: '10px',
+              marginBottom: '30px',
+              border: '1px solid #5DADE2'
+            }}>
+              <h2 style={{ 
+                color: '#5DADE2',
+                fontSize: '24px',
+                marginBottom: '20px'
+              }}>Available Scripts</h2>
+              <p style={{ 
+                fontSize: '18px',
+                lineHeight: '1.6',
+                marginBottom: '20px'
+              }}>
+                These Python scripts will guide you through understanding and executing IP spoofing attacks:
+              </p>
+              <ul style={{ 
+                textAlign: 'left',
+                fontSize: '18px',
+                lineHeight: '1.6',
+                marginBottom: '30px'
+              }}>
+                <li><code>ipspoofpt1.py</code> - <strong>Basic IP Spoofing:</strong> Learn how to create and send packets with forged source IP addresses</li>
+                <li><code>ipspoofpt2.py</code> - <strong>Advanced Techniques:</strong> Explore IP flooding attacks using multiple spoofed addresses</li>
+              </ul>
+              <div style={{
+                backgroundColor: '#151B3B',
+                padding: '15px',
+                borderRadius: '5px',
+                marginBottom: '20px'
+              }}>
+                <p style={{ fontSize: '16px', margin: 0 }}>
+                  <strong style={{ color: '#F1C40F' }}>How it works:</strong> These scripts simulate IP spoofing attacks in a controlled environment, demonstrating how attackers can forge packet source addresses to impersonate other systems or launch denial-of-service attacks.
+                </p>
+              </div>
+              <div style={{
+                backgroundColor: '#F1C40F',
+                color: '#000',
+                padding: '15px',
+                borderRadius: '5px',
+                marginBottom: '20px'
+              }}>
+                ⚠️ This is a controlled environment for educational purposes only
+              </div>
+            </div>
+
+            <button 
+              onClick={startLab}
+              style={{
+                backgroundColor: '#F1C40F',
+                color: '#000',
+                padding: '15px 30px',
+                borderRadius: '5px',
+                border: 'none',
+                fontSize: '20px',
+                fontWeight: '600',
+                cursor: 'pointer'
+              }}
+            >
+              Start Lab Environment
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (showNetworkArch) {
+    return (
+      <div style={{
+        backgroundColor: '#151B3B',
         color: '#fff',
         minHeight: '100vh',
-        padding: '40px',
-        fontFamily: 'Georgia, serif'
+        display: 'flex',
+        flexDirection: 'column'
       }}>
-        <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
-          <h1 style={{ 
-            color: '#5DADE2', 
-            fontSize: '36px',
-            marginBottom: '30px'
-          }}>IP Spoofing Attack Lab</h1>
-          
+        <AttackPagesHeader pageType="spoofing" />
+        <div style={{
+          padding: '40px',
+          fontFamily: 'Georgia, serif'
+        }}>
           <div style={{
-            backgroundColor: '#1a2147',
-            padding: '30px',
-            borderRadius: '10px',
-            marginBottom: '30px',
-            border: '1px solid #5DADE2'
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            textAlign: 'left',
+            maxWidth: '900px',
+            margin: '0 auto'
           }}>
-            <h2 style={{ 
-              color: '#5DADE2',
-              fontSize: '24px',
-              marginBottom: '20px'
-            }}>Available Scripts</h2>
-            <p>These Scripts are Predefined Ai Models that will help you to generate the attack simulation</p>
-            <ul style={{ 
-              textAlign: 'left',
-              fontSize: '18px',
-              lineHeight: '1.6',
-              marginBottom: '30px'
-            }}>
-              <li><code>ipspoofpt1.py</code> - Basic IP packet spoofing</li>
-              <li><code>ipspoofpt2.py</code> - IP flooding with spoofed addresses</li>
-            </ul>
-            <div style={{
-              backgroundColor: '#F1C40F',
-              color: '#000',
-              padding: '15px',
-              borderRadius: '5px',
-              marginBottom: '20px'
-            }}>
-              ⚠️ This is a controlled environment for educational purposes only
+            <h1 style={{ color: '#5DADE2', fontSize: '36px', marginBottom: '30px', textAlign: 'center' }}>
+              Network Architecture Explanation
+            </h1>
+            <section style={{ marginBottom: '20px', backgroundColor: '#0b1437', padding: '20px', borderRadius: '8px', width: '100%' }}>
+              <h2 style={{ color: '#F1C40F', fontSize: '28px', marginBottom: '10px' }}>Overview</h2>
+              <p style={{ fontSize: '18px', lineHeight: '1.6' }}>
+                In this IP spoofing lab, we'll explore how attackers can forge the source IP addresses of network packets. The network setup includes target systems, an attacker's machine, and network infrastructure that processes and routes these spoofed packets.
+              </p>
+            </section>
+            <section style={{ marginBottom: '20px', backgroundColor: '#0b1437', padding: '20px', borderRadius: '8px', width: '100%' }}>
+              <h2 style={{ color: '#F1C40F', fontSize: '28px', marginBottom: '10px' }}>Components</h2>
+              <ul style={{ fontSize: '18px', lineHeight: '1.6', paddingLeft: '20px' }}>
+                <li><strong>Target System:</strong> The destination for spoofed packets</li>
+                <li><strong>Attacker's Machine:</strong> The system generating packets with forged source IPs</li>
+                <li><strong>Network Routers:</strong> Infrastructure devices that forward packets based on destination IP</li>
+                <li><strong>Legitimate Hosts:</strong> Systems whose IP addresses are being spoofed</li>
+              </ul>
+            </section>
+            <section style={{ marginBottom: '20px', backgroundColor: '#0b1437', padding: '20px', borderRadius: '8px', width: '100%' }}>
+              <h2 style={{ color: '#F1C40F', fontSize: '28px', marginBottom: '10px' }}>Attack Flow</h2>
+              <p style={{ fontSize: '18px', lineHeight: '1.6' }}>
+                1. Attacker crafts network packets with forged source IP addresses
+                2. These packets are injected into the network
+                3. Network infrastructure routes packets based on destination IP
+                4. Target system receives packets and responds to the spoofed source addresses
+              </p>
+            </section>
+            <section style={{ marginBottom: '20px', backgroundColor: '#0b1437', padding: '20px', borderRadius: '8px', width: '100%' }}>
+              <h2 style={{ color: '#F1C40F', fontSize: '28px', marginBottom: '10px' }}>Security Implications</h2>
+              <p style={{ fontSize: '18px', lineHeight: '1.6' }}>
+                IP spoofing enables various attacks including denial-of-service attacks, man-in-the-middle attacks, and bypass of IP-based authentication. Understanding this technique is crucial for implementing proper network security measures like ingress/egress filtering and source address validation.
+              </p>
+            </section>
+            <div style={{ textAlign: 'center' }}>
+              <button
+                onClick={proceedToLab}
+                style={{
+                  backgroundColor: '#F1C40F',
+                  color: '#000',
+                  padding: '15px 30px',
+                  borderRadius: '5px',
+                  border: 'none',
+                  fontSize: '20px',
+                  fontWeight: '600',
+                  cursor: 'pointer'
+                }}
+              >
+                Proceed to Lab
+              </button>
             </div>
           </div>
-
-          <button 
-            onClick={startLab}
-            style={{
-              backgroundColor: '#F1C40F',
-              color: '#000',
-              padding: '15px 30px',
-              borderRadius: '5px',
-              border: 'none',
-              fontSize: '20px',
-              fontWeight: '600',
-              cursor: 'pointer'
-            }}
-          >
-            Start Lab Environment
-          </button>
         </div>
       </div>
     );
@@ -85,6 +194,7 @@ const IpSpoofing = () => {
       minHeight: '100vh',
       backgroundColor: '#151B3B'
     }}>
+      <AttackPagesHeader pageType="spoofing" />
       <div style={{ 
         display: 'flex', 
         flex: 1,
@@ -361,7 +471,7 @@ ping -c 3 192.168.1.1`}
         </div>
       </div>
       
-      {/* Navigation Buttons - Fixed at Bottom */}
+      {/* Navigation Buttons */}
       <div style={{
         padding: '20px',
         backgroundColor: '#1a2147',

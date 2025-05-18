@@ -1,197 +1,533 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect, useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthContext';
+
+
+const learningObjectives = [
+  'SQL query fundamentals',
+  'Common injection techniques',
+  'Input validation bypassing',
+  'Database security measures',
+  'Prevention strategies',
+  'Secure coding practices',
+  'Real-world attack scenarios',
+  'Defense implementation'
+];
+
+const levelContent = {
+  1: {
+    title: "Level 1: Introduction to SQL Injection",
+    overview: "Learn the basics of SQL injection attacks and understand how they exploit database vulnerabilities.",
+    prerequisites: [
+      'Basic understanding of databases',
+      'Familiarity with web browsers',
+      'No prior security knowledge required'
+    ]
+  },
+  2: {
+    title: "Level 2: Basic SQL Injection Techniques",
+    overview: "Explore common SQL injection methods and understand their impact on database security.",
+    prerequisites: [
+      'Completion of Level 1',
+      'Basic SQL knowledge',
+      'Understanding of web forms'
+    ]
+  },
+  3: {
+    title: "Level 3: Advanced Injection Methods",
+    overview: "Master complex SQL injection techniques and learn about automated attack tools.",
+    prerequisites: [
+      'Completion of Level 2',
+      'Intermediate SQL knowledge',
+      'Basic security concepts'
+    ]
+  },
+  4: {
+    title: "Level 4: Defense Strategies",
+    overview: "Learn advanced protection techniques against SQL injection attacks.",
+    prerequisites: [
+      'Completion of Level 3',
+      'Advanced SQL knowledge',
+      'Security implementation experience'
+    ]
+  },
+  5: {
+    title: "Level 5: Expert Security Implementation",
+    overview: "Implement enterprise-level database security and advanced protection measures.",
+    prerequisites: [
+      'Completion of Level 4',
+      'Expert SQL knowledge',
+      'Advanced security experience'
+    ]
+  }
+};
 
 const SqlInjectionHome = () => {
+  const [isHovered, setIsHovered] = useState(false);
+  const [progress, setProgress] = useState(null);
+  const [selectedLevel, setSelectedLevel] = useState(1);
+  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchProgress = async () => {
+      if (user) {
+        const userProgress = await getUserProgress(user.id);
+        setProgress(userProgress);
+      }
+    };
+    fetchProgress();
+  }, [user]);
+
+  const calculateProgress = () => {
+    if (!progress?.progress?.sqlinjection) return 0;
+    const module = progress.progress.sqlinjection;
+    const total = Object.keys(module).length;
+    const completed = Object.values(module).filter(item => item.completed).length;
+    return Math.round((completed / total) * 100);
+  };
+
+  const resetProgress = async () => {
+    if (window.confirm('Are you sure you want to reset your progress? This cannot be undone.')) {
+      try {
+        const updatedProgress = {
+          ...progress.progress,
+          sqlinjection: Object.fromEntries(
+            Object.entries(progress.progress.sqlinjection).map(([key]) => [
+              key,
+              { completed: false, completedAt: null }
+            ])
+          )
+        };
+        
+        await updateUserProgress(user.id, updatedProgress);
+        setProgress({ ...progress, progress: updatedProgress });
+      } catch (error) {
+        console.error('Error resetting progress:', error);
+      }
+    }
+  };
+
   return (
-    <div style={{ 
-      backgroundColor: '#151B3B',
-      color: '#fff',
-      minHeight: '100vh',
-      padding: '40px',
-      fontFamily: 'Georgia, serif'
-    }}>
-      <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
-        <h1 style={{ 
-          color: '#5DADE2', 
-          fontSize: '48px',
-          marginBottom: '30px',
-          textAlign: 'center'
-        }}>
-          SQL Injection: Advanced Attack Techniques
-        </h1>
+    <div style={{ overflow: 'hidden', position: 'relative' }}>
+      {/* Cyberhub Button */}
+      <div style={{
+        position: 'fixed',
+        top: '20px',
+        left: '20px',
+        zIndex: 1100
+      }}>
+        <Link
+          to="/"
+          style={{
+            display: 'inline-block',
+            padding: '10px 20px',
+            backgroundColor: '#fff',
+            color: '#1A237E',
+            fontWeight: 'bold',
+            borderRadius: '8px',
+            textDecoration: 'none',
+            boxShadow: '0 2px 6px rgba(0,0,0,0.2)',
+            transition: 'all 0.3s ease'
+          }}
+        >
+          Cyberhub
+        </Link>
+      </div>
 
-        {/* Course Overview */}
-        <div style={{
-          backgroundColor: '#1a2147',
-          padding: '30px',
-          borderRadius: '10px',
-          marginBottom: '30px',
-          border: '1px solid #5DADE2'
-        }}>
-          <h2 style={{ 
-            color: '#5DADE2',
-            fontSize: '28px',
-            marginBottom: '20px'
-          }}>Course Overview</h2>
-          <p style={{ 
-            fontSize: '18px',
-            lineHeight: '1.6',
-            marginBottom: '20px'
-          }}>
-            Master the art of SQL Injection from basic concepts to advanced exploitation techniques. 
-            Learn through hands-on labs, interactive quizzes, and real-world scenarios.
-          </p>
-          <div style={{
-            backgroundColor: '#F1C40F',
-            color: '#000',
-            padding: '15px',
-            borderRadius: '5px',
-            marginBottom: '20px',
-            fontSize: '18px'
-          }}>
-            ⚠️ All techniques taught are for educational purposes and ethical hacking only
-          </div>
-        </div>
-
-        {/* What You'll Learn */}
-        <div style={{
-          backgroundColor: '#1a2147',
-          padding: '30px',
-          borderRadius: '10px',
-          marginBottom: '30px',
-          border: '1px solid #5DADE2'
-        }}>
-          <h2 style={{ 
-            color: '#5DADE2',
-            fontSize: '28px',
-            marginBottom: '20px'
-          }}>What You'll Learn</h2>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(2, 1fr)',
-            gap: '20px',
-            fontSize: '18px',
-            lineHeight: '1.6'
-          }}>
-            <div>
-              <h3 style={{ color: '#F1C40F', marginBottom: '15px' }}>Technical Skills</h3>
-              <ul style={{ listStyle: 'disc', marginLeft: '20px' }}>
-                <li>Class SQL Injection</li>
-                <li>UNION-Based Attacks</li>
-                <li>Blind SQL Injection Techniques</li>
-                <li>Advanced Database Manipulation</li>
-                <li>WAF Bypass Methods</li>
-              </ul>
-            </div>
-            <div>
-              <h3 style={{ color: '#F1C40F', marginBottom: '15px' }}>Security Practices</h3>
-              <ul style={{ listStyle: 'disc', marginLeft: '20px' }}>
-                <li>Input Validation Strategies</li>
-                <li>Parameterized Queries</li>
-                <li>Database Hardening</li>
-                <li>Security Monitoring</li>
-                <li>Incident Response</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        {/* Course Structure */}
-        <div style={{
-          backgroundColor: '#1a2147',
-          padding: '30px',
-          borderRadius: '10px',
-          marginBottom: '30px',
-          border: '1px solid #5DADE2'
-        }}>
-          <h2 style={{ 
-            color: '#5DADE2',
-            fontSize: '28px',
-            marginBottom: '20px'
-          }}>Course Structure</h2>
-          
-          <div style={{ marginBottom: '30px' }}>
-            <h3 style={{ color: '#F1C40F', marginBottom: '15px', fontSize: '22px' }}>
-              1. Initial Assessment
-            </h3>
-            <p style={{ fontSize: '18px', lineHeight: '1.6' }}>
-              Begin with a quiz to test your current knowledge and customize your learning path.
-            </p>
-          </div>
-
-          <div style={{ marginBottom: '30px' }}>
-            <h3 style={{ color: '#F1C40F', marginBottom: '15px', fontSize: '22px' }}>
-              2. Comprehensive Article
-            </h3>
-            <p style={{ fontSize: '18px', lineHeight: '1.6' }}>
-              Deep dive into SQL Injection concepts, techniques, and prevention methods.
-            </p>
-          </div>
-
-          <div style={{ marginBottom: '30px' }}>
-            <h3 style={{ color: '#F1C40F', marginBottom: '15px', fontSize: '22px' }}>
-              3. Interactive Labs
-            </h3>
-            <ul style={{ 
-              listStyle: 'disc',
-              marginLeft: '20px',
-              fontSize: '18px',
-              lineHeight: '1.6'
-            }}>
-              <li>Classic Injection Lab</li>
-              <li>UNION-Based Injection Lab</li>
-              <li>Blind SQL Injection Lab</li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 style={{ color: '#F1C40F', marginBottom: '15px', fontSize: '22px' }}>
-              4. Final Assessment
-            </h3>
-            <p style={{ fontSize: '18px', lineHeight: '1.6' }}>
-              Comprehensive quiz to test your mastery of SQL Injection concepts and techniques.
-            </p>
-          </div>
-        </div>
-
-        {/* Start Course Button */}
-        <div style={{ textAlign: 'center' }}>
-        <Link 
-            to="/"
-                              style={{
-                                backgroundColor: '#5DADE2',
-                                color: '#fff',
-                                padding: '20px 65px',
-                                borderRadius: '5px',
-                                textDecoration: 'none',
-                                display: 'inline-block',
-                                alignItems: 'center',
-                                gap: '10px'
-                              }}
-                            >
-                              <span style={{ fontSize: '24px' }}>🏠</span>
-                              Return to Home
-                            </Link>
-          <Link 
-            to="/Sql-Injection/Article"
+      {/* Auth Buttons */}
+      <div style={{
+        position: 'absolute',
+        top: '20px',
+        right: '20px',
+        display: 'flex',
+        gap: '15px',
+        zIndex: 1000
+      }}>
+        {user ? (
+          <Link
+            to="/Profile"
             style={{
-              backgroundColor: '#F1C40F',
-              color: '#000',
-              padding: '20px 40px',
-              borderRadius: '5px',
+              padding: '10px 20px',
+              backgroundColor: '#1A237E',
+              color: 'white',
+              border: 'none',
+              borderRadius: '8px',
               textDecoration: 'none',
-              fontSize: '24px',
-              fontWeight: '600',
-              display: 'inline-block',
-              transition: 'transform 0.2s',
-              ':hover': {
-                transform: 'scale(1.05)'
-              }
+              fontWeight: 'bold',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '10px'
             }}
           >
-            Start Learning →
+            <span>Profile</span>
+            {progress && (
+              <div style={{
+                backgroundColor: '#FFD740',
+                color: '#1A237E',
+                padding: '2px 8px',
+                borderRadius: '12px',
+                fontSize: '12px'
+              }}>
+                {calculateProgress()}%
+              </div>
+            )}
           </Link>
-          
+        ) : (
+          <>
+            <button
+              onClick={() => navigate('/login')}
+              style={{
+                padding: '10px 20px',
+                backgroundColor: 'transparent',
+                color: '#1A237E',
+                border: '2px solid #1A237E',
+                borderRadius: '8px',
+                cursor: 'pointer',
+                fontWeight: 'bold'
+              }}
+            >
+              Login
+            </button>
+            <button
+              onClick={() => navigate('/signup')}
+              style={{
+                padding: '10px 20px',
+                backgroundColor: '#1A237E',
+                color: 'white',
+                border: 'none',
+                borderRadius: '8px',
+                cursor: 'pointer',
+                fontWeight: 'bold'
+              }}
+            >
+              Sign Up
+            </button>
+          </>
+        )}
+      </div>
+
+      {/* Yellow Banner Header */}
+      <div style={{
+        background: 'linear-gradient(45deg, #FFE57F, #FFD740)',
+        padding: '60px 0',
+        position: 'relative',
+        overflow: 'hidden',
+        boxShadow: '0 4px 20px rgba(0,0,0,0.1)'
+      }}>
+        <div style={{ 
+          position: 'relative', 
+          zIndex: 2,
+          maxWidth: '1200px',
+          margin: '0 auto',
+          padding: '0 20px'
+        }}>
+          <h1 style={{
+            fontSize: '48px',
+            textAlign: 'center',
+            color: '#1A237E',
+            fontWeight: 'bold',
+            marginBottom: '20px'
+          }}>
+            SQL Injection: Advanced Database Security
+          </h1>
+          <p style={{
+            fontSize: '20px',
+            textAlign: 'center',
+            color: '#1A237E',
+            maxWidth: '800px',
+            margin: '0 auto'
+          }}>
+            Master SQL injection techniques and database security through hands-on labs and real-world scenarios.
+          </p>
+        </div>
+      </div>
+
+      {/* Level Progress */}
+      <div style={{
+        background: '#fff',
+        padding: '30px 0',
+        borderBottom: '1px solid #eee'
+      }}>
+        <div style={{
+          maxWidth: '1200px',
+          margin: '0 auto',
+          padding: '0 20px'
+        }}>
+          <div style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            position: 'relative'
+          }}>
+            {[1, 2, 3, 4, 5].map((level) => (
+              <div
+                key={level}
+                onClick={() => user ? setSelectedLevel(level) : navigate('/login')}
+                style={{
+                  cursor: 'pointer',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  textDecoration: 'none',
+                  position: 'relative',
+                  zIndex: 2
+                }}
+              >
+                <div style={{
+                  width: '50px',
+                  height: '50px',
+                  borderRadius: '50%',
+                  backgroundColor: level === selectedLevel ? '#1A237E' : (level <= (calculateProgress() / 20) ? '#FFD740' : '#f0f0f0'),
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: level === selectedLevel ? '#fff' : (level <= (calculateProgress() / 20) ? '#1A237E' : '#666'),
+                  fontWeight: 'bold',
+                  fontSize: '18px',
+                  marginBottom: '10px',
+                  border: '2px solid',
+                  borderColor: level <= (calculateProgress() / 20) ? '#FFB300' : '#ddd',
+                  transition: 'all 0.3s ease'
+                }}>
+                  {level}
+                </div>
+                <span style={{
+                  color: level <= (calculateProgress() / 20) ? '#1A237E' : '#666',
+                  fontSize: '14px',
+                  fontWeight: '500'
+                }}>
+                  {level === 1 ? 'Beginner' :
+                   level === 2 ? 'Basic' :
+                   level === 3 ? 'Intermediate' :
+                   level === 4 ? 'Advanced' :
+                   'Expert'}
+                </span>
+              </div>
+            ))}
+            {/* Connecting line */}
+            <div style={{
+              position: 'absolute',
+              top: '25px',
+              left: '50px',
+              right: '50px',
+              height: '2px',
+              backgroundColor: '#eee',
+              zIndex: 1
+            }}>
+              <div style={{
+                width: `${calculateProgress()}%`,
+                height: '100%',
+                backgroundColor: '#FFD740',
+                transition: 'width 0.3s ease'
+              }}/>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style={{ 
+        maxWidth: '1200px', 
+        margin: '0 auto',
+        padding: '40px 20px',
+        display: 'grid',
+        gridTemplateColumns: '2fr 1fr',
+        gap: '40px'
+      }}>
+        {/* Main Content */}
+        <div>
+          {/* Course Overview */}
+          <section style={{
+            backgroundColor: 'white',
+            borderRadius: '15px',
+            padding: '30px',
+            marginBottom: '30px',
+            boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
+          }}>
+            <h2 style={{
+              fontSize: '28px',
+              color: '#1A237E',
+              marginBottom: '20px'
+            }}>{levelContent[selectedLevel].title}</h2>
+            <p style={{
+              fontSize: '16px',
+              lineHeight: '1.6',
+              color: '#333',
+              marginBottom: '20px'
+            }}>
+              {levelContent[selectedLevel].overview}
+            </p>
+          </section>
+
+          {/* Prerequisites */}
+          <section style={{
+            backgroundColor: 'white',
+            borderRadius: '15px',
+            padding: '30px',
+            marginBottom: '30px',
+            boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
+          }}>
+            <h2 style={{
+              fontSize: '28px',
+              color: '#1A237E',
+              marginBottom: '20px'
+            }}>Prerequisites</h2>
+            <ul style={{ paddingLeft: '20px' }}>
+              {levelContent[selectedLevel].prerequisites.map((item, index) => (
+                <li key={index} style={{
+                  marginBottom: '10px',
+                  color: '#333',
+                  fontSize: '16px'
+                }}>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          {/* What You'll Learn */}
+          <section style={{
+            backgroundColor: 'white',
+            borderRadius: '15px',
+            padding: '30px',
+            marginBottom: '30px',
+            boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
+          }}>
+            <h2 style={{
+              fontSize: '28px',
+              color: '#1A237E',
+              marginBottom: '20px'
+            }}>What You'll Learn</h2>
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: '1fr 1fr',
+              gap: '15px'
+            }}>
+              {learningObjectives.map((item, index) => (
+                <div key={index} style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '10px',
+                  fontSize: '16px',
+                  color: '#333'
+                }}>
+                  <span style={{ color: '#4CAF50' }}>✓</span>
+                  {item}
+                </div>
+              ))}
+            </div>
+          </section>
+        </div>
+
+        {/* Sidebar */}
+        <div style={{ position: 'sticky', top: '20px' }}>
+          <div style={{
+            backgroundColor: 'white',
+            padding: '30px',
+            borderRadius: '15px',
+            boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
+          }}>
+            {user && progress && (
+              <div style={{
+                backgroundColor: '#f8f9fa',
+                padding: '20px',
+                borderRadius: '10px',
+                marginBottom: '20px'
+              }}>
+                <h4 style={{ marginBottom: '15px', color: '#1A237E' }}>Your Progress</h4>
+                <div style={{ 
+                  width: '100%', 
+                  height: '10px', 
+                  backgroundColor: '#e9ecef',
+                  borderRadius: '5px',
+                  overflow: 'hidden',
+                  marginBottom: '10px'
+                }}>
+                  <div style={{ 
+                    width: `${calculateProgress()}%`, 
+                    height: '100%', 
+                    backgroundColor: '#FFD740',
+                    transition: 'width 0.3s ease'
+                  }}/>
+                </div>
+                <div style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center'
+                }}>
+                  <span>{calculateProgress()}% Complete</span>
+                  <button
+                    onClick={resetProgress}
+                    style={{
+                      backgroundColor: '#E74C3C',
+                      color: '#fff',
+                      padding: '5px 10px',
+                      border: 'none',
+                      borderRadius: '5px',
+                      cursor: 'pointer',
+                      fontSize: '12px'
+                    }}
+                  >
+                    Reset Progress
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {/* Course Info */}
+            <div style={{
+              marginBottom: '20px'
+            }}>
+              {[
+                { label: 'Duration', value: selectedLevel === 1 ? '45min' : 
+                                        selectedLevel === 2 ? '1h' :
+                                        selectedLevel === 3 ? '1.5h' :
+                                        selectedLevel === 4 ? '2h' : '3h' },
+                { label: 'Difficulty', value: selectedLevel === 1 ? 'Beginner' :
+                                            selectedLevel === 2 ? 'Basic' :
+                                            selectedLevel === 3 ? 'Intermediate' :
+                                            selectedLevel === 4 ? 'Advanced' : 'Expert' },
+                { label: 'Language', value: 'English' },
+                { label: 'Certificate', value: selectedLevel === 5 ? 'Yes' : 'No' }
+              ].map((item, index) => (
+                <div key={index} style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  padding: '10px 0',
+                  borderBottom: index !== 3 ? '1px solid #eee' : 'none'
+                }}>
+                  <span style={{ color: '#666' }}>{item.label}</span>
+                  <span style={{ color: '#1A237E', fontWeight: '500' }}>{item.value}</span>
+                </div>
+              ))}
+            </div>
+
+            <Link 
+              to={user ? "/Sql-Injection/Article" : "/login"}
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+              style={{
+                width: '100%',
+                padding: '15px',
+                backgroundColor: isHovered ? '#FF7043' : '#FF5722',
+                color: 'white',
+                border: 'none',
+                borderRadius: '10px',
+                fontSize: '18px',
+                fontWeight: 'bold',
+                cursor: 'pointer',
+                transition: 'all 0.3s ease',
+                textDecoration: 'none',
+                textAlign: 'center',
+                display: 'block'
+              }}
+            >
+              {!user ? 'Login to Start' : 
+               selectedLevel === 1 ? 'Start Course' :
+               calculateProgress() < (selectedLevel - 1) * 20 ? 'Complete Previous Level' :
+               'Continue Course'}
+            </Link>
+          </div>
         </div>
       </div>
     </div>

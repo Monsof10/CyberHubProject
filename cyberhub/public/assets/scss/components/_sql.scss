@@ -1,0 +1,77 @@
+.sql-hero {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  
+  .hero__title-6 {
+    .sql-highlight {
+      color: #00ff9d;
+      text-shadow: 0 0 10px rgba(0, 255, 157, 0.5);
+    }
+  }
+}
+
+.sql-btn {
+  background: linear-gradient(90deg, #00ff9d 0%, #00b8ff 100%);
+  border: none;
+  color: #1a1a2e;
+  font-weight: 600;
+  
+  &:hover {
+    background: linear-gradient(90deg, #00b8ff 0%, #00ff9d 100%);
+    color: #1a1a2e;
+  }
+}
+
+.sql-course {
+  background-color: #1a1a2e;
+  
+  .course__item-6 {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 255, 157, 0.1);
+    }
+  }
+  
+  .course__title-6 {
+    a {
+      color: #00ff9d;
+      
+      &:hover {
+        color: #00b8ff;
+      }
+    }
+  }
+  
+  .course__tag-6 {
+    span {
+      background: rgba(0, 255, 157, 0.1);
+      color: #00ff9d;
+      
+      &:hover {
+        background: rgba(0, 184, 255, 0.1);
+        color: #00b8ff;
+      }
+    }
+  }
+}
+
+.sql-video,
+.sql-feature,
+.sql-about,
+.sql-testimonial,
+.sql-achieve,
+.sql-blog {
+  background-color: #16213e;
+  color: #ffffff;
+  
+  h2, h3, h4 {
+    color: #00ff9d;
+  }
+  
+  p {
+    color: rgba(255, 255, 255, 0.8);
+  }
+}

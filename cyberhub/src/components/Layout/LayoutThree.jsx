@@ -1,12 +1,12 @@
-import Offcanvas from "@/components/Menu/Offcanvas";
-import HeaderThree from "@/components/Header/HeaderThree";
-import FooterThree from "@/components/Footer/FooterThree";
-import AnimationClient from "@/components/Client/AnimationClient";
+import Offcanvas from "../Menu/Offcanvas";
+import HeaderThree from "../Header/HeaderThree";
+import FooterThree from "../Footer/FooterThree";
+import AnimationClient from "../Client/AnimationClient";
 import PropTypes from "prop-types";
-import "@/assets/scss/health-coach.scss";
+import "../../assets/scss/health-coach.scss";
 
 LayoutThree.propTypes = {
-  children: PropTypes.object,
+  children: PropTypes.node,  // Changed from object to node since children can be any renderable content
   options: PropTypes.object,
 };
 

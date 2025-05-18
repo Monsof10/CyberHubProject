@@ -1,13 +1,14 @@
-import { HeaderOne as header } from "@/data/header";
-import MenuOne from "@/components/Menu/MenuOne";
-
-import menus from "@/data/menu";
-import { useThemeContext } from "@/context/ThemeContext";
-import SearchOne from "@/components/Search/SearchOne";
+import { HeaderOne as header } from '../../data/header';
+import MenuOne from '../Menu/MenuOne';
+import menus from '../../data/menu';
+import { useThemeContext } from '../../context/ThemeContext';
+import SearchOne from '../Search/SearchOne';
 import { Link } from "react-router-dom";
+import { useAuth } from '../../context/AuthContext';
 
 export default function HeaderOne() {
   const { toggleMobileMenu } = useThemeContext();
+  const { user } = useAuth();
   const data = {
     classNames: {
       header: "header__main",
@@ -19,7 +20,6 @@ export default function HeaderOne() {
 
   return (
     <header className="cyberhub-header header__area">
-
       <div className="header__wrapper">
         {/* <!-- Header logo  --> */}
         <div className="header__logo">
@@ -29,11 +29,11 @@ export default function HeaderOne() {
           <div className="header__select-wrap">
             <span className="header__circel-icon">
               <i className="ph ph-circles-four"></i>
-              All Categories
+              Skill Path Categories
             </span>
 
             {header.categories && (
-              <ul className="header__select" aria-label="All Categories">
+              <ul className="header__select" aria-label="Skill Path Categories">
                 {header.categories.map((category, index) => (
                   <li key={index}>
                     <Link to={category.link}>
@@ -63,13 +63,27 @@ export default function HeaderOne() {
         </div>
         {/* <!-- Header Button  --> */}
         <div className="header__btn">
-            <Link className="btn-login" to="/Login">
-              Login
+          {user ? (
+            <Link 
+              className="btn-signUp btn-hover-shadow" 
+              to="/Profile"
+              style={{
+                backgroundColor: '#F1C40F',
+                color: '#000'
+              }}
+            >
+              Profile
             </Link>
-            <Link className="btn-signUp btn-hover-shadow" to="/Signup">
-              Sign up free
-            </Link>
-
+          ) : (
+            <>
+              <Link className="btn-login" to="/Login">
+                Login
+              </Link>
+              <Link className="btn-signUp btn-hover-shadow" to="/Signup">
+                Sign up free
+              </Link>
+            </>
+          )}
         </div>
       </div>
       {/* <!-- Header Search  --> */}

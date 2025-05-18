@@ -1,14 +1,15 @@
-import MenuOne from "@/components/Menu/MenuOne";
-
-import { headerThree as header } from "@/data/header";
-
-import menus from "@/data/menu";
-import { useThemeContext } from "@/context/ThemeContext";
-import SearchOne from "@/components/Search/SearchOne";
+import MenuOne from "../Menu/MenuOne";
+import { headerThree as header } from "../../data/header";
+import menus from "../../data/menu";
+import { useThemeContext } from "../../context/ThemeContext";
+import { useAuth } from "../../context/AuthContext";
+import SearchOne from "../Search/SearchOne";
 import { Link } from "react-router-dom";
 
 export default function HeaderThree() {
   const { toggleMobileMenu } = useThemeContext();
+  const { user } = useAuth();
+  
   const data = {
     classNames: {
       header: "header__main m-auto",
@@ -17,9 +18,9 @@ export default function HeaderThree() {
     },
     menus: menus,
   };
+
   return (
     <header className="cyberhub-header header__area-6">
-
       <div className="header__wrapper-6">
         {/* <!-- Header logo  --> */}
         <div className="header__logo">
@@ -48,13 +49,43 @@ export default function HeaderThree() {
         </div>
         {/* <!-- Header Button  --> */}
         <div className="header__btn">
-            <Link className="btn-login" to="/Login">
-              Login
+          {user ? (
+            <Link 
+              className="btn-signUp btn-hover-effect border-radius-50" 
+              to="/Profile"
+              style={{
+                fontSize: '14px',
+                padding: '8px 16px',
+                backgroundColor: '#F1C40F',
+                color: '#000'
+              }}
+            >
+              Profile
             </Link>
-            <Link className="btn-signUp btn-hover-effect border-radius-50" to="/Signup">
-              Sign up free
-            </Link>
-
+          ) : (
+            <>
+              <Link 
+                className="btn-login" 
+                to="/Login"
+                style={{
+                  fontSize: '14px',
+                  padding: '8px 16px'
+                }}
+              >
+                Login
+              </Link>
+              <Link 
+                className="btn-signUp btn-hover-effect border-radius-50" 
+                to="/Signup"
+                style={{
+                  fontSize: '14px',
+                  padding: '8px 16px'
+                }}
+              >
+                Sign up free
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </header>

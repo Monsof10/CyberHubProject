@@ -1,0 +1,153 @@
+.career-path {
+  background-color: #1a1f36;
+  color: #ffffff;
+  padding: 4rem 0;
+
+  h1 {
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+  }
+
+  .lead {
+    color: #e0e0e0;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+
+  .btn-warning {
+    background-color: #ffd700;
+    border: none;
+    color: #1a1f36;
+    font-weight: 600;
+    padding: 0.8rem 2rem;
+    
+    &:hover {
+      background-color: #ffed4a;
+    }
+  }
+}
+
+.course-details {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+
+  .text-muted {
+    color: #6c757d;
+  }
+
+  .col-md-3 {
+    padding: 2rem;
+    border-right: 1px solid #e9ecef;
+    
+    &:last-child {
+      border-right: none;
+    }
+  }
+}
+
+.about-path {
+  background-color: #ffffff;
+  padding: 4rem 0;
+
+  .salary-info {
+    background-color: #f8f9fa;
+    border: none;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+
+    .card-body {
+      padding: 0;
+    }
+  }
+}
+
+.syllabus {
+  background-color: #f8f9fa;
+  padding: 4rem 0;
+
+  .syllabus-header {
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+
+  .unit {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid #e9ecef;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    h5 {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+      color: #1a1f36;
+
+      .unit-number {
+        background-color: #1a1f36;
+        color: #ffffff;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.9rem;
+        margin-right: 1rem;
+      }
+    }
+
+    p {
+      color: #6c757d;
+      margin-bottom: 0;
+    }
+
+    .unit-details {
+      display: none;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid #e9ecef;
+
+      &.active {
+        display: block;
+      }
+
+      .detail-section {
+        margin-bottom: 1rem;
+
+        h6 {
+          color: #1a1f36;
+          margin-bottom: 0.5rem;
+        }
+
+        ul {
+          list-style: none;
+          padding-left: 0;
+          margin-bottom: 0;
+
+          li {
+            color: #6c757d;
+            padding: 0.3rem 0;
+            display: flex;
+            align-items: center;
+
+            &:before {
+              content: "•";
+              color: #ffd700;
+              font-weight: bold;
+              margin-right: 0.5rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}

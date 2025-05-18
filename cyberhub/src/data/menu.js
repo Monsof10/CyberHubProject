@@ -10,7 +10,7 @@ const megaMenuOne = [
       {
         image: DemoOne,
         link: "/Sql-Injection/HomePage",
-        title: "Sql Injection ",
+        title: "Sql Injection",
       },
       {
         image: DemoTwo,
@@ -24,38 +24,38 @@ const megaMenuOne = [
       },
       {
         image: ComingSoonDemo,
-        link: "#",
+        link: "/CrossSiteScripting/HomePage",
         title: "Cross-Site Scripting",
       },
       {
         image: ComingSoonDemo,
-        link: "#",
+        link: "/ForensicScience/HomePage",
         title: "Forensic Science",
       },
       {
         image: ComingSoonDemo,
-        link: "#",
+        link: "/UserEnumeration/HomePage",
         title: "User Enumeration",
       },
       {
         image: ComingSoonDemo,
-        link: "#",
-        title: "Privilage Escalation",
+        link: "/PrivilegeEscalation/HomePage",
+        title: "Privilege Escalation",
       },
       {
         image: ComingSoonDemo,
-        link: "#",
+        link: "/BufferOverflows/HomePage",
         title: "Buffer Overflows",
       },
       {
         image: ComingSoonDemo,
-        link: "#",
+        link: "/ServerSideRequestForgery/HomePage",
         title: "Server-Side Request Forgery",
       },
       {
         image: ComingSoonDemo,
-        link: "#",
-        title: "Dns Poisining",
+        link: "/DnsPoisoning/HomePage",
+        title: "DNS Poisoning",
       },
     ],
   },
@@ -64,18 +64,18 @@ const megaMenuOne = [
     items: [
       {
         image: DemoOne,
-        link: "/Sql-Injection",
+        link: "/Sql-Injection/HomePage",
         title: "Sql Injection",
       },
     ],
   },
   {
-    name: "Email Spoofing",
+    name: "Spoofing",
     items: [
       {
         image: DemoTwo,
         link: "/Spoofing",
-        title: "Email Spoofing",
+        title: "Spoofing",
       },
     ],
   },
@@ -94,7 +94,7 @@ const megaMenuOne = [
     items: [
       {
         image: ComingSoonDemo,
-        link: "#",
+        link: "/CrossSiteScripting/HomePage",
         title: "Cross-Site Scripting",
       },
     ],
@@ -104,7 +104,7 @@ const megaMenuOne = [
     items: [
       {
         image: ComingSoonDemo,
-        link: "#",
+        link: "/ForensicScience/HomePage",
         title: "Forensic Science",
       },
     ],
@@ -114,7 +114,7 @@ const megaMenuOne = [
     items: [
       {
         image: ComingSoonDemo,
-        link: "#",
+        link: "/UserEnumeration/HomePage",
         title: "User Enumeration",
       },
     ],
@@ -123,12 +123,12 @@ const megaMenuOne = [
 
 const menus = [
   {
-    name: "Home",
+    name: "Catalog",
     link: "#",
     megaMenu: megaMenuOne,
     subMenus: [
       {
-        link: "/Sql-Injection",
+        link: "/Sql-Injection/HomePage",
         name: "Sql Injection",
       },
       {
@@ -154,101 +154,54 @@ const menus = [
         link: "/courses",
       },
       {
-        name: "Course Detail",
-        link: "/course-detail",
-      },
-      {
         name: "Course Filter",
         link: "/course-filter",
       },
     ],
   },
   {
-    name: "Pages",
+    name: "CTF Challenges",
     link: "#",
     subMenus: [
       {
-        name: "Instructor",
+        name: "General Skills",
+        link: "/CTFChallenges/GeneralSkillsPage",
+      },
+      {
+        name: "Forensics",
+        link: "/CTFChallenges/ForensicsPage",
+      },
+      {
+        name: "Web Exploitation",
+        link: "/CTFChallenges/WebExploitationPage",
+      },
+    ],
+  },
+  {
+    name: "Community",
+    link: "#",
+    subMenus: [
+      {
+        name: "World Events",
+        link: "https://www.blackhat.com/upcoming.html",
+      },
+      {
+        name: "Follow The Community",
+        link: "https://www.reddit.com/r/cybersecurity/",
+      },
+      {
+        name: "Who Are We",
         link: "/instructors",
       },
       {
-        name: "Instructor Detail",
-        link: "/instructor-detail",
-      },
-      {
-        name: "404",
-        link: "not-found",
+        name: "Join Us",
+        link: "/contact",
       },
     ],
   },
   {
-    name: "Blog",
-    link: "#",
-    subMenus: [
-      {
-        name: "Blog List",
-        link: "/blogs",
-      },
-      {
-        name: "Blog Sidebar",
-        link: "#",
-        menus: [
-          {
-            name: "Right Sidebar",
-            link: "/blogs",
-          },
-          {
-            name: "Left Sidebar",
-            link: "/blog-left-sidebar",
-          },
-        ],
-      },
-      {
-        name: "Blog Layout",
-        link: "#",
-        menus: [
-          {
-            name: "1 Column",
-            link: "/blog-column-one",
-          },
-          {
-            name: "2 Column",
-            link: "/blog-column-two",
-          },
-          {
-            name: "3 Column",
-            link: "/blog-column-three",
-          },
-          {
-            name: "4 Column",
-            link: "/blog-column-four",
-          },
-        ],
-      },
-      {
-        name: "Blog Details",
-        link: "#",
-        menus: [
-          {
-            name: "Right Sidebar",
-            link: "/blog-detail-right-sidebar",
-          },
-          {
-            name: "Left Sidebar",
-            link: "/blog-detail-left-sidebar",
-          },
-          {
-            name: "Without Sidebar",
-            link: "/blog-detail",
-          },
-        ],
-      },
-    ],
-  },
-  {
-    name: "Conatct",
-    link: "/contact",
-  },
-];
+    name: "Blogs And News",
+    link: "/Blogs",
+  }];
 
 export default menus;
