@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
-
+import { getUserProgress, updateUserProgress, createUserProgress } from '../../supabase/progress';
+import GoogleTranslateLanguageSelector from '../../components/GoogleTranslateLanguageSelector';
 
 const learningObjectives = [
   'SQL query fundamentals',
@@ -66,6 +67,8 @@ const SqlInjectionHome = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [progress, setProgress] = useState(null);
   const [selectedLevel, setSelectedLevel] = useState(1);
+  const [activeLevel, setActiveLevel] = useState(null);
+  const [showModal, setShowModal] = useState(false);
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -80,6 +83,21 @@ const SqlInjectionHome = () => {
   }, [user]);
 
   const calculateProgress = () => {
+    if (activeLevel === 1) {
+      return 20;
+    }
+    if (activeLevel === 2) {
+      return 40;
+    }
+    if (activeLevel === 3) {
+      return 60;
+    }
+    if (activeLevel === 4) {
+      return 80;
+    }
+    if (activeLevel === 5) {
+      return 100;
+    }
     if (!progress?.progress?.sqlinjection) return 0;
     const module = progress.progress.sqlinjection;
     const total = Object.keys(module).length;
@@ -87,24 +105,157 @@ const SqlInjectionHome = () => {
     return Math.round((completed / total) * 100);
   };
 
-  const resetProgress = async () => {
-    if (window.confirm('Are you sure you want to reset your progress? This cannot be undone.')) {
-      try {
-        const updatedProgress = {
-          ...progress.progress,
-          sqlinjection: Object.fromEntries(
-            Object.entries(progress.progress.sqlinjection).map(([key]) => [
-              key,
-              { completed: false, completedAt: null }
-            ])
-          )
+  const handleLevelClick = async () => {
+    if (!user) {
+      navigate('/login');
+      return;
+    }
+    try {
+      const existingProgress = await getUserProgress(user.id);
+      let newProgress;
+      if (selectedLevel === 1) {
+        newProgress = {
+          ...existingProgress?.progress,
+          sqlinjection: {
+            ...existingProgress?.progress?.sqlinjection,
+            level1_article: { completed: true, completedAt: new Date().toISOString() },
+            level1_initial_quiz: { completed: false, completedAt: null },
+            level1_labs_first: { completed: false, completedAt: null },
+            level1_final_quiz: { completed: false, completedAt: null },
+            level1_labs_second: { completed: false, completedAt: null }
+          }
         };
-        
-        await updateUserProgress(user.id, updatedProgress);
-        setProgress({ ...progress, progress: updatedProgress });
-      } catch (error) {
-        console.error('Error resetting progress:', error);
+      } else if (selectedLevel === 2) {
+        newProgress = {
+          ...existingProgress?.progress,
+          sqlinjection: {
+            ...existingProgress?.progress?.sqlinjection,
+            level1_article: { completed: true, completedAt: new Date().toISOString() },
+            level1_initial_quiz: { completed: true, completedAt: new Date().toISOString() },
+            level1_labs_first: { completed: true, completedAt: new Date().toISOString() },
+            level1_final_quiz: { completed: true, completedAt: new Date().toISOString() },
+            level1_labs_second: { completed: true, completedAt: new Date().toISOString() },
+            level2_article: { completed: true, completedAt: new Date().toISOString() },
+            level2_initial_quiz: { completed: false, completedAt: null },
+            level2_labs_first: { completed: false, completedAt: null },
+            level2_final_quiz: { completed: false, completedAt: null },
+            level2_labs_second: { completed: false, completedAt: null }
+          }
+        };
+      } else if (selectedLevel === 3) {
+        newProgress = {
+          ...existingProgress?.progress,
+          sqlinjection: {
+            ...existingProgress?.progress?.sqlinjection,
+            level1_article: { completed: true, completedAt: new Date().toISOString() },
+            level1_initial_quiz: { completed: true, completedAt: new Date().toISOString() },
+            level1_labs_first: { completed: true, completedAt: new Date().toISOString() },
+            level1_final_quiz: { completed: true, completedAt: new Date().toISOString() },
+            level1_labs_second: { completed: true, completedAt: new Date().toISOString() },
+            level2_article: { completed: true, completedAt: new Date().toISOString() },
+            level2_initial_quiz: { completed: true, completedAt: new Date().toISOString() },
+            level2_labs_first: { completed: true, completedAt: new Date().toISOString() },
+            level2_final_quiz: { completed: true, completedAt: new Date().toISOString() },
+            level2_labs_second: { completed: true, completedAt: new Date().toISOString() },
+            level3_article: { completed: true, completedAt: new Date().toISOString() },
+            level3_initial_quiz: { completed: false, completedAt: null },
+            level3_labs_first: { completed: false, completedAt: null },
+            level3_final_quiz: { completed: false, completedAt: null },
+            level3_labs_second: { completed: false, completedAt: null }
+          }
+        };
+      } else if (selectedLevel === 4) {
+        newProgress = {
+          ...existingProgress?.progress,
+          sqlinjection: {
+            ...existingProgress?.progress?.sqlinjection,
+            level1_article: { completed: true, completedAt: new Date().toISOString() },
+            level1_initial_quiz: { completed: true, completedAt: new Date().toISOString() },
+            level1_labs_first: { completed: true, completedAt: new Date().toISOString() },
+            level1_final_quiz: { completed: true, completedAt: new Date().toISOString() },
+            level1_labs_second: { completed: true, completedAt: new Date().toISOString() },
+            level2_article: { completed: true, completedAt: new Date().toISOString() },
+            level2_initial_quiz: { completed: true, completedAt: new Date().toISOString() },
+            level2_labs_first: { completed: true, completedAt: new Date().toISOString() },
+            level2_final_quiz: { completed: true, completedAt: new Date().toISOString() },
+            level2_labs_second: { completed: true, completedAt: new Date().toISOString() },
+            level3_article: { completed: true, completedAt: new Date().toISOString() },
+            level3_initial_quiz: { completed: true, completedAt: new Date().toISOString() },
+            level3_labs_first: { completed: true, completedAt: new Date().toISOString() },
+            level3_final_quiz: { completed: true, completedAt: new Date().toISOString() },
+            level3_labs_second: { completed: true, completedAt: new Date().toISOString() },
+            level4_article: { completed: true, completedAt: new Date().toISOString() },
+            level4_initial_quiz: { completed: false, completedAt: null },
+            level4_labs_first: { completed: false, completedAt: null },
+            level4_final_quiz: { completed: false, completedAt: null },
+            level4_labs_second: { completed: false, completedAt: null }
+          }
+        };
+      } else if (selectedLevel === 5) {
+        newProgress = {
+          ...existingProgress?.progress,
+          sqlinjection: {
+            ...existingProgress?.progress?.sqlinjection,
+            level1_article: { completed: true, completedAt: new Date().toISOString() },
+            level1_initial_quiz: { completed: true, completedAt: new Date().toISOString() },
+            level1_labs_first: { completed: true, completedAt: new Date().toISOString() },
+            level1_final_quiz: { completed: true, completedAt: new Date().toISOString() },
+            level1_labs_second: { completed: true, completedAt: new Date().toISOString() },
+            level2_article: { completed: true, completedAt: new Date().toISOString() },
+            level2_initial_quiz: { completed: true, completedAt: new Date().toISOString() },
+            level2_labs_first: { completed: true, completedAt: new Date().toISOString() },
+            level2_final_quiz: { completed: true, completedAt: new Date().toISOString() },
+            level2_labs_second: { completed: true, completedAt: new Date().toISOString() },
+            level3_article: { completed: true, completedAt: new Date().toISOString() },
+            level3_initial_quiz: { completed: true, completedAt: new Date().toISOString() },
+            level3_labs_first: { completed: true, completedAt: new Date().toISOString() },
+            level3_final_quiz: { completed: true, completedAt: new Date().toISOString() },
+            level3_labs_second: { completed: true, completedAt: new Date().toISOString() },
+            level4_article: { completed: true, completedAt: new Date().toISOString() },
+            level4_initial_quiz: { completed: true, completedAt: new Date().toISOString() },
+            level4_labs_first: { completed: true, completedAt: new Date().toISOString() },
+            level4_final_quiz: { completed: true, completedAt: new Date().toISOString() },
+            level4_labs_second: { completed: true, completedAt: new Date().toISOString() },
+            level5_article: { completed: true, completedAt: new Date().toISOString() },
+            level5_initial_quiz: { completed: false, completedAt: null },
+            level5_labs_first: { completed: false, completedAt: null },
+            level5_final_quiz: { completed: false, completedAt: null },
+            level5_labs_second: { completed: false, completedAt: null }
+          }
+        };
+      } else {
+        newProgress = existingProgress?.progress;
       }
+      if (existingProgress) {
+        await updateUserProgress(user.id, newProgress);
+      } else {
+        await createUserProgress(user.id, newProgress);
+      }
+      setProgress({ ...progress, progress: newProgress });
+      setActiveLevel(selectedLevel);
+    } catch (error) {
+      console.error('Error updating progress on start course:', error);
+    }
+  };
+
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const resetProgress = async () => {
+    try {
+      const updatedProgress = {
+        ...progress.progress,
+        sqlinjection: Object.fromEntries(
+          Object.entries(progress.progress.sqlinjection).map(([key]) => [
+            key,
+            { completed: false, completedAt: null }
+          ])
+        )
+      };
+      await updateUserProgress(user.id, updatedProgress);
+      setProgress({ ...progress, progress: updatedProgress });
+      setModalVisible(false);
+    } catch (error) {
+      console.error('Error resetting progress:', error);
     }
   };
 
@@ -141,9 +292,23 @@ const SqlInjectionHome = () => {
         top: '20px',
         right: '20px',
         display: 'flex',
-        gap: '15px',
+        gap: '600px',
+        alignItems: 'center',
         zIndex: 1000
       }}>
+        <div style={{
+          width: '20px',
+          height: '20px',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          borderRadius: '5px',
+          border: '1px solid #1A237E',
+          cursor: 'pointer',
+          backgroundColor: 'white'
+        }}>
+          <GoogleTranslateLanguageSelector />
+        </div>
         {user ? (
           <Link
             to="/Profile"
@@ -278,22 +443,22 @@ const SqlInjectionHome = () => {
                   width: '50px',
                   height: '50px',
                   borderRadius: '50%',
-                  backgroundColor: level === selectedLevel ? '#1A237E' : (level <= (calculateProgress() / 20) ? '#FFD740' : '#f0f0f0'),
+                  backgroundColor: level === activeLevel ? '#FFD740' : (level === selectedLevel ? '#1A237E' : '#f0f0f0'),
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  color: level === selectedLevel ? '#fff' : (level <= (calculateProgress() / 20) ? '#1A237E' : '#666'),
+                  color: level === activeLevel ? '#1A237E' : (level === selectedLevel ? '#fff' : '#666'),
                   fontWeight: 'bold',
                   fontSize: '18px',
                   marginBottom: '10px',
                   border: '2px solid',
-                  borderColor: level <= (calculateProgress() / 20) ? '#FFB300' : '#ddd',
+                  borderColor: level === activeLevel ? '#FFB300' : '#ddd',
                   transition: 'all 0.3s ease'
                 }}>
                   {level}
                 </div>
                 <span style={{
-                  color: level <= (calculateProgress() / 20) ? '#1A237E' : '#666',
+                  color: level === activeLevel ? '#1A237E' : '#666',
                   fontSize: '14px',
                   fontWeight: '500'
                 }}>
@@ -457,7 +622,24 @@ const SqlInjectionHome = () => {
                 }}>
                   <span>{calculateProgress()}% Complete</span>
                   <button
-                    onClick={resetProgress}
+                    onClick={(e) => {
+                      // Ripple effect
+                      const button = e.currentTarget;
+                      const circle = document.createElement('span');
+                      const diameter = Math.max(button.clientWidth, button.clientHeight);
+                      const radius = diameter / 2;
+                      circle.style.width = circle.style.height = `${diameter}px`;
+                      circle.style.left = `${e.clientX - button.getBoundingClientRect().left - radius}px`;
+                      circle.style.top = `${e.clientY - button.getBoundingClientRect().top - radius}px`;
+                      circle.classList.add('ripple');
+                      const ripple = button.getElementsByClassName('ripple')[0];
+                      if (ripple) {
+                        ripple.remove();
+                      }
+                      button.appendChild(circle);
+
+                      setModalVisible(true);
+                    }}
                     style={{
                       backgroundColor: '#E74C3C',
                       color: '#fff',
@@ -465,7 +647,9 @@ const SqlInjectionHome = () => {
                       border: 'none',
                       borderRadius: '5px',
                       cursor: 'pointer',
-                      fontSize: '12px'
+                      fontSize: '12px',
+                      position: 'relative',
+                      overflow: 'hidden'
                     }}
                   >
                     Reset Progress
@@ -478,7 +662,7 @@ const SqlInjectionHome = () => {
             <div style={{
               marginBottom: '20px'
             }}>
-              {[
+              {[ 
                 { label: 'Duration', value: selectedLevel === 1 ? '45min' : 
                                         selectedLevel === 2 ? '1h' :
                                         selectedLevel === 3 ? '1.5h' :
@@ -521,15 +705,123 @@ const SqlInjectionHome = () => {
                 textAlign: 'center',
                 display: 'block'
               }}
+              onClick={handleLevelClick}
             >
               {!user ? 'Login to Start' : 
                selectedLevel === 1 ? 'Start Course' :
-               calculateProgress() < (selectedLevel - 1) * 20 ? 'Complete Previous Level' :
-               'Continue Course'}
+               selectedLevel === 2 ? 'Continue Level 2' :
+               selectedLevel === 3 ? 'Continue Level 3' :
+               selectedLevel === 4 ? 'Continue Level 4' :
+               'Complete the Final Level'}
             </Link>
           </div>
         </div>
       </div>
+
+      {modalVisible && (
+        <div className="modal-overlay" onClick={() => setModalVisible(false)} style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100vw',
+          height: '100vh',
+          backgroundColor: 'rgba(0,0,0,0.6)',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          animation: 'fadeIn 0.3s ease forwards',
+          zIndex: 1000
+        }}>
+          <div className="modal-content" onClick={e => e.stopPropagation()} style={{
+            background: '#2c3e50',
+            padding: '30px',
+            borderRadius: '12px',
+            boxShadow: '0 8px 20px rgba(0,0,0,0.7)',
+            maxWidth: '400px',
+            width: '90%',
+            textAlign: 'center',
+            animation: 'scaleIn 0.3s ease forwards'
+          }}>
+            <h3>Reset Progress</h3>
+            <p>Are you sure you want to reset your progress? This cannot be undone.</p>
+            <div className="modal-buttons" style={{
+              marginTop: '20px',
+              display: 'flex',
+              justifyContent: 'space-around'
+            }}>
+              <button
+                className="modal-button cancel"
+                onClick={() => setModalVisible(false)}
+                style={{
+                  backgroundColor: '#7f8c8d',
+                  color: 'white',
+                  border: 'none',
+                  padding: '10px 20px',
+                  borderRadius: '8px',
+                  fontWeight: '600',
+                  cursor: 'pointer',
+                  transition: 'background-color 0.3s ease'
+                }}
+                onMouseEnter={e => e.currentTarget.style.backgroundColor = '#95a5a6'}
+                onMouseLeave={e => e.currentTarget.style.backgroundColor = '#7f8c8d'}
+              >
+                Cancel
+              </button>
+              <button
+                className="modal-button"
+                onClick={resetProgress}
+                style={{
+                  backgroundColor: '#e74c3c',
+                  color: 'white',
+                  border: 'none',
+                  padding: '10px 20px',
+                  borderRadius: '8px',
+                  fontWeight: '600',
+                  cursor: 'pointer',
+                  transition: 'background-color 0.3s ease'
+                }}
+                onMouseEnter={e => e.currentTarget.style.backgroundColor = '#c0392b'}
+                onMouseLeave={e => e.currentTarget.style.backgroundColor = '#e74c3c'}
+              >
+                Confirm
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <style>
+        {`
+          @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+          @keyframes ripple {
+            to {
+              transform: scale(4);
+              opacity: 0;
+            }
+          }
+          @keyframes scaleIn {
+            from {
+              transform: scale(0.8);
+              opacity: 0;
+            }
+            to {
+              transform: scale(1);
+              opacity: 1;
+            }
+          }
+          .ripple {
+            position: absolute;
+            border-radius: 50%;
+            transform: scale(0);
+            animation: ripple 600ms linear;
+            background-color: rgba(255, 255, 255, 0.7);
+            pointer-events: none;
+          }
+        `}
+      </style>
     </div>
   );
 };

@@ -1,0 +1,16 @@
+{
+  "name": "judge0-ide-node-vite",
+  "version": "1.0.0",
+  "description": "Node.js Express server with Vite for Judge0 IDE frontend",
+  "main": "server.js",
+  "scripts": {
+    "dev": "vite",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "vite": "^4.3.9"
+  }
+}

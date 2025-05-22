@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import { getUserProgress, updateUserProgress } from '../../supabase/progress';
+import GoogleTranslateLanguageSelector from '../../components/GoogleTranslateLanguageSelector';
 
 const learningObjectives = [
   'Network protocol basics',
@@ -74,6 +75,15 @@ const SpoofingHome = () => {
       if (user) {
         const userProgress = await getUserProgress(user.id);
         setProgress(userProgress);
+        if (userProgress?.progress?.spoofing) {
+          const module = userProgress.progress.spoofing;
+          const total = Object.keys(module).length;
+          const completed = Object.values(module).filter(item => item.completed).length;
+          const level = Math.min(5, Math.floor((completed / total) * 5) + 1);
+          setSelectedLevel(level);
+        } else {
+          setSelectedLevel(1);
+        }
       }
     };
     fetchProgress();
@@ -105,6 +115,139 @@ const SpoofingHome = () => {
       } catch (error) {
         console.error('Error resetting progress:', error);
       }
+    }
+  };
+
+  const handleLevelClick = async () => {
+    if (!user) {
+      navigate('/login');
+      return;
+    }
+    try {
+      const existingProgress = await getUserProgress(user.id);
+      let newProgress;
+      if (selectedLevel === 1) {
+        newProgress = {
+          ...existingProgress?.progress,
+          spoofing: {
+            ...existingProgress?.progress?.spoofing,
+            level1_article: { completed: true, completedAt: new Date().toISOString() },
+            level1_initial_quiz: { completed: false, completedAt: null },
+            level1_labs_first: { completed: false, completedAt: null },
+            level1_final_quiz: { completed: false, completedAt: null },
+            level1_labs_second: { completed: false, completedAt: null }
+          }
+        };
+      } else if (selectedLevel === 2) {
+        newProgress = {
+          ...existingProgress?.progress,
+          spoofing: {
+            ...existingProgress?.progress?.spoofing,
+            level1_article: { completed: true, completedAt: new Date().toISOString() },
+            level1_initial_quiz: { completed: true, completedAt: new Date().toISOString() },
+            level1_labs_first: { completed: true, completedAt: new Date().toISOString() },
+            level1_final_quiz: { completed: true, completedAt: new Date().toISOString() },
+            level1_labs_second: { completed: true, completedAt: new Date().toISOString() },
+            level2_article: { completed: true, completedAt: new Date().toISOString() },
+            level2_initial_quiz: { completed: false, completedAt: null },
+            level2_labs_first: { completed: false, completedAt: null },
+            level2_final_quiz: { completed: false, completedAt: null },
+            level2_labs_second: { completed: false, completedAt: null }
+          }
+        };
+      } else if (selectedLevel === 3) {
+        newProgress = {
+          ...existingProgress?.progress,
+          spoofing: {
+            ...existingProgress?.progress?.spoofing,
+            level1_article: { completed: true, completedAt: new Date().toISOString() },
+            level1_initial_quiz: { completed: true, completedAt: new Date().toISOString() },
+            level1_labs_first: { completed: true, completedAt: new Date().toISOString() },
+            level1_final_quiz: { completed: true, completedAt: new Date().toISOString() },
+            level1_labs_second: { completed: true, completedAt: new Date().toISOString() },
+            level2_article: { completed: true, completedAt: new Date().toISOString() },
+            level2_initial_quiz: { completed: true, completedAt: new Date().toISOString() },
+            level2_labs_first: { completed: true, completedAt: new Date().toISOString() },
+            level2_final_quiz: { completed: true, completedAt: new Date().toISOString() },
+            level2_labs_second: { completed: true, completedAt: new Date().toISOString() },
+            level3_article: { completed: true, completedAt: new Date().toISOString() },
+            level3_initial_quiz: { completed: false, completedAt: null },
+            level3_labs_first: { completed: false, completedAt: null },
+            level3_final_quiz: { completed: false, completedAt: null },
+            level3_labs_second: { completed: false, completedAt: null }
+          }
+        };
+      } else if (selectedLevel === 4) {
+        newProgress = {
+          ...existingProgress?.progress,
+          spoofing: {
+            ...existingProgress?.progress?.spoofing,
+            level1_article: { completed: true, completedAt: new Date().toISOString() },
+            level1_initial_quiz: { completed: true, completedAt: new Date().toISOString() },
+            level1_labs_first: { completed: true, completedAt: new Date().toISOString() },
+            level1_final_quiz: { completed: true, completedAt: new Date().toISOString() },
+            level1_labs_second: { completed: true, completedAt: new Date().toISOString() },
+            level2_article: { completed: true, completedAt: new Date().toISOString() },
+            level2_initial_quiz: { completed: true, completedAt: new Date().toISOString() },
+            level2_labs_first: { completed: true, completedAt: new Date().toISOString() },
+            level2_final_quiz: { completed: true, completedAt: new Date().toISOString() },
+            level2_labs_second: { completed: true, completedAt: new Date().toISOString() },
+            level3_article: { completed: true, completedAt: new Date().toISOString() },
+            level3_initial_quiz: { completed: true, completedAt: new Date().toISOString() },
+            level3_labs_first: { completed: true, completedAt: new Date().toISOString() },
+            level3_final_quiz: { completed: true, completedAt: new Date().toISOString() },
+            level3_labs_second: { completed: true, completedAt: new Date().toISOString() },
+            level4_article: { completed: true, completedAt: new Date().toISOString() },
+            level4_initial_quiz: { completed: false, completedAt: null },
+            level4_labs_first: { completed: false, completedAt: null },
+            level4_final_quiz: { completed: false, completedAt: null },
+            level4_labs_second: { completed: false, completedAt: null }
+          }
+        };
+      } else if (selectedLevel === 5) {
+        newProgress = {
+          ...existingProgress?.progress,
+          spoofing: {
+            ...existingProgress?.progress?.spoofing,
+            level1_article: { completed: true, completedAt: new Date().toISOString() },
+            level1_initial_quiz: { completed: true, completedAt: new Date().toISOString() },
+            level1_labs_first: { completed: true, completedAt: new Date().toISOString() },
+            level1_final_quiz: { completed: true, completedAt: new Date().toISOString() },
+            level1_labs_second: { completed: true, completedAt: new Date().toISOString() },
+            level2_article: { completed: true, completedAt: new Date().toISOString() },
+            level2_initial_quiz: { completed: true, completedAt: new Date().toISOString() },
+            level2_labs_first: { completed: true, completedAt: new Date().toISOString() },
+            level2_final_quiz: { completed: true, completedAt: new Date().toISOString() },
+            level2_labs_second: { completed: true, completedAt: new Date().toISOString() },
+            level3_article: { completed: true, completedAt: new Date().toISOString() },
+            level3_initial_quiz: { completed: true, completedAt: new Date().toISOString() },
+            level3_labs_first: { completed: true, completedAt: new Date().toISOString() },
+            level3_final_quiz: { completed: true, completedAt: new Date().toISOString() },
+            level3_labs_second: { completed: true, completedAt: new Date().toISOString() },
+            level4_article: { completed: true, completedAt: new Date().toISOString() },
+            level4_initial_quiz: { completed: true, completedAt: new Date().toISOString() },
+            level4_labs_first: { completed: true, completedAt: new Date().toISOString() },
+            level4_final_quiz: { completed: true, completedAt: new Date().toISOString() },
+            level4_labs_second: { completed: true, completedAt: new Date().toISOString() },
+            level5_article: { completed: true, completedAt: new Date().toISOString() },
+            level5_initial_quiz: { completed: false, completedAt: null },
+            level5_labs_first: { completed: false, completedAt: null },
+            level5_final_quiz: { completed: false, completedAt: null },
+            level5_labs_second: { completed: false, completedAt: null }
+          }
+        };
+      } else {
+        newProgress = existingProgress?.progress;
+      }
+      if (existingProgress) {
+        await updateUserProgress(user.id, newProgress);
+      } else {
+        await createUserProgress(user.id, newProgress);
+      }
+      setProgress({ ...progress, progress: newProgress });
+      setSelectedLevel(selectedLevel);
+    } catch (error) {
+      console.error('Error updating progress on start course:', error);
     }
   };
 
@@ -141,9 +284,23 @@ const SpoofingHome = () => {
         top: '20px',
         right: '20px',
         display: 'flex',
-        gap: '15px',
+        gap: '600px',
+        alignItems: 'center',
         zIndex: 1000
       }}>
+        <div style={{
+          width: '20px',
+          height: '20px',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          borderRadius: '5px',
+          border: '1px solid #1A237E',
+          cursor: 'pointer',
+          backgroundColor: 'white'
+        }}>
+          <GoogleTranslateLanguageSelector />
+        </div>
         {user ? (
           <Link
             to="/Profile"
@@ -348,14 +505,14 @@ const SpoofingHome = () => {
               fontSize: '28px',
               color: '#1A237E',
               marginBottom: '20px'
-            }}>{levelContent[selectedLevel].title}</h2>
+            }}>{levelContent[selectedLevel] ? levelContent[selectedLevel].title : levelContent[1].title}</h2>
             <p style={{
               fontSize: '16px',
               lineHeight: '1.6',
               color: '#333',
               marginBottom: '20px'
             }}>
-              {levelContent[selectedLevel].overview}
+              {levelContent[selectedLevel] ? levelContent[selectedLevel].overview : levelContent[1].overview}
             </p>
           </section>
 
@@ -373,7 +530,7 @@ const SpoofingHome = () => {
               marginBottom: '20px'
             }}>Prerequisites</h2>
             <ul style={{ paddingLeft: '20px' }}>
-              {levelContent[selectedLevel].prerequisites.map((item, index) => (
+              {(levelContent[selectedLevel] ? levelContent[selectedLevel].prerequisites : levelContent[1].prerequisites).map((item, index) => (
                 <li key={index} style={{
                   marginBottom: '10px',
                   color: '#333',
@@ -392,7 +549,7 @@ const SpoofingHome = () => {
             padding: '30px',
             marginBottom: '30px',
             boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
-          }}>
+        }}>
             <h2 style={{
               fontSize: '28px',
               color: '#1A237E',
@@ -502,31 +659,34 @@ const SpoofingHome = () => {
               ))}
             </div>
 
-            <Link 
-              to={user ? "/Spoofing/Article" : "/login"}
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
-              style={{
-                width: '100%',
-                padding: '15px',
-                backgroundColor: isHovered ? '#FF7043' : '#FF5722',
-                color: 'white',
-                border: 'none',
-                borderRadius: '10px',
-                fontSize: '18px',
-                fontWeight: 'bold',
-                cursor: 'pointer',
-                transition: 'all 0.3s ease',
-                textDecoration: 'none',
-                textAlign: 'center',
-                display: 'block'
-              }}
-            >
-              {!user ? 'Login to Start' : 
-               selectedLevel === 1 ? 'Start Course' :
-               calculateProgress() < (selectedLevel - 1) * 20 ? 'Complete Previous Level' :
-               'Continue Course'}
-            </Link>
+              <Link 
+                to={user ? "/Spoofing/Article" : "/login"}
+                onClick={handleLevelClick}
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+                style={{
+                  width: '100%',
+                  padding: '15px',
+                  backgroundColor: isHovered ? '#FF7043' : '#FF5722',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '10px',
+                  fontSize: '18px',
+                  fontWeight: 'bold',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease',
+                  textDecoration: 'none',
+                  textAlign: 'center',
+                  display: 'block'
+                }}
+              >
+                {!user ? 'Login to Start' : 
+                 selectedLevel === 1 ? 'Start Course' :
+                 selectedLevel === 2 ? 'Continue Level 2' :
+                 selectedLevel === 3 ? 'Continue Level 3' :
+                 selectedLevel === 4 ? 'Continue Level 4' :
+                 'Continue the final level'}
+              </Link>
           </div>
         </div>
       </div>

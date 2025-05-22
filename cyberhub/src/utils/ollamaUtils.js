@@ -1,7 +1,8 @@
+
 import axios from 'axios';
 
 const OLLAMA_API_URL = 'http://localhost:11434';
-const DEFAULT_MODEL = 'llama2';  // Using llama2 instead of llama3 for faster responses
+const DEFAULT_MODEL = 'llama3';  // Use llama3 or llama2 as requested
 
 export const checkOllamaServerStatus = async () => {
   try {
@@ -20,8 +21,8 @@ export const getOllamaResponse = async (prompt, model = DEFAULT_MODEL) => {
       throw new Error('Ollama server is not running');
     }
 
-    // Optimize the prompt by keeping it concise
-    const optimizedPrompt = `You are a cybersecurity expert. Be concise and direct. 
+    // Simple prompt without RAG context
+    const optimizedPrompt = `You are a cybersecurity expert. Be concise and direct.
 Question: ${prompt}
 Provide a brief, focused response.`;
 
@@ -29,10 +30,10 @@ Provide a brief, focused response.`;
       model: model,
       prompt: optimizedPrompt,
       options: {
-        num_predict: 200,  // Limit response length
-        temperature: 0.7,  // Slightly lower temperature for more focused responses
-        top_k: 20,        // Reduce for faster responses
-        top_p: 0.9,       // Adjust for better quality/speed balance
+        num_predict: 200,
+        temperature: 0.7,
+        top_k: 40,
+        top_p: 0.9,
         repeat_penalty: 1.1
       }
     });

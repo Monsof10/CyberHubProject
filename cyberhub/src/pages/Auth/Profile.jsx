@@ -9,6 +9,8 @@ const Profile = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [activeTab, setActiveTab] = useState('progress');
+  const [showModal, setShowModal] = useState(false);
+  const [modalCourse, setModalCourse] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -53,27 +55,6 @@ const Profile = () => {
     return Math.round((completed / total) * 100);
   };
 
-  const resetCourseProgress = async (courseName) => {
-    if (window.confirm(`Are you sure you want to reset your progress for ${courseName}?`)) {
-      try {
-        const updatedProgress = {
-          ...progress.progress,
-          [courseName.toLowerCase().replace('/', '')]: Object.fromEntries(
-            Object.entries(progress.progress[courseName.toLowerCase().replace('/', '')]).map(([key]) => [
-              key,
-              { completed: false, completedAt: null }
-            ])
-          )
-        };
-        
-        await updateUserProgress(user.id, updatedProgress);
-        setProgress({ ...progress, progress: updatedProgress });
-      } catch (error) {
-        console.error('Error resetting progress:', error);
-      }
-    }
-  };
-
   return (
     <>
       <style>
@@ -81,6 +62,22 @@ const Profile = () => {
           @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
+          }
+          @keyframes ripple {
+            to {
+              transform: scale(4);
+              opacity: 0;
+            }
+          }
+          @keyframes scaleIn {
+            from {
+              transform: scale(0.8);
+              opacity: 0;
+            }
+            to {
+              transform: scale(1);
+              opacity: 1;
+            }
           }
           aside ul li {
             transition: color 0.3s ease, background-color 0.3s ease;
@@ -150,56 +147,72 @@ const Profile = () => {
             font-weight: 600;
             transition: background-color 0.3s ease, transform 0.2s ease;
             box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+            position: relative;
+            overflow: hidden;
           }
           .course-reset-button:hover {
             background-color: #c0392b;
             transform: scale(1.1);
             box-shadow: 0 4px 14px rgba(192, 57, 43, 0.8);
           }
-          .achievement-item {
-            background-color: #2c3e50;
-            padding: 22px;
-            border-radius: 14px;
-            margin-bottom: 18px;
+          .course-reset-button:focus {
+            outline: none;
+            box-shadow: 0 0 12px #e74c3c;
+          }
+          .ripple {
+            position: absolute;
+            border-radius: 50%;
+            transform: scale(0);
+            animation: ripple 600ms linear;
+            background-color: rgba(255, 255, 255, 0.7);
+            pointer-events: none;
+          }
+          .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0,0,0,0.6);
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            transition: background-color 0.4s ease, transform 0.3s ease;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            animation: fadeIn 0.3s ease forwards;
+            z-index: 1000;
           }
-          .achievement-item:hover {
-            background-color: #34495e;
-            transform: translateY(-4px);
+          .modal-content {
+            background: #2c3e50;
+            padding: 30px;
+            border-radius: 12px;
             box-shadow: 0 8px 20px rgba(0,0,0,0.7);
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            animation: scaleIn 0.3s ease forwards;
           }
-          .achievement-completed {
-            background-color: #27ae60;
-            padding: 6px 14px;
+          .modal-buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-around;
+          }
+          .modal-button {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
             border-radius: 8px;
-            font-size: 13px;
             font-weight: 600;
-            box-shadow: 0 0 12px #27ae60;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
           }
-          .billing-section {
-            background-color: #2c3e50;
-            border-radius: 14px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.7);
-            padding: 36px;
-            box-sizing: border-box;
-            animation: fadeIn 0.8s ease forwards;
-            opacity: 0;
+          .modal-button:hover {
+            background-color: #c0392b;
           }
-          .billing-header {
-            color: #1abc9c;
-            margin-bottom: 24px;
-            font-weight: 700;
-            font-size: 24px;
+          .modal-button.cancel {
+            background-color: #7f8c8d;
           }
-          .billing-info {
-            color: #bdc3c7;
-            font-size: 18px;
-            line-height: 1.6;
+          .modal-button.cancel:hover {
+            background-color: #95a5a6;
           }
         `}
       </style>
@@ -299,7 +312,26 @@ const Profile = () => {
                       <div>
                         <span style={{ marginRight: '15px' }}>{progressPercent}%</span>
                         <button
-                          onClick={() => resetCourseProgress(course)}
+                          onClick={(e) => {
+                            // Ripple effect
+                            const button = e.currentTarget;
+                            const circle = document.createElement('span');
+                            const diameter = Math.max(button.clientWidth, button.clientHeight);
+                            const radius = diameter / 2;
+                            circle.style.width = circle.style.height = `${diameter}px`;
+                            circle.style.left = `${e.clientX - button.getBoundingClientRect().left - radius}px`;
+                            circle.style.top = `${e.clientY - button.getBoundingClientRect().top - radius}px`;
+                            circle.classList.add('ripple');
+                            const ripple = button.getElementsByClassName('ripple')[0];
+                            if (ripple) {
+                              ripple.remove();
+                            }
+                            button.appendChild(circle);
+
+                            // Show custom modal
+                            setModalCourse(course);
+                            setShowModal(true);
+                          }}
                           className="course-reset-button"
                         >
                           Reset Progress
@@ -369,6 +401,46 @@ const Profile = () => {
           )}
         </main>
       </div>
+
+      {showModal && (
+        <div className="modal-overlay" onClick={() => setShowModal(false)}>
+          <div className="modal-content" onClick={e => e.stopPropagation()}>
+            <h3>Reset Progress</h3>
+            <p>Are you sure you want to reset your progress for {modalCourse}?</p>
+            <div className="modal-buttons">
+              <button
+                className="modal-button cancel"
+                onClick={() => setShowModal(false)}
+              >
+                Cancel
+              </button>
+              <button
+                className="modal-button"
+                onClick={async () => {
+                  try {
+                    const updatedProgress = {
+                      ...progress.progress,
+                      [modalCourse.toLowerCase().replace(/[\s-]/g, '')]: Object.fromEntries(
+                        Object.entries(progress.progress[modalCourse.toLowerCase().replace(/[\s-]/g, '')]).map(([key]) => [
+                          key,
+                          { completed: false, completedAt: null }
+                        ])
+                      )
+                    };
+                    await updateUserProgress(user.id, updatedProgress);
+                    setProgress({ ...progress, progress: updatedProgress });
+                    setShowModal(false);
+                  } catch (error) {
+                    console.error('Error resetting progress:', error);
+                  }
+                }}
+              >
+                Confirm
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 };

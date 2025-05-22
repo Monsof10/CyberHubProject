@@ -1,7 +1,13 @@
 import DemoOne from "/assets/imgs/demo/1.png";
 import DemoTwo from "/assets/imgs/demo/2.png";
 import DemoThree from "/assets/imgs/demo/3.png";
-import ComingSoonDemo from "/assets/imgs/demo/8.png";
+import DemoFour from "/assets/imgs/demo/BufferOverflows.png";
+import DemoFive from "/assets/imgs/demo/DnsPoising.jpeg";
+import Demosix from "/assets/imgs/demo/Forensics.png";
+import Demoseven from "/assets/imgs/demo/Privelage.jpeg";
+import Demoeight from "/assets/imgs/demo/ServerSide.png";
+import Demonine from "/assets/imgs/demo/UserEnum.jpeg";
+import ComingSoonDemo from "/assets/imgs/demo/CrossSite.png";
 
 const megaMenuOne = [
   {
@@ -28,32 +34,32 @@ const megaMenuOne = [
         title: "Cross-Site Scripting",
       },
       {
-        image: ComingSoonDemo,
+        image: Demosix,
         link: "/ForensicScience/HomePage",
-        title: "Forensic Science",
+        title: "Computer Forensics",
       },
       {
-        image: ComingSoonDemo,
+        image: Demonine,
         link: "/UserEnumeration/HomePage",
         title: "User Enumeration",
       },
       {
-        image: ComingSoonDemo,
+        image: Demoseven,
         link: "/PrivilegeEscalation/HomePage",
         title: "Privilege Escalation",
       },
       {
-        image: ComingSoonDemo,
+        image: DemoFour,
         link: "/BufferOverflows/HomePage",
         title: "Buffer Overflows",
       },
       {
-        image: ComingSoonDemo,
+        image: Demoeight,
         link: "/ServerSideRequestForgery/HomePage",
         title: "Server-Side Request Forgery",
       },
       {
-        image: ComingSoonDemo,
+        image: DemoFive,
         link: "/DnsPoisoning/HomePage",
         title: "DNS Poisoning",
       },
@@ -182,6 +188,10 @@ const menus = [
     link: "#",
     subMenus: [
       {
+        name: "Blogs And News",
+        link: "/Blogs",
+      },
+      {
         name: "World Events",
         link: "https://www.blackhat.com/upcoming.html",
       },
@@ -200,8 +210,8 @@ const menus = [
     ],
   },
   {
-    name: "Blogs And News",
-    link: "/Blogs",
+    name: "Workspace",
+    link: "/workspace",
   }];
 
 export default menus;

@@ -60,8 +60,11 @@ const WebExploitationPage = lazy(() => import("./pages/CTFChallenges/WebExploita
 const DosMainPage = lazy(() => import("./pages/DosMain"));
 const NotFound = lazy(() => import("./pages/404"));
 const TerminalPage = lazy(() => import("./pages/Terminal/TerminalPage"));
+const TestPage = lazy(() => import("./pages/TestPage"));
+const Workspace = lazy(() => import("./pages/Workspace"));
 
 import Layout from "./components/Layout/Layout";
+
 
 function App() {
   return (
@@ -525,6 +528,15 @@ function App() {
           }
         />
         <Route
+          path="/test-rag"
+          element={
+            <Suspense fallback={<Loading />}>
+              <TestPage />
+            </Suspense>
+          }
+        />
+
+        <Route
           path="/404"
           element={
             <Suspense fallback={<Loading />}>
@@ -532,7 +544,14 @@ function App() {
             </Suspense>
           }
         />
-        
+        <Route
+          path="/workspace"
+          element={
+            <Suspense fallback={<Loading />}>
+              <Workspace />
+            </Suspense>
+          }
+        />
         </Routes>
       </Layout>
     </div>

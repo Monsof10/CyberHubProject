@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import AttackPagesHeader from '../../components/AttackPagesHeader/AttackPagesHeader';
+import ModuleProgressCircle from '../../components/ModuleProgressCircle';
+import { AuthContext } from '../../context/AuthContext';
 
 const InitialQuiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -8,6 +10,22 @@ const InitialQuiz = () => {
   const [showScore, setShowScore] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [isCorrect, setIsCorrect] = useState(null);
+  const { user } = useContext(AuthContext);
+
+  // Module progress data
+  const moduleData = {
+    status: 'initial_quiz_started',
+    component_progress: {
+      article: { completed: true, started: true },
+      initial_quiz: { started: true, completed: false },
+      labs: {
+        first: { started: false, completed: false },
+        second: { started: false, completed: false },
+        third: { started: false, completed: false }
+      },
+      final_quiz: { started: false, completed: false }
+    }
+  };
 
   // ... (keeping all the existing questions array and helper functions)
   const questions = [
@@ -108,7 +126,23 @@ const InitialQuiz = () => {
       display: 'flex',
       flexDirection: 'column'
     }}>
-      <AttackPagesHeader pageType="sql" />
+      <div style={{ position: 'relative' }}>
+        <AttackPagesHeader pageType="sql" />
+        {user && (
+          <div style={{
+            position: 'fixed',
+            top: '50%',
+            left: '20px',
+            transform: 'translateY(-50%)',
+            zIndex: 1000
+          }}>
+            <ModuleProgressCircle 
+              module={moduleData}
+              size="small"
+            />
+          </div>
+        )}
+      </div>
       <div style={{
         flex: 1,
         color: '#fff',
