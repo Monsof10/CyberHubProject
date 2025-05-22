@@ -1,10 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import AttackPagesHeader from '../../../components/AttackPagesHeader/AttackPagesHeader';
+import ModuleProgressCircle from '../../../components/ModuleProgressCircle';
+import { AuthContext } from '../../../context/AuthContext';
 
 const BlindSqlInjection = () => {
   const [labStarted, setLabStarted] = useState(false);
   const [showNetworkArch, setShowNetworkArch] = useState(false);
+  const { user } = useContext(AuthContext);
+
+  // Module progress data
+  const moduleData = {
+    status: 'lab_started',
+    component_progress: {
+      article: { completed: true, started: true },
+      initial_quiz: { completed: true, started: true },
+      labs: {
+        first: { completed: true, started: true },
+        second: { completed: true, started: true },
+        third: { started: true, completed: false }
+      },
+      final_quiz: { started: false, completed: false }
+    }
+  };
 
   const startLab = () => {
     setShowNetworkArch(true);
@@ -24,7 +42,22 @@ const BlindSqlInjection = () => {
         display: 'flex',
         flexDirection: 'column'
       }}>
-        <AttackPagesHeader pageType="sql" />
+        <div style={{ position: 'relative' }}>
+          <AttackPagesHeader pageType="sql" />
+          {user && (
+            <div style={{
+              position: 'absolute',
+              top: '20px',
+              right: '20px',
+              zIndex: 1000
+            }}>
+              <ModuleProgressCircle 
+                module={moduleData}
+                size="small"
+              />
+            </div>
+          )}
+        </div>
         <div style={{
           padding: '40px',
           fontFamily: 'Georgia, serif'
@@ -107,7 +140,23 @@ const BlindSqlInjection = () => {
         display: 'flex',
         flexDirection: 'column'
       }}>
-        <AttackPagesHeader pageType="sql" />
+        <div style={{ position: 'relative' }}>
+          <AttackPagesHeader pageType="sql" />
+          {user && (
+            <div style={{
+              position: 'fixed',
+              top: '50%',
+              left: '20px',
+              transform: 'translateY(-50%)',
+              zIndex: 1000
+            }}>
+              <ModuleProgressCircle 
+                module={moduleData}
+                size="small"
+              />
+            </div>
+          )}
+        </div>
         <div style={{
           padding: '40px',
           fontFamily: 'Georgia, serif'
@@ -186,7 +235,23 @@ const BlindSqlInjection = () => {
       backgroundColor: '#151B3B',
       position: 'relative'
     }}>
-      <AttackPagesHeader pageType="sql" />
+      <div style={{ position: 'relative' }}>
+        <AttackPagesHeader pageType="sql" />
+        {user && (
+          <div style={{
+            position: 'fixed',
+            top: '50%',
+            left: '20px',
+            transform: 'translateY(-50%)',
+            zIndex: 1000
+          }}>
+            <ModuleProgressCircle 
+              module={moduleData}
+              size="small"
+            />
+          </div>
+        )}
+      </div>
       <div style={{ 
         display: 'flex', 
         flex: 1

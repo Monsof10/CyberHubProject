@@ -5,6 +5,7 @@ import { useThemeContext } from "../../context/ThemeContext";
 import { useAuth } from "../../context/AuthContext";
 import SearchOne from "../Search/SearchOne";
 import { Link } from "react-router-dom";
+import GoogleTranslateLanguageSelector from '../GoogleTranslateLanguageSelector';
 
 export default function HeaderThree() {
   const { toggleMobileMenu } = useThemeContext();
@@ -31,7 +32,8 @@ export default function HeaderThree() {
         {/* <!-- Header menu  --> */}
         <MenuOne data={data} />
         {/* <!-- Header social  --> */}
-        <div className="header__social">
+        {/* Removed SearchOne and shop icon as per user request */}
+        {/* <div className="header__social">
           <SearchOne textclassName="text-white" />
           <div className="header__shopicon">
             <span className="header__cartIcon">
@@ -39,7 +41,7 @@ export default function HeaderThree() {
             </span>
             <span className="header__notification">0</span>
           </div>
-        </div>
+        </div> */}
         {/* <!-- Offcanvas icon  --> */}
         <div
           className="offcanvas-icon offcanvas-icon-2"
@@ -48,20 +50,25 @@ export default function HeaderThree() {
           <i className="ph ph-list"></i>
         </div>
         {/* <!-- Header Button  --> */}
-        <div className="header__btn">
+        <div className="header__btn" style={{ display: 'flex', alignItems: 'center' }}>
           {user ? (
-            <Link 
-              className="btn-signUp btn-hover-effect border-radius-50" 
-              to="/Profile"
-              style={{
-                fontSize: '14px',
-                padding: '8px 16px',
-                backgroundColor: '#F1C40F',
-                color: '#000'
-              }}
-            >
-              Profile
-            </Link>
+            <>
+              <div style={{ marginRight: '8px', transform: 'scale(0.8)' }}>
+                <GoogleTranslateLanguageSelector />
+              </div>
+              <Link 
+                className="btn-signUp btn-hover-effect border-radius-50" 
+                to="/Profile"
+                style={{
+                  fontSize: '14px',
+                  padding: '10px 45px',
+                  backgroundColor: '#F1C40F',
+                  color: '#000'
+                }}
+              >
+                Profile
+              </Link>
+            </>
           ) : (
             <>
               <Link 

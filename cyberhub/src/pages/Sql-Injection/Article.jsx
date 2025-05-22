@@ -1,8 +1,82 @@
-import React from 'react';
+import React, { useState, useEffect, useContext, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthContext';
 import AttackPagesHeader from '../../components/AttackPagesHeader/AttackPagesHeader';
+import ProgressCircle from '../../components/ProgressCircle';
+import ModuleProgressCircle from '../../components/ModuleProgressCircle';
+import { updateCourseProgress, getUserEnrollments } from '../../supabase/progress';
 
 const Article = () => {
+  const { user } = useContext(AuthContext);
+  const [progress, setProgress] = useState(0);
+  const [showComplete, setShowComplete] = useState(false);
+  const [enrollmentId, setEnrollmentId] = useState(null);
+  const [progressId, setProgressId] = useState(null);
+  const [updateError, setUpdateError] = useState(null);
+  const contentRef = useRef(null);
+  const progressUpdated = useRef(false);
+
+  useEffect(() => {
+    const fetchEnrollment = async () => {
+      if (user) {
+        try {
+          const enrollments = await getUserEnrollments(user.id);
+          const sqlInjectionEnrollment = enrollments.find(
+            e => e.courses.title.toLowerCase().includes('sql injection')
+          );
+          if (sqlInjectionEnrollment) {
+            setEnrollmentId(sqlInjectionEnrollment.id);
+            // Find the article progress entry
+            const articleProgress = sqlInjectionEnrollment.course_progress?.find(
+              p => p.module === 'article'
+            );
+            if (articleProgress) {
+              setProgressId(articleProgress.id);
+            }
+          }
+        } catch (error) {
+          console.error('Error fetching enrollment:', error);
+        }
+      }
+    };
+    fetchEnrollment();
+  }, [user]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (contentRef.current) {
+        const { scrollTop, scrollHeight, clientHeight } = contentRef.current;
+        const scrolled = (scrollTop / (scrollHeight - clientHeight)) * 100;
+        setProgress(Math.min(Math.round(scrolled), 100));
+        
+        // Show completion message and update progress when user reaches bottom
+        if (scrolled >= 95 && !showComplete && !progressUpdated.current) {
+          setShowComplete(true);
+          updateProgress();
+        }
+      }
+    };
+
+    const contentElement = contentRef.current;
+    if (contentElement) {
+      contentElement.addEventListener('scroll', handleScroll);
+      return () => contentElement.removeEventListener('scroll', handleScroll);
+    }
+  }, [enrollmentId, progressId]);
+
+  const updateProgress = async () => {
+    if (!progressId || progressUpdated.current) return;
+    
+    try {
+      await updateCourseProgress(progressId, {
+        status: 'article_started',
+      });
+      progressUpdated.current = true;
+    } catch (error) {
+      console.error('Error updating progress:', error);
+      setUpdateError('Failed to update progress. Please try again.');
+    }
+  };
   return (
     <div style={{ 
       backgroundColor: '#151B3B',
@@ -11,11 +85,75 @@ const Article = () => {
       display: 'flex',
       flexDirection: 'column'
     }}>
-      <AttackPagesHeader pageType="sql" />
-      <div style={{
-        padding: '40px',
-        fontFamily: 'Georgia, serif'
-      }}>
+      <div style={{ position: 'relative' }}>
+        <AttackPagesHeader pageType="sql" />
+        {user && (
+          <div style={{
+            position: 'fixed',
+            top: '50%',
+            left: '20px',
+            transform: 'translateY(-50%)',
+            zIndex: 1000
+          }}>
+            <ModuleProgressCircle 
+              module={{
+                status: 'lab_started',
+                component_progress: {
+                  article: { completed: progress === 100, started: true },
+                  initial_quiz: { completed: false, started: false },
+                  labs: {
+                    first: { started: false, completed: false },
+                    second: { started: false, completed: false },
+                    third: { started: false, completed: false }
+                  },
+                  final_quiz: { started: false, completed: false }
+                }
+              }}
+              size="small"
+            />
+          </div>
+        )}
+      </div>
+      <div 
+        ref={contentRef}
+        style={{
+          padding: '40px',
+          fontFamily: 'Georgia, serif',
+          height: 'calc(100vh - 60px)',
+          overflowY: 'auto',
+          position: 'relative'
+        }}
+      >
+        {/* Progress Indicator */}
+        <div style={{
+          position: 'fixed',
+          top: '80px',
+          right: '20px',
+          zIndex: 1000,
+          backgroundColor: 'white',
+          borderRadius: '50%',
+          padding: '5px',
+          boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+        }}>
+          <ProgressCircle progress={progress} />
+        </div>
+
+        {/* Status Messages */}
+        {showComplete && (
+          <div style={{
+            position: 'fixed',
+            bottom: '20px',
+            right: '20px',
+            backgroundColor: updateError ? '#f44336' : '#4CAF50',
+            color: 'white',
+            padding: '10px 20px',
+            borderRadius: '5px',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.2)',
+            zIndex: 1000
+          }}>
+            {updateError || ''}
+          </div>
+        )}
         <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
           <h1 style={{ 
             color: '#5DADE2', 

@@ -5,6 +5,7 @@ import { useThemeContext } from "../../context/ThemeContext";
 import { useAuth } from "../../context/AuthContext";
 import SearchOne from "../Search/SearchOne";
 import { Link } from "react-router-dom";
+import GoogleTranslateLanguageSelector from '../GoogleTranslateLanguageSelector';
 
 export default function HeaderTwo() {
   const { toggleMobileMenu } = useThemeContext();
@@ -35,38 +36,30 @@ export default function HeaderTwo() {
           <MenuOne data={data} />
           {/* <!-- Menu --> */}
           <div className="header__right-4 d-flex align-items-center gap-4">
-            <div className="header__social-4 d-flex align-items-center gap-3">
-              <SearchOne />
-              <div className="header__shopicon-4 d-flex gap-3 align-items-center">
-                <span>
-                  <img src={header.cartIcon} alt="Icon" />
-                </span>
-                <span className="header__notification-4">0</span>
-              </div>
-            </div>
-            {/* <!-- Offcanvas icon  --> */}
-            <div className="offcanvas-icon" onClick={toggleMobileMenu}>
-              <i className="ph ph-list"></i>
-            </div>
             {/* <!-- Offcanvas icon  --> */}
             <div className="header__btn-4 d-flex align-items-center gap-3">
               {user ? (
-                <Link 
-                  className="btn-signUp-4 btn-hover-secondary btn-hover-bubble"
-                  to="/Profile"
-                  style={{
-                    fontSize: '14px',
-                    padding: '8px 16px',
-                    backgroundColor: '#F1C40F',
-                    color: '#000'
-                  }}
-                >
-                  Profile
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </Link>
+                <>
+                  <Link 
+                    className="btn-signUp-4 btn-hover-secondary btn-hover-bubble"
+                    to="/Profile"
+                    style={{
+                      fontSize: '14px',
+                      padding: '8px 16px',
+                      backgroundColor: '#F1C40F',
+                      color: '#000'
+                    }}
+                  >
+                    Profile
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </Link>
+                  <div style={{ marginLeft: '8px' }}>
+                    <GoogleTranslateLanguageSelector />
+                  </div>
+                </>
               ) : (
                 <>
                   <Link 

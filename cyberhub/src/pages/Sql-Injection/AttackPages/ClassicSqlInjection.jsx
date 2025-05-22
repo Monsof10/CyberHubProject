@@ -1,10 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import AttackPagesHeader from '../../../components/AttackPagesHeader/AttackPagesHeader';
+import ModuleProgressCircle from '../../../components/ModuleProgressCircle';
+import { AuthContext } from '../../../context/AuthContext';
 
 const ClassicSqlInjection = () => {
   const [labStarted, setLabStarted] = useState(false);
   const [showNetworkArch, setShowNetworkArch] = useState(false);
+  const { user } = useContext(AuthContext);
+
+  // Module progress data
+  const moduleData = {
+    status: 'lab_started',
+    component_progress: {
+      article: { completed: true, started: true },
+      initial_quiz: { completed: true, started: true },
+      labs: {
+        first: { started: true, completed: false },
+        second: { started: false, completed: false },
+        third: { started: false, completed: false }
+      },
+      final_quiz: { started: false, completed: false }
+    }
+  };
 
   const startLab = () => {
     setShowNetworkArch(true);
@@ -24,7 +42,22 @@ const ClassicSqlInjection = () => {
         display: 'flex',
         flexDirection: 'column'
       }}>
-        <AttackPagesHeader pageType="sql" />
+        <div style={{ position: 'relative' }}>
+          <AttackPagesHeader pageType="sql" />
+          {user && (
+            <div style={{
+              position: 'absolute',
+              top: '20px',
+              right: '20px',
+              zIndex: 1000
+            }}>
+              <ModuleProgressCircle 
+                module={moduleData}
+                size="small"
+              />
+            </div>
+          )}
+        </div>
         <div style={{
           padding: '40px',
           fontFamily: 'Georgia, serif'
@@ -107,7 +140,22 @@ const ClassicSqlInjection = () => {
         display: 'flex',
         flexDirection: 'column'
       }}>
-        <AttackPagesHeader pageType="sql" />
+        <div style={{ position: 'relative' }}>
+          <AttackPagesHeader pageType="sql" />
+          {user && (
+            <div style={{
+              position: 'absolute',
+              top: '20px',
+              right: '20px',
+              zIndex: 1000
+            }}>
+              <ModuleProgressCircle 
+                module={moduleData}
+                size="small"
+              />
+            </div>
+          )}
+        </div>
         <div style={{
           padding: '40px',
           fontFamily: 'Georgia, serif'
@@ -143,11 +191,6 @@ const ClassicSqlInjection = () => {
               <p style={{ fontSize: '18px', lineHeight: '1.6' }}>
                 The attacker sends crafted input through the web interface, which is not properly sanitized, allowing malicious SQL commands to be executed on the database. This can lead to unauthorized data access or manipulation.
               </p>
-              <img 
-                src="https://user-images.githubusercontent.com/123456789/SQLInjectionNetworkDiagram.png" 
-                alt="SQL Injection Network Architecture Diagram" 
-                style={{ maxWidth: '100%', borderRadius: '8px', boxShadow: '0 0 10px rgba(0,0,0,0.5)' }}
-              />
             </section>
             <section style={{ marginBottom: '20px', backgroundColor: '#0b1437', padding: '20px', borderRadius: '8px', width: '100%' }}>
               <h2 style={{ color: '#F1C40F', fontSize: '28px', marginBottom: '10px' }}>Why It Matters</h2>
@@ -186,7 +229,22 @@ const ClassicSqlInjection = () => {
       backgroundColor: '#151B3B',
       position: 'relative'
     }}>
-      <AttackPagesHeader pageType="sql" />
+      <div style={{ position: 'relative' }}>
+        <AttackPagesHeader pageType="sql" />
+        {user && (
+          <div style={{
+            position: 'absolute',
+            top: '20px',
+            right: '20px',
+            zIndex: 1000
+          }}>
+            <ModuleProgressCircle 
+              module={moduleData}
+              size="small"
+            />
+          </div>
+        )}
+      </div>
       <div style={{ 
         display: 'flex', 
         flex: 1

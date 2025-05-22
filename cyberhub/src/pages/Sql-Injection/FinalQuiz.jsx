@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import { getUserProgress, updateUserProgress, createUserProgress } from '../../supabase/progress';
 import AttackPagesHeader from '../../components/AttackPagesHeader/AttackPagesHeader';
+import ModuleProgressCircle from '../../components/ModuleProgressCircle';
 
 const FinalQuiz = () => {
   const { user } = useContext(AuthContext);
@@ -12,6 +13,21 @@ const FinalQuiz = () => {
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [isCorrect, setIsCorrect] = useState(null);
   const [isSaving, setIsSaving] = useState(false);
+
+  // Module progress data
+  const moduleData = {
+    status: 'final_quiz_started',
+    component_progress: {
+      article: { completed: true, started: true },
+      initial_quiz: { completed: true, started: true },
+      labs: {
+        first: { completed: true, started: true },
+        second: { completed: true, started: true },
+        third: { completed: true, started: true }
+      },
+      final_quiz: { started: true, completed: false }
+    }
+  };
 
   const questions = [
     {
@@ -192,7 +208,12 @@ const FinalQuiz = () => {
             totalQuestions: questions.length,
             percentage: calculatePercentage(),
             completedAt: new Date().toISOString()
-          }
+          },
+          // Mark level 1 modules as completed to reflect 20% course completion
+          level1_article: { completed: true, completedAt: new Date().toISOString() },
+          level1_initial_quiz: { completed: true, completedAt: new Date().toISOString() },
+          level1_labs_first: { completed: true, completedAt: new Date().toISOString() },
+          level1_final_quiz: { completed: true, completedAt: new Date().toISOString() }
         }
       };
 
@@ -226,7 +247,22 @@ const FinalQuiz = () => {
       display: 'flex',
       flexDirection: 'column'
     }}>
-      <AttackPagesHeader pageType="sql" />
+      <div style={{ position: 'relative' }}>
+        <AttackPagesHeader pageType="sql" />
+        {user && (
+          <div style={{
+            position: 'absolute',
+            top: '20px',
+            right: '20px',
+            zIndex: 1000
+          }}>
+            <ModuleProgressCircle 
+              module={moduleData}
+              size="small"
+            />
+          </div>
+        )}
+      </div>
       <div style={{
         flex: 1,
         color: '#fff',
@@ -297,7 +333,7 @@ const FinalQuiz = () => {
                     }}
                     onClick={saveProgress}
                   >
-                    Complete Course
+                    Complete Level 1 
                   </Link>
                 </div>
               </div>

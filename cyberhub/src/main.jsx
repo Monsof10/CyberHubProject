@@ -12,6 +12,8 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "./assets/fonts/phosphor/style.css";
 
+import './i18n/config';
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <ThemeProvider>
     <BrowserRouter>

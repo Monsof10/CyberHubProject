@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import AIAssistant from '../AIAssistant/AIAssistant';
+import GoogleTranslateLanguageSelector from '../GoogleTranslateLanguageSelector';
 
 const AttackPagesHeader = ({ pageType }) => {
   const [showAssistant, setShowAssistant] = useState(false);
@@ -74,15 +75,7 @@ const AttackPagesHeader = ({ pageType }) => {
           alignItems: 'center',
           gap: '24px'
         }}>
-          <button style={{
-            backgroundColor: 'transparent',
-            border: 'none',
-            color: '#fff',
-            cursor: 'pointer',
-            fontSize: '14px'
-          }}>
-            Get Unstuck
-          </button>
+          <GoogleTranslateLanguageSelector />
           <button style={{
             backgroundColor: 'transparent',
             border: 'none',

@@ -114,6 +114,48 @@ create table public.course_progress (
   enrollment_id uuid references public.enrollments(id) not null,
   module text not null,
   status text,
+  component_progress jsonb default '{
+    "article": {
+      "started": false,
+      "completed": false,
+      "started_at": null,
+      "completed_at": null
+    },
+    "initial_quiz": {
+      "started": false,
+      "completed": false,
+      "started_at": null,
+      "completed_at": null,
+      "score": null
+    },
+    "labs": {
+      "first": {
+        "started": false,
+        "completed": false,
+        "started_at": null,
+        "completed_at": null
+      },
+      "second": {
+        "started": false,
+        "completed": false,
+        "started_at": null,
+        "completed_at": null
+      },
+      "third": {
+        "started": false,
+        "completed": false,
+        "started_at": null,
+        "completed_at": null
+      }
+    },
+    "final_quiz": {
+      "started": false,
+      "completed": false,
+      "started_at": null,
+      "completed_at": null,
+      "score": null
+    }
+  }'::jsonb,
   quiz_scores jsonb default '{}'::jsonb,
   last_accessed timestamp with time zone,
   created_at timestamp with time zone default timezone('utc'::text, now()) not null,

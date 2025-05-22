@@ -1,0 +1,23 @@
+{
+  "welcome": "Bienvenido",
+  "logout": "Cerrar sesión",
+  "profile": "Perfil",
+  "feedback": "Comentarios",
+  "submit": "Enviar",
+  "notifications": "Notificaciones",
+  "no_new_notifications": "No hay nuevas notificaciones",
+  "progress_tracking": "Seguimiento del progreso",
+  "skill_path_progress": "Progreso del camino de habilidades",
+  "ctf_challenges_accomplished": "Desafíos CTF completados",
+  "achievements": "Logros",
+  "billing": "Facturación",
+  "profile_settings": "Configuración del perfil",
+  "reset_progress": "Restablecer progreso",
+  "course_completed": "Curso completado",
+  "completed": "Completado",
+  "loading": "Cargando...",
+  "error_fetching_data": "Error al obtener datos",
+  "thank_you_feedback": "¡Gracias por tus comentarios!",
+  "feedback_placeholder": "Tus comentarios",
+  "contact_info_optional": "Información de contacto (opcional)"
+}
