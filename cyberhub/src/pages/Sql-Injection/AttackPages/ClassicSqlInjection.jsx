@@ -266,7 +266,7 @@ const ClassicSqlInjection = () => {
             The link below will take you to the Classic SQL Attack Lab environment where you can practice and explore classic SQL injection techniques in a controlled setting.
           </p>
           <a 
-            href="https://sqlclassic1.onrender.com" 
+            href="https://sqlclassic2.onrender.com" 
             target="_blank" 
             rel="noopener noreferrer"
             style={{ color: '#F1C40F', textDecoration: 'underline', fontSize: '20px' }}
@@ -353,7 +353,7 @@ const ClassicSqlInjection = () => {
             gap: '10px'
           }}
         >
-          Next Attack: Union-Based Injection
+          Next Attack: Out Of Band Sql Injection
           <span style={{ fontSize: '20px' }}>→</span>
         </Link>
       </div>

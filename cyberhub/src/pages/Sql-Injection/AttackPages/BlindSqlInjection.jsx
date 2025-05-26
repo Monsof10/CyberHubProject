@@ -273,7 +273,7 @@ const BlindSqlInjection = () => {
             The link below will take you to the Blind SQL Attack Lab environment where you can practice and explore blind SQL injection techniques in a controlled setting.
           </p>
           <a 
-            href="https://blindsql.onrender.com/" 
+            href="https://inferential-sqli-blind-sqli-1.onrender.com" 
             target="_blank" 
             rel="noopener noreferrer"
             style={{ color: '#F1C40F', textDecoration: 'underline', fontSize: '20px' }}

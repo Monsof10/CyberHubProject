@@ -24,22 +24,22 @@ const HeaderOne = {
     },
     {
       name: "Program Security",
-      link: "/skill-paths/program-security",
+      link: "/skillpaths/program-security",
       icon: CategoryMenuOneIconTwo,
     },
     {
       name: "System Security",
-      link: "/skill-paths/system-security",
+      link: "/skillpaths/system-security",
       icon: CategoryMenuOneIconThree,
     },
     {
       name: "Software Exploitation",
-      link: "/skill-paths/software-exploitation",
+      link: "/skillpaths/software-exploitation",
       icon: CategoryMenuOneIconFour,
     },
     {
       name: "Blue/Red team",
-      link: "/skill-paths/blue-red-team",
+      link: "/skillpaths/blue-red-team",
       icon: CategoryMenuOneIconFive,
     },
     

@@ -125,7 +125,7 @@ title: "Build a fortress of knowledge, resilience, and mastery in DDoS defense",
 };
 
 import ArrowRightWhite from "/assets/imgs/icon/arrow-right-white.svg";
-import AboutFourThumb from "/assets/imgs/thumb/aboutfour-thumb.webp";
+import AboutFourThumb from "/assets/imgs/thumb/aboutfour-thumb.gif";
 import AboutShapeFourOne from "/assets/imgs/shape/about-shapefour-1.webp";
 import ReviewShape from "/assets/imgs/shape/review-shape.webp";
 

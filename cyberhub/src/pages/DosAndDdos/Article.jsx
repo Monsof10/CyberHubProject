@@ -210,6 +210,37 @@ const DosArticle = () => {
               }}/>
             </div>
           </div> */}
+          {/* Video Preview Section */}
+          <div style={{
+            backgroundColor: '#1a2147',
+            padding: '30px',
+            borderRadius: '10px',
+            marginBottom: '30px',
+            border: '1px solid #5DADE2',
+            maxWidth: '1000px',
+            margin: '0 auto'
+          }}>
+            <h2 style={{
+              color: '#5DADE2',
+              fontSize: '28px',
+              marginBottom: '20px'
+            }}>Video Preview</h2>
+            <p style={{ fontSize: '18px', lineHeight: '1.6', marginBottom: '15px' }}>
+              Watch this video to get an overview of Dos and DDOs attacks:
+            </p>
+            <a 
+              href="https://www.youtube.com/watch?v=OWLGUgiz_eE&ab_channel=CyberShaolin" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{
+                color: '#F1C40F',
+                fontSize: '18px',
+                textDecoration: 'underline'
+              }}
+            >
+              Dos and Ddos Attack Video Preview
+            </a>
+          </div>
 
           {/* Navigation Buttons */}
           <div style={{

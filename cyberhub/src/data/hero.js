@@ -115,6 +115,7 @@ const innerHeroOne = {
   shapeSeven: InnerOneShapeSeven,
 };
 
+
 import BadgeImage from "/assets/imgs/shape/hero-circletext-4.svg";
 import BadgeTextIcon from "/assets/imgs/icon/textshape-icon.svg";
 import HeroTwoImageOne from "/assets/imgs/hero/children-women.webp";
@@ -138,6 +139,7 @@ const heroTwo = {
   imageTwo: HeroTwoImageTwo,
   badgeImage: BadgeImage,
   badgeTextIcon: BadgeTextIcon,
+  
   description:
     "Our nonprofit strives to offer a top-tier education at no cost, accessible to everyone globally",
   shapeOne: HeroTwoShapeOne,

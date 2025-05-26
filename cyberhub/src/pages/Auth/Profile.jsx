@@ -302,8 +302,8 @@ const Profile = () => {
           {activeTab === 'progress' && (
             <section style={{ backgroundColor: '#1a2147', borderRadius: '10px', boxShadow: '0 4px 12px rgba(0,0,0,0.3)', padding: '30px', boxSizing: 'border-box', animation: 'fadeIn 0.6s ease forwards', opacity: 0 }}>
               <h3 style={{ margin: '0 0 20px 0', color: '#5DADE2' }}>Course Progress</h3>
-              {['SQL Injection', 'Spoofing', 'DOS/DDOS', 'Cross-Site Scripting', 'Forensic Science', 'User Enumeration', 'Privilege Escalation', 'Buffer Overflows', 'Server-Side Request Forgery', 'DNS Poisoning'].map(course => {
-                const key = course.toLowerCase().replace(/[\s-]/g, '');
+{['SQL Injection', 'Spoofing', 'DOS/DDOS', 'Cross-Site Scripting', 'Forensic Science', 'User Enumeration', 'Privilege Escalation', 'Buffer Overflows', 'Server-Side Request Forgery', 'DNS Poisoning'].map(course => {
+  const key = course.toLowerCase().replace(/[\s\-\/]/g, '');
                 const progressPercent = calculateModuleProgress(key);
                 return (
                   <div key={course} style={{ marginBottom: '30px' }}>
@@ -418,15 +418,15 @@ const Profile = () => {
                 className="modal-button"
                 onClick={async () => {
                   try {
-                    const updatedProgress = {
-                      ...progress.progress,
-                      [modalCourse.toLowerCase().replace(/[\s-]/g, '')]: Object.fromEntries(
-                        Object.entries(progress.progress[modalCourse.toLowerCase().replace(/[\s-]/g, '')]).map(([key]) => [
-                          key,
-                          { completed: false, completedAt: null }
-                        ])
-                      )
-                    };
+const updatedProgress = {
+  ...progress.progress,
+  [modalCourse.toLowerCase().replace(/[\s\-\/]/g, '')]: Object.fromEntries(
+    Object.entries(progress.progress[modalCourse.toLowerCase().replace(/[\s\-\/]/g, '')]).map(([key]) => [
+      key,
+      { completed: false, completedAt: null }
+    ])
+  )
+};
                     await updateUserProgress(user.id, updatedProgress);
                     setProgress({ ...progress, progress: updatedProgress });
                     setShowModal(false);

@@ -361,6 +361,19 @@ curl -Is https://cyberhub.com | head -n 1`}            </pre>
                 <li style={{ marginBottom: '8px' }}><code>nslookup cyberhub.com</code>: Verify that the domain now resolves to the correct IP address</li>
                 <li style={{ marginBottom: '8px' }}><code>curl -Is https://cyberhub.com | head -n 1</code>: Test the HTTPS connection to verify the website is accessible and returns a valid response</li>
               </ul><p>These commands help you systematically remove malicious DNS entries, add correct ones, and verify that everything is working properly.</p>
+              <div style={{
+                backgroundColor: '#0b1437',
+                padding: '20px',
+                borderRadius: '5px',
+                marginTop: '20px',
+                color: '#F1C40F',
+                fontSize: '18px'
+              }}>
+                <h3 style={{ marginTop: 0, marginBottom: '10px' }}>Note on Attack Files</h3>
+                <p>
+                  The files you ran are premade attack files done to show you how you can mitigate a DNS spoofing attack. Those commands represent real life scenarios. In the next levels you will learn how can you start these attacks by yourself
+                </p>
+              </div>
             </div>
           </div>
         </div>

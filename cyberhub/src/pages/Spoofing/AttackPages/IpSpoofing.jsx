@@ -467,6 +467,19 @@ ping -c 3 192.168.1.1`}
               </ul>
             </div>
             <p>Now Continue To Test Your Knowledge</p>
+            <div style={{
+              backgroundColor: '#0b1437',
+              padding: '20px',
+              borderRadius: '5px',
+              marginTop: '20px',
+              color: '#F1C40F',
+              fontSize: '18px'
+            }}>
+              <h3 style={{ marginTop: 0, marginBottom: '10px' }}>Note on Attack Files</h3>
+              <p>
+                The files you ran are premade attack files done to show you how you can mitigate an IP spoofing attack. Those commands represent real life scenarios.
+              </p>
+            </div>
           </div>
         </div>
       </div>

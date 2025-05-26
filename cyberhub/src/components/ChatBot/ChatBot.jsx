@@ -341,7 +341,7 @@ const ChatBot = () => {
       {isOpen && (
         <div className="chatbot-window">
           <div className="chatbot-header">
-            <h3>✨ AI Learning Assistant</h3>
+            <h3>✨ Chatbot Assistant</h3>
             <button className="close-button" onClick={toggleChat}>×</button>
           </div>
           <div className="chatbot-body">

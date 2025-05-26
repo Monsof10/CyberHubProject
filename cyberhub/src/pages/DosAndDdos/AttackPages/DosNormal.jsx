@@ -471,7 +471,20 @@ const DosNormal = () => {
               • <span style={{color: '#40E0D0'}}>-j DROP</span> – Tells iptables to drop any matching packets (ignore and do not respond).
             </p>
             <p style={{ marginTop: '10px' }}>2. Watch the Monitoring Terminal - traffic should normalize</p>
-            <p style={{ marginTop: '10px' }}>3. The target website should become responsive again</p>
+          <p style={{ marginTop: '10px' }}>3. The target website should become responsive again</p>
+          <div style={{
+            backgroundColor: '#0b1437',
+            padding: '20px',
+            borderRadius: '5px',
+            marginTop: '20px',
+            color: '#F1C40F',
+            fontSize: '18px'
+          }}>
+            <h3 style={{ marginTop: 0, marginBottom: '10px' }}>Note on Attack Files</h3>
+            <p>
+              The files you ran are premade attack files done to show you how you can mitigate a DoS attack. Those commands represent real life scenarios. In the next levels you will learn how can you start these attacks by yourself
+            </p>
+          </div>
           </div>
         </div>
 

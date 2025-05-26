@@ -27,19 +27,19 @@ export default function Workspace() {
           marginBottom: '30px'
         }}>
           <h2 style={{ fontSize: '28px', color: '#1A237E', marginBottom: '15px' }}>Your Personalized Workspace</h2>
-          <p>
+          <p style={{ color: 'black' }}>
             Welcome to your personalized workspace, crafted just for you. Manage your local projects effortlessly, organize your tasks, and track your progress all in one place. This space is designed to boost your productivity and keep you focused on what matters most.
           </p>
           <h3 style={{ fontSize: '22px', color: '#FF5722', marginTop: '25px', marginBottom: '10px' }}>Organize Your Projects</h3>
-          <p>
+          <p style={{ color: 'black' }}>
             Create new projects, open existing ones, and seamlessly connect with your local development environment. Experience a streamlined workflow that enhances your coding journey and helps you achieve your development goals faster.
           </p>
           <h3 style={{ fontSize: '22px', color: '#FF5722', marginTop: '25px', marginBottom: '10px' }}>Stay Productive</h3>
-          <p>
+          <p style={{ color: 'black' }}>
             Keep track of your progress, set milestones, and stay motivated with a workspace designed to support your development journey.
           </p>
           <h3 style={{ fontSize: '22px', color: '#FF5722', marginTop: '25px', marginBottom: '10px' }}>Seamless Integration</h3>
-          <p>
+          <p style={{ color: 'black' }} >
             Integrate your workspace with local tools and environments to create a cohesive and efficient development experience.
           </p>
         </section>

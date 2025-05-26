@@ -39,12 +39,11 @@ const SqlInjectionHome = lazy(() => import("./pages/Sql-Injection/HomePage"));
 const Article = lazy(() => import("./pages/Sql-Injection/Article"));
 const SqlInitialQuiz = lazy(() => import("./pages/Sql-Injection/InitialQuiz"));
 const ClassicSqlInjection = lazy(() => import("./pages/Sql-Injection/AttackPages/ClassicSqlInjection"));
-const UnionBasedInjection = lazy(() => import("./pages/Sql-Injection/AttackPages/UnionBasedInjection"));
+const OutOfBandInjection = lazy(() => import("./pages/Sql-Injection/AttackPages/OutOfBandInjection"));
 const BlindSqlInjection = lazy(() => import("./pages/Sql-Injection/AttackPages/BlindSqlInjection"));
 const SqlFinalQuiz = lazy(() => import("./pages/Sql-Injection/FinalQuiz"));
 const OnlineCourseAbout = lazy(() => import("./pages/Sql-Injection/about"));
 const OnlineCourseCourses = lazy(() => import("./pages/Sql-Injection/courses"));
-const OnlineCourseFilter = lazy(() => import("./pages/Sql-Injection/course-filter"));
 const OnlineCourseInstructors = lazy(() => import("./pages/Sql-Injection/instructors"));
 const OnlineCourseBlogs = lazy(() => import("./pages/Sql-Injection/blogs"));
 const OnlineCourseContact = lazy(() => import("./pages/Sql-Injection/contact"));
@@ -60,7 +59,6 @@ const WebExploitationPage = lazy(() => import("./pages/CTFChallenges/WebExploita
 const DosMainPage = lazy(() => import("./pages/DosMain"));
 const NotFound = lazy(() => import("./pages/404"));
 const TerminalPage = lazy(() => import("./pages/Terminal/TerminalPage"));
-const TestPage = lazy(() => import("./pages/TestPage"));
 const Workspace = lazy(() => import("./pages/Workspace"));
 
 import Layout from "./components/Layout/Layout";
@@ -433,10 +431,10 @@ function App() {
           }
         />
         <Route
-          path="/Sql-Injection/attack-pages/union-based-injection"
+          path="/Sql-Injection/attack-pages/out-of-band-injection"
           element={
             <Suspense fallback={<Loading />}>
-              <UnionBasedInjection />
+              <OutOfBandInjection />
             </Suspense>
           }
         />
@@ -477,14 +475,6 @@ function App() {
           />
           
           <Route
-            path="course-filter"
-            element={
-              <Suspense fallback={<Loading />}>
-                <OnlineCourseFilter />
-              </Suspense>
-            }
-          />
-          <Route
             path="instructors"
             element={
               <Suspense fallback={<Loading />}>
@@ -524,14 +514,6 @@ function App() {
           element={
             <Suspense fallback={<Loading />}>
               <TerminalPage />
-            </Suspense>
-          }
-        />
-        <Route
-          path="/test-rag"
-          element={
-            <Suspense fallback={<Loading />}>
-              <TestPage />
             </Suspense>
           }
         />

@@ -227,23 +227,23 @@ const Article = () => {
             </div>
 
             <div style={{ marginBottom: '30px' }}>
-              <h3 style={{ color: '#F1C40F', marginBottom: '15px', fontSize: '24px' }}>
-                2. Union-Based SQL Injection
-              </h3>
-              <p style={{ fontSize: '18px', lineHeight: '1.6', marginBottom: '15px' }}>
-                Uses the UNION SQL operator to combine the results of two or more SELECT statements into a single result. This allows attackers to retrieve data from different database tables. This method requires the number and data types of columns in the SELECT statements to match.
-              </p>
-              <p style={{ fontSize: '18px', lineHeight: '1.6', marginBottom: '15px' }}>
-                Union-based attacks are powerful for extracting data from multiple tables in a single query, often bypassing some input validation mechanisms.
-              </p>
-              <div style={{
-                backgroundColor: '#151B3B',
-                padding: '15px',
-                borderRadius: '5px',
-                fontSize: '16px'
-              }}>
-                Example: ' UNION SELECT username, password FROM users--
-              </div>
+            <h3 style={{ color: '#F1C40F', marginBottom: '15px', fontSize: '24px' }}>
+              2. Out-of-Band SQL Injection
+            </h3>
+            <p style={{ fontSize: '18px', lineHeight: '1.6', marginBottom: '15px' }}>
+              Exploits the ability of the database to make DNS or HTTP requests to attacker-controlled servers, allowing data to be exfiltrated through these channels.
+            </p>
+            <p style={{ fontSize: '18px', lineHeight: '1.6', marginBottom: '15px' }}>
+              Out-of-Band attacks are useful when direct responses are not available or filtered, enabling attackers to extract data through indirect means.
+            </p>
+            <div style={{
+              backgroundColor: '#151B3B',
+              padding: '15px',
+              borderRadius: '5px',
+              fontSize: '16px'
+            }}>
+              Example: Using DNS requests to exfiltrate data from the database
+            </div>
             </div>
 
             <div style={{ marginBottom: '30px' }}>
@@ -369,6 +369,38 @@ const Article = () => {
                 Deploy Web Application Firewalls to detect and block SQL injection attempts.
               </p>
             </div>
+          </div>
+
+          {/* Video Preview Section */}
+          <div style={{
+            backgroundColor: '#1a2147',
+            padding: '30px',
+            borderRadius: '10px',
+            marginBottom: '30px',
+            border: '1px solid #5DADE2',
+            maxWidth: '1000px',
+            margin: '0 auto'
+          }}>
+            <h2 style={{
+              color: '#5DADE2',
+              fontSize: '28px',
+              marginBottom: '20px'
+            }}>Video Preview</h2>
+            <p style={{ fontSize: '18px', lineHeight: '1.6', marginBottom: '15px' }}>
+              Watch this video to get an overview of SQL Injection attacks:
+            </p>
+            <a 
+              href="https://youtu.be/wcaiKgQU6VE?si=OJFvcFgZup-fC1jy" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{
+                color: '#F1C40F',
+                fontSize: '18px',
+                textDecoration: 'underline'
+              }}
+            >
+              SQL Injection Attack Video Preview
+            </a>
           </div>
 
           {/* Navigation */}

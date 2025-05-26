@@ -29,16 +29,16 @@ const FinalQuiz = () => {
     }
   };
 
-  const questions = [
-    {
-      questionText: "What is the main purpose of UNION in SQL injection attacks?",
-      answerOptions: [
-        { text: "To combine results from multiple queries", isCorrect: true },
-        { text: "To encrypt database traffic", isCorrect: false },
-        { text: "To delete database records", isCorrect: false },
-        { text: "To create new tables", isCorrect: false },
-      ],
-    },
+    const questions = [
+      {
+        questionText: "What is the main purpose of Out-of-Band techniques in SQL injection attacks?",
+        answerOptions: [
+          { text: "To exfiltrate data through indirect channels like DNS or HTTP requests", isCorrect: true },
+          { text: "To encrypt database traffic", isCorrect: false },
+          { text: "To delete database records", isCorrect: false },
+          { text: "To create new tables", isCorrect: false },
+        ],
+      },
     {
       questionText: "How does Error-based (Classic) SQL injection work?",
       answerOptions: [
@@ -323,7 +323,7 @@ const FinalQuiz = () => {
                     Retake Quiz
                   </button>
                   <Link
-                    to="/"
+                    to="/Sql-Injection/HomePage"
                     style={{
                       backgroundColor: '#F1C40F',
                       color: '#000',

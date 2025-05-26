@@ -314,7 +314,7 @@ const FinalQuiz = () => {
                     Retake Quiz
                   </button>
                   <Link
-                    to="/Spoofing"
+                    to="/DosAndDdos/HomePage"
                     style={{
                       backgroundColor: '#F1C40F',
                       color: '#000',
@@ -324,7 +324,7 @@ const FinalQuiz = () => {
                     }}
                     onClick={saveProgress}
                   >
-                    Next Module: Spoofing
+                    Complete Level 1 
                   </Link>
                 </div>
               </div>

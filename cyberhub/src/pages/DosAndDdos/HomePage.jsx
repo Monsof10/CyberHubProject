@@ -64,9 +64,9 @@ const levelContent = {
 };
 
 const DosAndDdosHome = () => {
-  const [isHovered, setIsHovered] = useState(false);
   const [progress, setProgress] = useState(null);
   const [selectedLevel, setSelectedLevel] = useState(1);
+  const [isHovered, setIsHovered] = useState(false);
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -109,7 +109,6 @@ const DosAndDdosHome = () => {
             ])
           )
         };
-        
         await updateUserProgress(user.id, updatedProgress);
         setProgress({ ...progress, progress: updatedProgress });
       } catch (error) {
@@ -129,7 +128,6 @@ const DosAndDdosHome = () => {
       if (!newProgress.dosddos) {
         newProgress.dosddos = {};
       }
-      // Mark progress for levels up to clicked level as completed
       for (let lvl = 1; lvl <= level; lvl++) {
         newProgress.dosddos[`level${lvl}_article`] = { completed: true, completedAt: new Date().toISOString() };
         newProgress.dosddos[`level${lvl}_initial_quiz`] = { completed: true, completedAt: new Date().toISOString() };
@@ -137,7 +135,6 @@ const DosAndDdosHome = () => {
         newProgress.dosddos[`level${lvl}_final_quiz`] = { completed: true, completedAt: new Date().toISOString() };
         newProgress.dosddos[`level${lvl}_labs_second`] = { completed: true, completedAt: new Date().toISOString() };
       }
-      // If final level clicked, ensure progress is 100% and circle colored
       if (level === 5) {
         setSelectedLevel(5);
       }
@@ -188,7 +185,7 @@ const DosAndDdosHome = () => {
         top: '20px',
         right: '20px',
         display: 'flex',
-        gap: '15px',
+        gap: '600px',
         zIndex: 1000
       }}>
         <div style={{
@@ -275,8 +272,8 @@ const DosAndDdosHome = () => {
         overflow: 'hidden',
         boxShadow: '0 4px 20px rgba(0,0,0,0.1)'
       }}>
-        <div style={{ 
-          position: 'relative', 
+        <div style={{
+          position: 'relative',
           zIndex: 2,
           maxWidth: '1200px',
           margin: '0 auto',
@@ -320,56 +317,56 @@ const DosAndDdosHome = () => {
             alignItems: 'center',
             position: 'relative'
           }}>
-      {[1, 2, 3, 4, 5].map((level) => {
-        const progressPercent = calculateProgress();
-        const isCompleted = level <= Math.floor(progressPercent / 20);
-        const isSelected = level === selectedLevel;
-        return (
-          <div
-            key={level}
-            onClick={() => user ? setSelectedLevel(level) : navigate('/login')}
-            style={{
-              cursor: 'pointer',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              textDecoration: 'none',
-              position: 'relative',
-              zIndex: 2
-            }}
-          >
-            <div style={{
-              width: '50px',
-              height: '50px',
-              borderRadius: '50%',
-              backgroundColor: isSelected || (level === 5 && progressPercent === 100) ? '#1A237E' : (isCompleted ? '#FFD740' : '#f0f0f0'),
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              color: isSelected || (level === 5 && progressPercent === 100) ? '#fff' : (isCompleted ? '#1A237E' : '#666'),
-              fontWeight: 'bold',
-              fontSize: '18px',
-              marginBottom: '10px',
-              border: '2px solid',
-              borderColor: isCompleted || (level === 5 && progressPercent === 100) ? '#FFB300' : '#ddd',
-              transition: 'all 0.3s ease'
-            }}>
-              {level}
-            </div>
-            <span style={{
-              color: isCompleted || (level === 5 && progressPercent === 100) ? '#1A237E' : '#666',
-              fontSize: '14px',
-              fontWeight: '500'
-            }}>
-              {level === 1 ? 'Beginner' :
-               level === 2 ? 'Basic' :
-               level === 3 ? 'Intermediate' :
-               level === 4 ? 'Advanced' :
-               'Expert'}
-            </span>
-          </div>
-        );
-      })}
+            {[1, 2, 3, 4, 5].map((level) => {
+              const progressPercent = calculateProgress();
+              const isCompleted = level <= Math.floor(progressPercent / 20);
+              const isSelected = level === selectedLevel;
+              return (
+                <div
+                  key={level}
+                  onClick={() => user ? setSelectedLevel(level) : navigate('/login')}
+                  style={{
+                    cursor: 'pointer',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    textDecoration: 'none',
+                    position: 'relative',
+                    zIndex: 2
+                  }}
+                >
+                  <div style={{
+                    width: '50px',
+                    height: '50px',
+                    borderRadius: '50%',
+                    backgroundColor: isSelected || (level === 5 && progressPercent === 100) ? '#1A237E' : (isCompleted ? '#FFD740' : '#f0f0f0'),
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: isSelected || (level === 5 && progressPercent === 100) ? '#fff' : (isCompleted ? '#1A237E' : '#666'),
+                    fontWeight: 'bold',
+                    fontSize: '18px',
+                    marginBottom: '10px',
+                    border: '2px solid',
+                    borderColor: isCompleted || (level === 5 && progressPercent === 100) ? '#FFB300' : '#ddd',
+                    transition: 'all 0.3s ease'
+                  }}>
+                    {level}
+                  </div>
+                  <span style={{
+                    color: isCompleted || (level === 5 && progressPercent === 100) ? '#1A237E' : '#666',
+                    fontSize: '14px',
+                    fontWeight: '500'
+                  }}>
+                    {level === 1 ? 'Beginner' :
+                      level === 2 ? 'Basic' :
+                        level === 3 ? 'Intermediate' :
+                          level === 4 ? 'Advanced' :
+                            'Expert'}
+                  </span>
+                </div>
+              );
+            })}
             {/* Connecting line */}
             <div style={{
               position: 'absolute',
@@ -385,14 +382,14 @@ const DosAndDdosHome = () => {
                 height: '100%',
                 backgroundColor: '#FFD740',
                 transition: 'width 0.3s ease'
-              }}/>
+              }} />
             </div>
           </div>
         </div>
       </div>
 
-      <div style={{ 
-        maxWidth: '1200px', 
+      <div style={{
+        maxWidth: '1200px',
         margin: '0 auto',
         padding: '40px 20px',
         display: 'grid',
@@ -493,3 +490,115 @@ const DosAndDdosHome = () => {
             boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
           }}>
             {user && progress && (
+              <>
+                <div style={{
+                  backgroundColor: '#f8f9fa',
+                  padding: '20px',
+                  borderRadius: '10px',
+                  marginBottom: '20px'
+                }}>
+                  <h4 style={{ marginBottom: '15px', color: '#1A237E' }}>Your Progress</h4>
+                  <div style={{ 
+                    width: '100%', 
+                    height: '10px', 
+                    backgroundColor: '#e9ecef',
+                    borderRadius: '5px',
+                    overflow: 'hidden',
+                    marginBottom: '10px'
+                  }}>
+                    <div style={{ 
+                      width: `${calculateProgress()}%`, 
+                      height: '100%', 
+                      backgroundColor: '#FFD740',
+                      transition: 'width 0.3s ease'
+                    }}/>
+                  </div>
+                  <div style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center'
+                  }}>
+                    <span>{calculateProgress()}% Complete</span>
+                    <button
+                      onClick={resetProgress}
+                      style={{
+                        backgroundColor: '#E74C3C',
+                        color: '#fff',
+                        padding: '5px 10px',
+                        border: 'none',
+                        borderRadius: '5px',
+                        cursor: 'pointer',
+                        fontSize: '12px'
+                      }}
+                    >
+                      Reset Progress
+                    </button>
+                  </div>
+                </div>
+
+                {/* Course Info */}
+                <div style={{
+                  marginBottom: '20px'
+                }}>
+                  {[
+                    { label: 'Duration', value: selectedLevel === 1 ? '45min' : 
+                                            selectedLevel === 2 ? '1h' :
+                                            selectedLevel === 3 ? '1.5h' :
+                                            selectedLevel === 4 ? '2h' : '3h' },
+                    { label: 'Difficulty', value: selectedLevel === 1 ? 'Beginner' :
+                                                selectedLevel === 2 ? 'Basic' :
+                                                selectedLevel === 3 ? 'Intermediate' :
+                                                selectedLevel === 4 ? 'Advanced' : 'Expert' },
+                    { label: 'Language', value: 'English' },
+                    { label: 'Certificate', value: selectedLevel === 5 ? 'Yes' : 'No' }
+                  ].map((item, index) => (
+                    <div key={index} style={{
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      padding: '10px 0',
+                      borderBottom: index !== 3 ? '1px solid #eee' : 'none'
+                    }}>
+                      <span style={{ color: '#666' }}>{item.label}</span>
+                      <span style={{ color: '#1A237E', fontWeight: '500' }}>{item.value}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <Link 
+                  to={user ? "/DosAndDdos/Article" : "/login"}
+                  onClick={() => handleLevelClick(selectedLevel)}
+                  onMouseEnter={() => setIsHovered(true)}
+                  onMouseLeave={() => setIsHovered(false)}
+                  style={{
+                    width: '100%',
+                    padding: '15px',
+                    backgroundColor: isHovered ? '#FF7043' : '#FF5722',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '10px',
+                    fontSize: '18px',
+                    fontWeight: 'bold',
+                    cursor: 'pointer',
+                    transition: 'all 0.3s ease',
+                    textDecoration: 'none',
+                    textAlign: 'center',
+                    display: 'block'
+                  }}
+                >
+                  {!user ? 'Login to Start' : 
+                   selectedLevel === 1 ? 'Start Course' :
+                   selectedLevel === 2 ? 'Continue Level 2' :
+                   selectedLevel === 3 ? 'Continue Level 3' :
+                   selectedLevel === 4 ? 'Continue Level 4' :
+                   'Continue the final level'}
+                </Link>
+              </>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default DosAndDdosHome;

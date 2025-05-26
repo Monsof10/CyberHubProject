@@ -63,6 +63,7 @@ const megaMenuOne = [
         link: "/DnsPoisoning/HomePage",
         title: "DNS Poisoning",
       },
+      
     ],
   },
   {
@@ -130,7 +131,7 @@ const megaMenuOne = [
 const menus = [
   {
     name: "Catalog",
-    link: "#",
+    link: "/courses",
     megaMenu: megaMenuOne,
     subMenus: [
       {
@@ -150,20 +151,6 @@ const menus = [
   {
     name: "About",
     link: "/about",
-  },
-  {
-    name: "Courses",
-    link: "#",
-    subMenus: [
-      {
-        name: "Course List",
-        link: "/courses",
-      },
-      {
-        name: "Course Filter",
-        link: "/course-filter",
-      },
-    ],
   },
   {
     name: "CTF Challenges",
