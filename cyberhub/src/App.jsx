@@ -58,7 +58,6 @@ const ForensicsPage = lazy(() => import("./pages/CTFChallenges/ForensicsPage"));
 const WebExploitationPage = lazy(() => import("./pages/CTFChallenges/WebExploitationPage"));
 const DosMainPage = lazy(() => import("./pages/DosMain"));
 const NotFound = lazy(() => import("./pages/404"));
-const TerminalPage = lazy(() => import("./pages/Terminal/TerminalPage"));
 const Workspace = lazy(() => import("./pages/Workspace"));
 
 import Layout from "./components/Layout/Layout";
@@ -508,15 +507,6 @@ function App() {
           />
           <Route path="*" element={<Navigate to="/404" />} />
         </Route>
-
-        <Route
-          path="/terminal"
-          element={
-            <Suspense fallback={<Loading />}>
-              <TerminalPage />
-            </Suspense>
-          }
-        />
 
         <Route
           path="/404"
