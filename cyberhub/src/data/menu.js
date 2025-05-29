@@ -140,11 +140,11 @@ const menus = [
       },
       {
         link: "/Spoofing",
-        name: "Kids Education",
+        name: "Spoofing",
       },
       {
-        link: "/health-coach",
-        name: "Health Course",
+        link: "/Sql-Injection/HomePage",
+        name: "/Sql-Injection/HomePage",
       },
     ],
   },

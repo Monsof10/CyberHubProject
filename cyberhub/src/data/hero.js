@@ -23,7 +23,7 @@ const heroOne = {
     "Get inside the hacker’s mind — use AI to uncover, exploit, and outsmart real-world vulnerabilities.",
   btn: {
     title: "Explore our courses",
-    link: "course",
+    link: "/courses",
     icon: ArrowRightWhiteIcon,
   },
   review: {

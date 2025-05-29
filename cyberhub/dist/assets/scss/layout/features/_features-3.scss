@@ -1,0 +1,57 @@
+/*----------------------------------------*/
+/* FEATURES CSS START
+/*----------------------------------------*/
+.features {
+    &__area-3 {}
+    &__item-3 {
+        padding: 46px 50px 43px;
+        background-size: 100% 100%;
+        margin-bottom: 30px;
+        @media #{$xs} {
+            margin-bottom: 15px;
+        }
+        @media #{$xxs} {
+            padding: 30px 30px 25px;
+        }
+        .icon {
+            margin-bottom: 22px;
+            img {
+                transition: 0.4s ease;
+            }
+            @media #{$xs} {
+                margin-bottom: 17px;
+            }
+        }
+        .details {
+            .title {
+                max-width: 200px;
+                margin: 0 auto;
+                font-family: var(--font-imbue);
+                font-size: 40px;
+                color: var(--black-12);
+                font-weight: 700;
+                @media #{$md} {
+                    font-size: 35px;
+                }
+                @media #{$xs} {
+                    font-size: 28px;
+                    max-width: 100%;
+                }
+            }
+            .content {
+                margin-top: 22px;
+                color: #414141;
+                @media #{$xs} {
+                    margin-top: 15px;
+                }
+            }
+        }
+        &:hover {
+            .icon {
+                img {
+                    transform: scale(0.9);
+                }
+            }
+        }
+    }
+}

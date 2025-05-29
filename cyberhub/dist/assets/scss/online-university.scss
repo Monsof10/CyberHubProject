@@ -1,0 +1,29 @@
+//Utils
+@import "utils/variables"; 
+@import "utils/typography";
+@import "utils/theme";
+
+//Components
+@import "components/space";
+@import "components/button";
+@import "components/title";
+@import "components/widget";
+@import "components/animation";
+@import "components/loading";
+@import "components/menu"; 
+@import "components/form"; 
+@import "components/offcanvas"; 
+
+//Layout 
+@import "layout/hero/hero-3"; 
+@import "layout/testimonial/testimonial-3"; 
+@import "layout/about/about-2"; 
+@import "layout/video/video"; 
+@import "layout/service/service-3"; 
+@import "layout/counter/counter-2"; 
+@import "layout/blog/blog-2"; 
+@import "layout/faq/faq-2";  
+
+//Header & Footer
+@import "layout/header/header-3";
+@import "layout/footer/footer-3";

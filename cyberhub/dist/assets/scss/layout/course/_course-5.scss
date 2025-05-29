@@ -1,0 +1,259 @@
+/*----------------------------------------*/
+/* COURSE CSS START
+/*----------------------------------------*/
+.course {
+    &__area-5 {
+        border-radius: 50px;
+        position: relative;
+        background-size: cover;
+        @media #{$sm} {
+            background-color: #BA3E28;
+            border-radius: 20px;
+        }
+        .active {
+            background-color: var(--red-5);
+            color: var(--white);
+            border-color: var(--red-5);
+        } 
+        .course__item-5 {
+            background-color: var(--white);
+            padding: 15px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 2;
+            @media #{$xs} {
+                margin-bottom: 15px;
+            }
+            @media #{$xxs} {
+                padding: 10px;
+            }
+            &:hover {
+                .course__thumb-wrap {
+                    img {
+                        transform: scale(1.2);
+                    }
+                }
+                .course__thumb-wrap {
+                    .course__wishlist {
+                        background-color: var(--red-5);
+                        svg {
+                            path {
+                                stroke: #fff;
+                            }
+                        }
+                    }
+                }
+            }
+            .course__thumb-wrap {
+                position: relative;
+                overflow: hidden;
+                border-radius: 10px;
+                img {
+                    transition: 0.7s ease;
+                    transform: scale(1.01);
+                }
+                .course__wishlist {
+                    position: absolute;
+                    right: 15px;
+                    top: 15px;
+                    background-color: rgba(255, 255, 255, 0.7);
+                    height: 35px;
+                    width: 35px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 10px;
+                    transition: 0.4s ease;
+                    svg {
+                        path {
+                            transition: 0.4s ease;
+                        }
+                    }
+                }
+            }
+            .details {
+                position: relative;
+                padding-top: 17px;
+            }
+            .course__fearure-icon {
+                position: absolute;
+                right: 25px;
+                top: -29px;
+                width: 58px;
+                height: 58px;
+                background: #FFFFFF;
+                box-shadow: 0px 10px 30px rgba(41, 21, 5, 0.1);
+                border-radius: 50%;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .course__instructor {
+                font-size: 14px;
+                font-weight: 500;
+                margin-bottom: 12px;
+                img {
+                    margin-top: -3px;
+                    border-radius: 50%;
+                }
+            }
+            .course__title {
+                font-family: var(--font-imbue);
+                font-weight: 700;
+                margin-bottom: 0;
+                font-size: 30px;
+                padding-right: 30px;
+                @media #{$lg} {
+                    padding-right: 0;
+                    font-size: 24px;
+                }
+                a {
+                    color: var(--black-12);
+                    &:hover {
+                        color: var(--red-5);
+                    }
+                }
+            }
+            .course__review {
+                color: var(--gray-5);
+                font-size: 14px;
+                font-weight: 500;
+                align-items: center;
+                border-bottom: 1px solid #ECECEC;
+                margin-bottom: 12px;
+                margin-top: -3px;
+                img {
+                    margin-top: -3px;
+                    + img {
+                        margin-left: -1px;
+                    }
+                }
+                span {
+                    margin-left: 5px;
+                }
+                .course__price {
+                    font-family: var(--font-imbue);
+                    font-size: 35px;
+                    font-weight: 700;
+                    color: #BA3E28;
+                    @media #{$lg} {
+                        font-size: 24px;
+                    }
+                }
+            }
+            .course__meta {
+                color: var(--black-12);
+                font-weight: 500;
+                margin-bottom: 20px;
+                svg {
+                    margin-top: -3px;
+                    margin-right: 3px;
+                }
+                .course__meta-item {
+                    @media #{$lg} {
+                        font-size: 11px; 
+                    } 
+                }
+            }
+            .btn-enroll {
+                font-family: var(--font-imbue);
+                background-color: var(--red-5);
+                border-radius: 15px;
+                font-size: 20px;
+                font-weight: 900;
+                color: var(--black-12);
+                padding: 13px 29px 14px 26px;
+                &:hover {
+                    background-color: #064A32;
+                    color: #fff;
+                    border-color: #064A32;
+                }
+                @media #{$lg} {
+                    font-size: 16px;
+                }
+            }
+        }
+        .animate-img-1 {
+            position: absolute;
+            left: 0;
+            top: 180px;
+        }
+        .animate-img-2 {
+            position: absolute;
+            left: 0;
+            top: 40%;
+        }
+        .animate-img-3 {
+            position: absolute;
+            left: 0;
+            bottom: 180px;
+        }
+        .animate-img-4 {
+            position: absolute;
+            right: 0;
+            top: 180px;
+        }
+        .animate-img-5 {
+            position: absolute;
+            right: 0;
+            top: 40%;
+        }
+        .animate-img-6 {
+            position: absolute;
+            right: 0;
+            bottom: 180px;
+        }
+    }
+
+    &__tab-wrap-5 {
+        @media #{$sm} {    
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    } 
+
+    &__icon-btm-5 {
+        @media #{$md} {  
+            right: 0px;
+            bottom: 0px;
+            width: 10%;
+        }
+       
+    }
+
+    &__btn-5 {
+        display: inline-flex;
+        padding: 16px 20px 14px;
+        justify-content: center;
+        align-items: center;
+        font-size: 16px; 
+        font-weight: 500; 
+        border-radius: 15px;
+        border: 1px solid #FFD4CC70;
+        transition: var(--transition);
+        margin-right: 8px;
+        color: #FFD4CC;
+        margin-bottom: 8px;
+        &:hover {
+            background-color: var(--red-5);
+            color: var(--white);
+            border-color: var(--red-5);
+        } 
+        @media #{$md} {  
+            font-size: 14px; 
+        }
+        @media #{$xs} {  
+            margin-right: 3px;
+            padding: 10px 14px 8px;
+            border-radius: 8px;
+            font-size: 12px;
+        }
+        
+        @media #{$xxs} {  
+            padding: 9px 9px 6px;
+        }
+    }
+     
+}
+

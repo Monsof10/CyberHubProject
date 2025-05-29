@@ -1,0 +1,125 @@
+/*----------------------------------------*/
+/* SKILL CSS START
+/*----------------------------------------*/
+.cta {
+  &__area {
+    margin-bottom: -237px;
+  }
+  &__wrapper { 
+    background-color: var(--green);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50px;
+    max-width: 1600px;
+    margin: 0 auto; 
+    padding: 110px 0px 130px;
+    text-align: center;
+    position: relative;
+    z-index: 9;
+    overflow: hidden;
+    @media #{$xxl} {
+      max-width: 1350px; 
+    }
+    @media #{$xl} {
+      max-width: 1350px; 
+    }
+    @media #{$lg} {
+      max-width: 100%; 
+    }
+    @media #{$sm} {
+      border-radius: 0px;
+    }
+  }
+
+  &__title {
+      color: var(--white); 
+      font-size: 70px; 
+      font-weight: 700;
+      line-height: 1.2;
+      max-width: 650px;
+      margin: 0 auto;
+      padding-bottom: 35px;
+      @media #{$md} {
+        font-size: 60px; 
+      }
+      @media #{$sm} {
+        font-size: 36px; 
+      }
+      span {
+        color: var(--yellow);  
+        font-weight: 400;
+        font-family: var(--font-dm);
+        font-style: italic;  
+        display: inline-grid;  
+        img {
+          margin-top: -8px;
+          @media #{$sm} {
+            display: none;
+          }
+        }
+    }
+  }
+
+  &__shape-1 {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    mix-blend-mode: soft-light;
+    @media #{$md} {
+      width: 10%;
+    }
+  }
+
+  &__shape-2 {
+    position: absolute;
+    top: 120px;
+    left: 15%;
+    @media #{$md} {
+      top: 60px; 
+    }
+  }
+
+  &__shape-3 {
+    position: absolute;
+    bottom: 80px;
+    left: 195px;
+    @media #{$md} {
+      width: 12%;
+      bottom: 68px;
+      left: 100px;
+  
+    } 
+
+  }
+
+  &__shape-4 {
+    position: absolute;
+    bottom: 107px;
+    right: 18%;
+    @media #{$md} {
+     display: none;
+    }
+  }
+
+  &__shape-5 {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    mix-blend-mode: soft-light;
+    @media #{$sm} {
+      width: 20%;
+    }
+  }
+  &__shape-6 {
+    position: absolute;
+    top: 0px;
+    right: 20px;
+    mix-blend-mode: luminosity;
+    @media #{$sm} {
+      width: 25%;
+    }
+
+  }
+
+}

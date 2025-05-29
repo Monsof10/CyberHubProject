@@ -10,6 +10,11 @@ create table public.user_progress (
 -- Enable Row Level Security
 alter table public.user_progress enable row level security;
 
+-- Grant necessary permissions to the auth service
+grant usage on schema public to anon, authenticated;
+grant all on public.user_progress to anon, authenticated;
+grant usage, select on sequence public.user_progress_id_seq to anon, authenticated;
+
 -- Create policy to allow users to read only their own progress
 create policy "Users can read their own progress"
   on public.user_progress
@@ -17,6 +22,11 @@ create policy "Users can read their own progress"
   using (auth.uid() = user_id);
 
 -- Create policy to allow users to insert their own progress
+create policy "Enable insert for authenticated users only"
+  on public.user_progress
+  for insert
+  with check (auth.role() = 'authenticated');
+
 create policy "Users can insert their own progress"
   on public.user_progress
   for insert

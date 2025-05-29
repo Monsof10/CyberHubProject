@@ -1,0 +1,31 @@
+/*----------------------------------------*/
+/* ClIENT CSS START
+/*----------------------------------------*/
+.partner__area-5 {
+    .client__slide {
+        display: flex;
+        align-self: center;
+        justify-content: center;
+        img {
+            @media #{$md} {
+                max-width: 70px;
+            }
+            @media #{$sm} {
+                max-width: 80px;
+            }
+        }
+    }
+    .swiper-wrapper {
+        transition-timing-function: linear;
+    }
+}
+@media all and (max-width: 767px) {
+    .partner__area-5 .section-title-5 br {
+        display: none;
+    }
+}
+@media all and (max-width: 575px) {
+    .partner__area-5 .swiper-slide img  {
+        max-width: 70px;
+    }
+}

@@ -1,0 +1,115 @@
+/*----------------------------------------*/
+/*  BLOG CSS START
+/*----------------------------------------*/
+
+.about {
+    &__area-2 {
+        background-color: var(--pansy);
+        border-radius: 0px 0px 80px 80px;
+        overflow: hidden; 
+        padding-top: 378px;
+        margin-top: -332px;  
+        position: relative;
+        @media #{$xxl} {
+            margin-top: -240px;
+            border-radius: 80px;
+        }
+        @media #{$md} {
+            padding-top: 310px;
+            border-radius: 30px;
+        }
+        .btn-primary-2 {
+            &:hover {
+                background-color: #f5c447;
+            }
+        }
+    }
+
+    &__wrapper-2 {
+        display: grid;
+        grid-template-columns: 200px auto 200px;
+        @media #{$md} {
+            display: block;
+        }
+    }
+
+    &__item-2 {
+        @media #{$md} {
+            display: none;
+        }
+    }
+
+    &__contentWrap-2 {
+        max-width: 870px;
+        margin: 0 auto; 
+        text-align: center;
+    }
+
+    &__content-2 {
+        color: var(--white);
+        text-align: center;
+        font-size: 45px;
+        font-weight: 700;
+        line-height: 1.2;
+        max-width: 847px;
+        padding: 5px 0px 45px;
+        @media #{$xl2} { 
+            font-size: 30px; 
+            max-width: 630px;
+            padding: 5px 0px 45px;
+        } 
+        @media #{$lg} { 
+            font-size: 32px;
+        } 
+        @media #{$md} {
+            max-width: 607px;
+            margin: 0 auto;
+        }
+        @media #{$xs} { 
+            font-size: 19px;
+        } 
+    }
+
+    &__leftImg-2 {
+        transform: translate(00px, 46px);
+        @media #{$xl2} { 
+            transform: translate(0px, 9px);
+        } 
+        @media #{$lg} { 
+            width: 100%;
+        } 
+    }
+
+    &__rightImg-2 {
+        transform: translate(-66px, -65px);
+        @media #{$xl2} { 
+            transform: translate(-85px, -74px); 
+        } 
+        @media #{$lg} { 
+            transform: translate(0px, -63px);
+            width: 100%;
+        }
+    }
+
+    &__shapeTwo-1 {
+        position: absolute;
+        top: 112px;
+        left: 0px; 
+        @media #{$lg} {
+            display: none;
+        }
+    }
+
+    &__shapeTwo-2 {
+        position: absolute;
+        right: 0px;
+        bottom: 0px;
+        width: 11%;
+        @media #{$xxl} {
+            display: none;
+        }
+    }
+
+}
+ 
+ 

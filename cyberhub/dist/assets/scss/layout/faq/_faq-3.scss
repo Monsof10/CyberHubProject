@@ -1,0 +1,116 @@
+/*----------------------------------------*/
+/* FAQ CSS START
+/*----------------------------------------*/
+.faq {
+  &__area-3 {
+    background-color: var(--white);
+    .accordion-button::after {
+      background-image: url("/assets/imgs/icon/ts-three-arrow.webp");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+    }
+    .accordion-button:not(.collapsed)::after {
+      background-image: url("/assets/imgs/icon/ts-three-arrowDown.webp");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      transform: rotate(0deg);
+    }
+
+    .accordion-button:not(.collapsed) {
+      color: unset;
+      background-color: unset;
+      box-shadow: unset;
+    }
+    .accordion-button:focus {
+      z-index: 3;
+      border-color: unset;
+      outline: 0;
+      box-shadow: unset;
+    }
+    .accordion-body {
+      padding: 0;
+    }
+    .accordion-item:not(:first-of-type) {
+      border-top: 1px solid var(--gray-7);
+    }
+    .accordion-item:first-of-type {
+      border-radius: 15px;
+    }
+    .accordion-item:last-of-type {
+      border-radius: 15px;
+    }
+    @media #{$sm} {
+      .section-title-4 {
+        max-width: 265px;
+      }
+    }
+  }
+
+  &__left-3 {
+    padding-top: 115px;
+    @media #{$lg} {
+      padding-top: 0px;
+    }
+  }
+
+  &__right-3 {
+    padding-left: 120px;
+    @media #{$md} {
+      padding-left: 0px;
+      padding-top: 40px;
+    }
+  }
+
+  &__img-3 {
+    @media #{$lg} {
+      width: 100%;
+    }
+    @media #{$md} {
+      width: 470px;
+      display: block;
+      margin: 0 auto;
+    }
+    @media #{$sm} {
+      width: 100%;
+    }
+  }
+
+  &__item-3 {
+    border-radius: 15px;
+    border: 1px solid var(--gray-7);
+    padding: 20px 25px;
+    margin-bottom: 12px;
+  }
+
+  &__content-3 {
+    color: var(--black-5);
+    font-family: var(--font-sora);
+    font-size: 18px;
+    font-weight: 400;
+    padding: 10px 80px 20px 0px;
+    @media #{$md} {
+      padding: 10px 20px 20px 0px;
+      font-size: 16px;
+    }
+  }
+
+  &__itemTitle-3 {
+    color: var(--black-11);
+    font-family: var(--font-sora);
+    font-size: 18px;
+    font-weight: 600;
+    padding: 0px;
+  }
+
+  &__itemContent-3 {
+    color: var(--gray);
+    font-family: var(--font-sora);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.4;
+    max-width: 450px;
+    padding: 15px 0px 5px;
+  }
+}

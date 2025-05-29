@@ -1,6 +1,9 @@
 import OpenAI from "openai";
 
-const apiKey = "";
+
+
+const apiKey  =""
+
 
 const openai = new OpenAI({
   apiKey: apiKey,

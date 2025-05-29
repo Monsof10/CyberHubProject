@@ -284,7 +284,7 @@ const FinalQuiz = () => {
                   Retake Quiz
                 </button>
                 <Link
-                  to="/Sql-Injection/AttackPages/HomePage"
+                  to="/Spoofing/HomePage"
                   style={{
                     backgroundColor: '#F1C40F',
                     color: '#000',
@@ -294,7 +294,7 @@ const FinalQuiz = () => {
                   }}
                   onClick={saveProgress}
                 >
-                  Next Module: Sql-Injection 
+                   Complete Level 1
                 </Link>
               </div>
             </div>

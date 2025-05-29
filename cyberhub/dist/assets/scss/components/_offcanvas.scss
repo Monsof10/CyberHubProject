@@ -1,0 +1,281 @@
+/*----------------------------------------*/
+/* OFFCANVAS CSS START
+/*----------------------------------------*/
+.offcanvas-inner {
+  height: 100vh;
+  overflow-y: scroll;
+  display: block;
+}
+.offcanvas {
+  @media #{$sm} {
+    max-width: 310px;
+  }
+}
+
+.offcanvas-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  border: 1px solid var(--gray-2);
+  color: var(--gray);
+  border-radius: 5px;
+  position: absolute;
+  right: 20px;
+  opacity: 0;
+  visibility: hidden;
+  @media #{$lg} {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+}
+
+.offcanvas-icon-2 {
+  @media #{$md}{
+    border: 1px solid var(--white);
+    color: var(--white);
+  }
+}
+
+.offcanvas-menu-item {
+  padding-bottom: 7px; 
+  a {
+    color: var(--black-6);  
+    font-family: var(--font-urbanist);
+    font-size: 18px; 
+    font-weight: 600; 
+    transition: var(--transition);
+    &:hover {
+      color: var(--primary);  
+      padding-left: 4px;
+    } 
+  }
+}
+
+.offcanvas-body {
+  padding: 50px 40px 35px 60px;
+  flex-grow: inherit;
+}
+
+.offcanvas {
+  .offcanvas-icon {
+    position: absolute;
+    left: -40px;
+    color: var(--white);
+    border: 0;
+    font-size: 24px;
+    display: none;
+    top: 5px;
+    svg {
+      width: 30px;
+    }
+  }
+  &.show {
+    .offcanvas-icon {
+      display: block;
+    }
+  }
+}
+
+.offcanvas-about {
+  border-top: 1px solid var(--gray-2);
+  margin-left: 60px;
+  .offcanvas-about-inner {
+    padding: 35px 60px 0 0;
+    h4 {
+      color: var(--black-7);
+      font-size: 40px;
+      font-weight: 700;
+      margin-bottom: 15px;
+      @media #{$sm} {
+        font-size: 24px;
+      }
+    }
+    p {
+      color: var(--gray);
+      font-weight: 500;
+    }
+    .thumb {
+      mask-size: 100%;
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+  }
+}
+
+.offcanvas-social {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px 50px;
+  border-top: 1px solid var(--gray-2);
+  border-bottom: 1px solid var(--gray-2);
+  a {
+    img {
+      width: 22px;
+      height: 22px;
+    }
+  }
+}
+
+.offcanvas-copyright {
+  padding: 20px;
+}
+
+
+.cursor {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--primary);
+  border-radius: 50%;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: 0.15s;
+  z-index: 999;
+}
+@media (max-width: 1200px) {
+  .cursor {
+      display: none;
+  }
+}
+.cursor-small {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background-color: var(--primary);
+  border-radius: 50%;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: 0.2s;
+  z-index: 999;
+}
+@media (max-width: 1200px) {
+  .cursor-small {
+      display: none;
+  }
+}
+
+/* Cursor CSS */
+.cursor-small {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 150;
+  contain: layout style size;
+  pointer-events: none;
+  will-change: transform;
+  color: var(--primary);
+  transition: opacity 0.3s, color 0.4s;
+}
+.cursor-small:before {
+  content: "";
+  position: absolute;
+  top: -24px;
+  left: -24px;
+  display: block;
+  width: 48px;
+  height: 48px;
+  transform: scale(0);
+  background: currentColor;
+  border-radius: 50%;
+  transition: transform 0.3s ease-in-out, opacity 0.1s;
+}
+.cursor-small-text {
+  position: absolute;
+  top: -30px;
+  left: -30px;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0) rotate(10deg);
+  opacity: 0;
+  color: var(--white);
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: -0.01em;
+  transition: opacity 0.4s, transform 0.3s;
+}
+.cursor-small.text .wc-cursor-text {
+  opacity: 1;
+  transform: scale(1);
+}
+@supports (mix-blend-mode: exclusion) {
+.cursor-small.-exclusion,
+.cursor-small.-opaque {
+  mix-blend-mode: exclusion;
+}
+}
+@supports (mix-blend-mode: exclusion) {
+.cursor-small.exclusion:before,
+.cursor-small.opaque:before {
+  background: var(--white);
+}
+}
+.cursor-small.normal,
+.cursor-small.text {
+  mix-blend-mode: normal;
+}
+.cursor-small.normal:before,
+.cursor-small.text:before {
+  background: currentColor;
+}
+.cursor-small.inverse {
+  color: var(--white);
+}
+.cursor-small.visible:before {
+  transform: scale(0.2);
+}
+.cursor-small.visible.active:before {
+  transform: scale(0.23);
+  transition-duration: 0.2s;
+}
+.cursor-small.pointer:before {
+  transform: scale(0.15);
+}
+.cursor-small.text:before {
+  opacity: 0.85;
+  transform: scale(1.7);
+}
+.cursor-small.text.active:before {
+  transform: scale(1.6);
+  transition-duration: 0.2s;
+}
+
+.cursor-small.opaque:before {
+  transform: scale(1.32);
+}
+.cursor-small.opaque.active:before {
+  transform: scale(1.2);
+}
+.cursor-small.sm:before {
+  transform: scale(1.25);
+}
+.cursor-small.md:before {
+  transform: scale(1.5);
+}
+.cursor-small.lg:before {
+  transform: scale(2);
+}
+.cursor-small.xl:before {
+  transform: scale(2.5);
+}
+.cursor-small.xxl:before {
+  transform: scale(3);
+}
+.cursor-small.xxxl:before {
+  transform: scale(3.5);
+}
+.cursor-small.hidden:before {
+  transform: scale(0);
+}

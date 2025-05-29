@@ -1,0 +1,213 @@
+/*----------------------------------------*/
+/*  HEADER CSS START
+/*----------------------------------------*/
+
+.header {
+  &__area-2 {
+    position: relative;
+    border-radius: 0px 0px 40px 40px;
+    border-bottom: 1px solid var(--black-6);
+    z-index: 99;
+    padding: 20px 60px;
+    @media #{$xl} {
+      padding: 20px;
+    }
+    @media #{$sm} {
+      padding: 15px 15px;
+    }
+
+    .has-dropdown-2 {
+      position: absolute;
+      left: 0px;
+      top: 20px;
+      padding: 15px 20px;
+      width: 200px;
+      background-color: var(--white);
+      opacity: 0;
+      visibility: hidden;
+      border-radius: 5px;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      transition: var(--transition);
+      .menu-item-2 {
+        margin-bottom: 8px;
+      }
+    }
+    .dropdown-icon-2 {
+      position: relative;
+      margin-right: 15px;
+    }
+    .dropdown-icon-2:after {
+      position: absolute;
+      top: 8px;
+      right: -20px;
+      width: 15px;
+      height: 8px;
+      content: "";
+      background-image: url(/assets/imgs/icon/arrow-down-black.svg);
+      background-repeat: no-repeat;
+    }
+    .menu-item-2 {
+      position: relative;
+      transition: var(--transition);
+
+      a {
+        color: var(--black-6);
+        font-weight: 500;
+        font-size: 16px;
+        border-bottom: 2px solid transparent;
+        transition: var(--transition);
+        display: inline-block;
+        &::after {
+          position: absolute;
+          bottom: 4px;
+          left: 0px;
+          width: 0%;
+          height: 1.5px;
+          content: "";
+          transition: var(--transition);
+          background-color: var(--gray);
+        }
+        &:hover::after {
+          width: 100%;
+        }
+
+        &:hover {
+          color: var(--gray);
+        }
+      }
+    }
+
+    .mainmenu-2 {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      @media #{$lg} {
+        display: none;
+      }
+    }
+  }
+
+  &__select-2 {
+    position: relative;
+    font-size: 14px;
+    font-weight: 400;
+    border-radius: 15px;
+    color: var(--black-4);
+    padding: 18px 55px 17px 40px;
+    border: 0;
+    outline: 0;
+    border: 2px solid var(--black-6) !important;
+    appearance: none;
+    background-color: transparent;
+    background-image: url(/assets/imgs/icon/arrow-down-black.svg);
+    background-repeat: no-repeat;
+    background-position-x: 91%;
+    background-position-y: 50%;
+    line-height: 1.1;
+    height: auto;
+    .list {
+      width: 100%;
+      li {
+        line-height: 30px;
+        min-height: 30px;
+      }
+    }
+  }
+  &__select-2:after {
+    display: none;
+  }
+
+  &__wrapper-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+  }
+
+  &__right-2 {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 40px;
+  }
+
+  &__selectWrap-2 {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    @media #{$lg} {
+      display: none;
+    }
+  }
+
+  &__circelIcon-2 {
+    position: absolute;
+    left: 20px;
+    top: 16px;
+    z-index: 9;
+    color: var(--black-6);
+  }
+
+  &__logo-2 {
+    display: flex;
+    gap: 30px;
+  }
+
+  &__social-2 {
+    display: flex;
+    gap: 25px;
+    @media #{$lg} {
+      display: none;
+    }
+    i {
+      font-size: 18px;
+      color: var(--black-2);
+    }
+  }
+
+  &__btn-2 {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    @media #{$lg} {
+      display: none;
+    }
+  }
+
+  &__shopicon-2 {
+    position: relative;
+  }
+
+  &__notication-2 {
+    width: 14px;
+    height: 14px;
+    background-color: #474ae0;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    color: var(--white);
+    font-size: 6px;
+    justify-content: center;
+    position: absolute;
+    top: -5px;
+    right: -7px;
+  }
+}
+
+.header__area-2 .sub-menu .sub-menu {
+  left: 180px;
+  top: -2px;
+}
+.header__area-2 .menu-item-2 .menu-item-2 {
+  line-height: 1.5;
+}
+.header__area-2 .menu-item-2:hover > .has-dropdown-2 {
+  opacity: 1;
+  top: 30px;
+  visibility: visible;
+}
+.header__area-2 .menu-item-2:hover .has-dropdown-2 .has-dropdown-2 {
+  top: -14px;
+}

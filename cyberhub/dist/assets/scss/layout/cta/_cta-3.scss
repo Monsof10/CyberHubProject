@@ -1,0 +1,188 @@
+/*----------------------------------------*/
+/* SKILL CSS START
+/*----------------------------------------*/
+.cta {
+  &__area-3 {
+    .section-title-4 {
+      color: var(--white);
+      max-width: 600px;
+      margin: 0 auto;
+      @media #{$md} {
+        max-width: 450px;
+      }
+    }
+  }
+
+  &__wrapper-3 {
+    mask-image: url(/assets/imgs/shape/cta-mask-3.webp);
+    mask-repeat: no-repeat;
+    background-color: var(--green);
+    padding: 200px 20px 253px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    @media #{$xxl} {
+      mask-size: 100%;
+      padding: 200px 20px 200px;
+    }
+    @media #{$xl2} {
+      mask-image: none;
+    }
+    @media #{$lg} {
+      padding: 98px 20px 120px;
+      mask-size: 100%;
+    }
+    @media #{$md} {
+      mask-image: none;
+      padding: 60px 20px 60px;
+      border-radius: 20px;
+    }
+  }
+
+  &__content-3 {
+    color: var(--gray-6);
+    font-family: var(--font-sora);
+    font-size: 18px;
+    font-weight: 400;
+    padding: 8px 0px 25px;
+    max-width: 500px;
+    margin: 0 auto;
+    @media #{$md} {
+      font-size: 16px;
+    }
+  }
+
+  &__form-3 {
+    display: flex;
+    align-items: center;
+    background-color: var(--blue-5);
+    max-width: 540px;
+    margin: 0 auto;
+    border: 1px solid var(--blue-4);
+    border-radius: 15px;
+    padding: 9px 10px 9px 30px;
+  }
+
+  &__formInput-3 {
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    width: 100%;
+    color: var(--blue-4);
+    font-size: 16px;
+    font-family: var(--font-sora);
+    &::placeholder {
+      color: var(--blue-4);
+    }
+  }
+
+  &__btn-3 {
+    color: var(--white);
+    background-color: var(--red-3);
+    font-size: 16px;
+    font-family: var(--font-passion);
+    font-weight: 400;
+    padding: 15px;
+    border-radius: 15px;
+    width: 155px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+
+    &:hover {
+      .cta-btnIcon-3 {
+        filter: brightness(0) invert(1);
+      }
+    }
+    &.btn-hover-bubble {
+      span {
+        width: 30%;
+        left: calc((var(--n) - 1.9) * 30%);
+      }
+    }
+  }
+
+  &__shapeThree-1 {
+    position: absolute;
+    top: 22%;
+    left: 0%;
+    @media #{$md} {
+      display: none;
+    }
+  }
+
+  &__shapeThree-2 {
+    position: absolute;
+    top: 21%;
+    left: 15%;
+    @media #{$md} {
+      display: none;
+    }
+  }
+
+  &__shapeThree-3 {
+    position: absolute;
+    bottom: 28%;
+    left: 10%;
+    @media #{$lg} {
+      display: none;
+    }
+    @media #{$md} {
+      display: none;
+    }
+  }
+
+  &__shapeThree-4 {
+    position: absolute;
+    top: -12px;
+    left: 0px;
+    right: 0px;
+    margin: 0 auto;
+    @media #{$md} {
+      display: none;
+    }
+  }
+
+  &__shapeThree-5 {
+    position: absolute;
+    bottom: 42px;
+    left: 0px;
+    right: 0px;
+    margin: 0 auto;
+    @media #{$lg} {
+      display: none;
+    }
+  }
+
+  &__shapeThree-6 {
+    position: absolute;
+    right: 23%;
+    bottom: 26%;
+    @media #{$lg} {
+      display: none;
+    }
+  }
+
+  &__shapeThree-7 {
+    position: absolute;
+    right: 17%;
+    top: 16%;
+    @media #{$lg} {
+      display: none;
+    }
+  }
+
+  &__shapeThree-8 {
+    position: absolute;
+    right: 0px;
+    bottom: 16%;
+    @media #{$lg} {
+      width: 18%;
+    }
+    @media #{$md} {
+      display: none;
+    }
+  }
+}

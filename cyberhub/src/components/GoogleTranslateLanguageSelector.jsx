@@ -95,6 +95,7 @@ const GoogleTranslateLanguageSelector = () => {
       >
         <option value="" style={{ color: '#001f3f' }}>🌐 Select Language</option>
         <option value="en">🇺🇸 English</option>
+        <option value="tr">🇹🇷 Turkish (Türkçe)</option>
         <option value="ar">🇸🇦 Arabic (العربية)</option>
         <option value="es">🇪🇸 Spanish (Español)</option>
         <option value="fr">🇫🇷 French (Français)</option>

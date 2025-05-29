@@ -1,8 +1,8 @@
 const counterOne = [
   {
     title: "Professional course",
-    count: "05",
-    abbr: "M",
+    count: "10",
+    abbr: "",
   },
   {
     title: "Regular student",
@@ -11,13 +11,13 @@ const counterOne = [
   },
   {
     title: "Professional teacher",
-    count: "02",
-    abbr: "K",
+    count: "4",
+    abbr: "",
   },
   {
     title: "Student reviews",
-    count: "4.9",
-    abbr: "",
+    count: "35",
+    abbr: "k",
   },
 ];
 

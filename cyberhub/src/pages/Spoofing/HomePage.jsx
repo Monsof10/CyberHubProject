@@ -610,7 +610,8 @@ const SpoofingHome = () => {
                 <div style={{
                   display: 'flex',
                   justifyContent: 'space-between',
-                  alignItems: 'center'
+                  alignItems: 'center',
+                  color : '#000' 
                 }}>
                   <span>{calculateProgress()}% Complete</span>
                   <button

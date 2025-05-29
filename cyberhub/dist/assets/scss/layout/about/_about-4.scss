@@ -1,0 +1,98 @@
+.about {
+  &__area-4 {
+    background-color: var(--white);
+  }
+
+  &__left-4 {
+    padding-left: 95px;
+    @media #{$lg} {
+      padding-left: 0px;
+    }
+  }
+
+  &__img-4 {
+    @media #{$lg} {
+      width: 100%;
+    }
+    @media #{$md} {
+      width: 600px;
+      display: block;
+      margin: 40px auto 0;
+    }
+    @media #{$sm} {
+      width: 100%;
+    }
+  }
+
+  &__right-4 {
+    position: relative;
+    text-align: right;
+  }
+
+  &__title-4 {
+    color: var(--black-2);
+    font-family: var(--font-urbanist);
+    font-size: 65px;
+    font-weight: 700;
+    line-height: 1.1;
+    max-width: 500px;
+    padding-top: 16px;
+    padding-bottom: 15px;
+    @media #{$md} {
+      font-size: 60px;
+      max-width: 700px;
+    }
+    @media #{$sm} {
+      font-size: 30px;
+    }
+  }
+
+  &__content-4 {
+    color: var(--gray);
+    font-family: var(--font-urbanist);
+    font-size: 16px;
+    font-weight: 500;
+    max-width: 536px;
+    padding: 18px 0px 30px;
+  }
+
+  &__title-shape-4 {
+    background-image: url("/assets/imgs/shape/course-title-shape.webp");
+    background-repeat: no-repeat;
+    font-family: var(--font-dm);
+    color: var(--primary);
+    background-position-x: 0px;
+    background-position-y: 76px;
+    font-weight: 400;
+    font-style: italic;
+    @media #{$sm} {
+      background-position-y: 33px;
+    }
+  }
+
+  &__shapeFour-1 {
+    position: absolute;
+    top: 129px;
+    left: 84px;
+    @media #{$lg} {
+      top: -15px;
+      left: 0;
+    }
+    @media #{$md} {
+      display: none;
+    }
+  }
+
+  &__shapeFour-2 {
+    position: absolute;
+    right: -129px;
+    bottom: 16px;
+    @media #{$xxl} {
+      right: 0;
+      bottom: -86px;
+    }
+    @media #{$md} {
+      display: none;
+    }
+  }
+}

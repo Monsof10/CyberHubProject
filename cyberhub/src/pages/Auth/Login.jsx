@@ -78,13 +78,14 @@ const Login = () => {
           fontSize: '1.5rem',
           fontWeight: '600',
           marginBottom: '1.5rem',
-          textAlign: 'center'
+          textAlign: 'center',
+          color : '#000'
         }}>
           Log in to CyberHub
         </h1>
 
         <div style={{ marginBottom: '1rem' }}>
-          <span style={{ color: '#666' }}>* Required</span>
+          <span style={{ color: '#000' }}>* Required</span>
         </div>
 
         {error && (
@@ -102,7 +103,7 @@ const Login = () => {
 
         <form onSubmit={handleSubmit}>
           <div style={{ marginBottom: '1.5rem' }}>
-            <label style={{ display: 'block', marginBottom: '0.5rem' }}>
+            <label style={{ display: 'block', marginBottom: '0.5rem', color: '#000' }}>
               Email or username*
             </label>
             <input
@@ -122,7 +123,7 @@ const Login = () => {
           </div>
 
           <div style={{ marginBottom: '1rem' }}>
-            <label style={{ display: 'block', marginBottom: '0.5rem' }}>
+            <label style={{ display: 'block', marginBottom: '0.5rem', color: '#000' }}>
               Password*
             </label>
             <input
@@ -147,7 +148,7 @@ const Login = () => {
             alignItems: 'center',
             marginBottom: '1rem' 
           }}>
-            <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#000' }}>
               <input
                 type="checkbox"
                 style={{
@@ -156,7 +157,7 @@ const Login = () => {
                   accentColor: '#6B4BFF'
                 }}
               />
-              <span style={{ color: '#666', fontSize: '0.875rem' }}>Remember me</span>
+              <span style={{ color: '#666', fontSize: '0.875rem', }}>Remember me</span>
             </label>
             <Link 
               to="/forgot-password" 

@@ -84,7 +84,8 @@ const Signup = () => {
           fontSize: '1.5rem',
           fontWeight: '600',
           marginBottom: '1.5rem',
-          textAlign: 'center'
+          textAlign: 'center',
+          color : '#000'
         }}>
           Sign up for CyberHub
         </h1>
@@ -108,7 +109,7 @@ const Signup = () => {
 
         <form onSubmit={handleSubmit}>
           <div style={{ marginBottom: '1.5rem' }}>
-            <label style={{ display: 'block', marginBottom: '0.5rem' }}>
+            <label style={{ display: 'block', marginBottom: '0.5rem' , color : '#000' }}>
               Email*
             </label>
             <input
@@ -128,7 +129,7 @@ const Signup = () => {
           </div>
 
           <div style={{ marginBottom: '1.5rem' }}>
-            <label style={{ display: 'block', marginBottom: '0.5rem' }}>
+            <label style={{ display: 'block', marginBottom: '0.5rem', color : '#000' }}>
               Password*
             </label>
             <input
@@ -148,7 +149,7 @@ const Signup = () => {
           </div>
 
           <div style={{ marginBottom: '1.5rem' }}>
-            <label style={{ display: 'block', marginBottom: '0.5rem' }}>
+            <label style={{ display: 'block', marginBottom: '0.5rem', color : '#000' }}>
               Confirm Password*
             </label>
             <input

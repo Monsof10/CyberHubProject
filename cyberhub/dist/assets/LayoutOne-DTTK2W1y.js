@@ -1,0 +1,2 @@
+import{j as r,P as a}from"./index-Cw1DFOQ-.js";import{H as t,F as n}from"./HeaderOne-D0AGiIuo.js";import{O as s}from"./Offcanvas-riDoOTnm.js";import{A as i}from"./AnimationClient-2MAF3nfF.js";import"./online-course-B_ZBD1cU.js";m.propTypes={children:a.any,options:a.object};function m({children:o,options:e={header:!0,footer:!0,offcanvas:!0,animation:!0}}){return r.jsxs(r.Fragment,{children:[e.header&&r.jsx(t,{}),e.offcanvas&&r.jsx(s,{}),o,e.animation&&r.jsx(i,{}),e.footer&&r.jsx(n,{})]})}export{m as L};
+//# sourceMappingURL=LayoutOne-DTTK2W1y.js.map
